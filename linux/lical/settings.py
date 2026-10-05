@@ -5,6 +5,7 @@ the calendars (store)."""
 import json
 import os
 from pathlib import Path
+from .i18n import _
 
 DEFAULTS = {"timeZones": False}
 
@@ -43,7 +44,7 @@ def put(key, value):
 def zone_label(name):
     """"America/New_York" → "New York (Amerika)" – how the inspector lists zones."""
     regions = {"Africa": "Afrika", "America": "Amerika", "Antarctica": "Antarktis", "Asia": "Asien", "Atlantic": "Atlantik",
-               "Australia": "Australien", "Europe": "Europa", "Indian": "Indischer Ozean", "Pacific": "Pazifik"}
+               "Australia": "Australien", "Europe": "Europa", "Indian": _("Indischer Ozean"), "Pacific": "Pazifik"}
     if "/" not in name:
         return name
     region, city = name.split("/", 1)

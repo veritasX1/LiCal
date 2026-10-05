@@ -19,8 +19,9 @@ from .month_view import MonthView
 from .sidebar import Sidebar
 from .timeline_view import TimelineView
 from .year_view import YearView
+from .i18n import _
 
-MODES = (("day", "Tag"), ("week", "Woche"), ("month", "Monat"), ("year", "Jahr"))
+MODES = (("day", _("Tag")), ("week", _("Woche")), ("month", _("Monat")), ("year", _("Jahr")))
 
 
 class Segmented(Gtk.Box):
@@ -83,7 +84,7 @@ def describe(parsed):
         last = end - timedelta(days=1)
         if last != day:
             text += f" – {theme.WEEKDAYS_SHORT[last.weekday()]}., {last.day}. {theme.MONTHS[last.month - 1][:3]}."
-        text += " · ganztägig"
+        text += _(" · ganztägig")
     else:
         text += f" · {start.strftime('%H:%M')}–{end.strftime('%H:%M')}"
     return f"{text} · {parsed['title']}"
@@ -100,19 +101,19 @@ class CalendarWindow(Adw.ApplicationWindow):
         self.sidebar_button = Gtk.ToggleButton(icon_name="sidebar-show-symbolic", active=True, css_classes=["lical-glass", "circular"],
                                                tooltip_text="Kalenderliste", valign=Gtk.Align.CENTER)
         header.pack_start(self.sidebar_button)
-        new = glass_button("list-add-symbolic", "Neuer Termin")
+        new = glass_button("list-add-symbolic", _("Neuer Termin"))
         new.connect("clicked", lambda _b: self.show_quick_add())
         self.new_button = new
         header.pack_start(new)
         self.segmented = Segmented(MODES, self.set_mode)
         header.set_title_widget(self.segmented)
-        self.search_entry = Gtk.SearchEntry(placeholder_text="Suchen", css_classes=["lical-search"], width_chars=18, valign=Gtk.Align.CENTER)
+        self.search_entry = Gtk.SearchEntry(placeholder_text=_("Suchen"), css_classes=["lical-search"], width_chars=18, valign=Gtk.Align.CENTER)
         self.search_entry.connect("search-changed", lambda entry: self.show_search(entry.get_text()))
         self.search_entry.connect("activate", lambda _e: self.open_first_hit())
         # Main menu (the Mac's menu bar): print, settings – with their shortcuts shown.
         menu = Gio.Menu()
-        menu.append("Drucken …", "win.print")
-        menu.append("Einstellungen …", "win.preferences")
+        menu.append(_("Drucken …"), "win.print")
+        menu.append(_("Einstellungen …"), "win.preferences")
         self.menu_button = Gtk.MenuButton(icon_name="open-menu-symbolic", menu_model=menu, tooltip_text="Hauptmenü",
                                           valign=Gtk.Align.CENTER, css_classes=["flat"])
         header.pack_end(self.menu_button)
@@ -132,9 +133,9 @@ class CalendarWindow(Adw.ApplicationWindow):
         # Title row: "Oktober 2026" (month bold, year regular) and ‹ Heute ›.
         self.title = Gtk.Label(xalign=0, hexpand=True, css_classes=["lical-title"], use_markup=True)
         navigation = Gtk.Box(css_classes=["lical-nav"], valign=Gtk.Align.CENTER, spacing=6)
-        back = Gtk.Button(child=Chevron(-1), css_classes=["lical-glass", "circular", "lical-small"], tooltip_text="Zurück")
-        today = Gtk.Button(label="Heute", css_classes=["lical-glass", "lical-pill"], tooltip_text="Zu heute")
-        forward = Gtk.Button(child=Chevron(1), css_classes=["lical-glass", "circular", "lical-small"], tooltip_text="Weiter")
+        back = Gtk.Button(child=Chevron(-1), css_classes=["lical-glass", "circular", "lical-small"], tooltip_text=_("Zurück"))
+        today = Gtk.Button(label=_("Heute"), css_classes=["lical-glass", "lical-pill"], tooltip_text=_("Zu heute"))
+        forward = Gtk.Button(child=Chevron(1), css_classes=["lical-glass", "circular", "lical-small"], tooltip_text=_("Weiter"))
         back.connect("clicked", lambda _b: self.step(-1))
         forward.connect("clicked", lambda _b: self.step(1))
         today.connect("clicked", lambda _b: self.go_to(date.today()))
@@ -164,7 +165,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         for view in (self.week_view, self.day_view):
             view.connect("slot-activated", lambda _v, moment: self.create_event(moment.date(), moment.hour))
             view.connect("range-selected", lambda _v, start, end: self.create_event(
-                start.date(), parsed={"title": "Neuer Termin", "allDay": False, "start": start.strftime("%Y-%m-%dT%H:%M"), "end": end.strftime("%Y-%m-%dT%H:%M")}))
+                start.date(), parsed={"title": _("Neuer Termin"), "allDay": False, "start": start.strftime("%Y-%m-%dT%H:%M"), "end": end.strftime("%Y-%m-%dT%H:%M")}))
             view.connect("event-moved", lambda _v, item, start, end: self.move_event(item, start, end))
         self.month_view.connect("event-moved", lambda _v, item, days, _none: self.move_event(item, days=days))
         # Right click on an event in any view: its menu.
@@ -275,9 +276,9 @@ class CalendarWindow(Adw.ApplicationWindow):
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4, width_request=260, margin_start=14, margin_end=14,
                       margin_top=12, margin_bottom=12)
         box.append(Gtk.Label(label=item.get("title", ""), xalign=0, wrap=True, css_classes=["lical-inspector-title"]))
-        box.append(Gtk.Label(label=f"{theme.WEEKDAYS_LONG[first.weekday()]}, {first.day}. {theme.MONTHS[first.month - 1]} {first.year} · ganztägig",
+        box.append(Gtk.Label(label=_("{value}, {day}. {value2} {year} · ganztägig", value=theme.WEEKDAYS_LONG[first.weekday()], day=first.day, value2=theme.MONTHS[first.month - 1], year=first.year),
                              xalign=0, css_classes=["lical-inspector-label"]))
-        box.append(Gtk.Label(label=f"{info['name']} – {state if info.get('state') else 'bundesweit'} · nur lesen", xalign=0,
+        box.append(Gtk.Label(label=_("{value} – {value2} · nur lesen", value=info['name'], value2=state if info.get('state') else 'bundesweit'), xalign=0,
                              css_classes=["dim-label", "caption"], margin_top=6))
         popover = Gtk.Popover(child=box, css_classes=["lical-inspector"])
         popover.set_parent(target)
@@ -343,9 +344,9 @@ class CalendarWindow(Adw.ApplicationWindow):
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6, width_request=340)
         for side in ("start", "end", "top", "bottom"):
             getattr(box, f"set_margin_{side}")(10)
-        entry = Gtk.Entry(placeholder_text="Neues Ereignis erstellen", css_classes=["lical-quick-entry"])
+        entry = Gtk.Entry(placeholder_text=_("Neues Ereignis erstellen"), css_classes=["lical-quick-entry"])
         hint = Gtk.Label(xalign=0, css_classes=["lical-inspector-label"], wrap=True)
-        hint.set_label("z. B. „Abendessen morgen um 19 Uhr“ oder „Urlaub Mo–Fr“")
+        hint.set_label(_("z. B. „Abendessen morgen um 19 Uhr“ oder „Urlaub Mo–Fr“"))
         box.append(entry)
         box.append(hint)
         popover.set_child(box)
@@ -353,7 +354,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         def understood(_entry):
             text = entry.get_text().strip()
             if not text:
-                hint.set_label("z. B. „Abendessen morgen um 19 Uhr“ oder „Urlaub Mo–Fr“")
+                hint.set_label(_("z. B. „Abendessen morgen um 19 Uhr“ oder „Urlaub Mo–Fr“"))
                 return
             hint.set_label(describe(quick.parse(text, date.today(), self.day)))
 
@@ -407,7 +408,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         popover.set_can_focus(False)
         box = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE, css_classes=["lical-results"])
         if not self.search_hits:
-            box.append(Gtk.Label(label="Keine Treffer", css_classes=["dim-label"], margin_top=10, margin_bottom=10))
+            box.append(Gtk.Label(label=_("Keine Treffer"), css_classes=["dim-label"], margin_top=10, margin_bottom=10))
         for item in self.search_hits[:30]:
             box.append(self.search_row(item))
         scroller = Gtk.ScrolledWindow(child=box, propagate_natural_height=True, max_content_height=420, min_content_width=320,
@@ -430,7 +431,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         start = rules.parse(item["start"])
         day = rules.days_covered(item)[0]
         when = f"{theme.WEEKDAYS_SHORT[day.weekday()]}., {day.day}. {theme.MONTHS[day.month - 1]} {day.year}"
-        when += " · ganztägig" if item.get("allDay") else f" · {start.strftime('%H:%M')}"
+        when += _(" · ganztägig") if item.get("allDay") else f" · {start.strftime('%H:%M')}"
         if item.get("location"):
             when += f" · {item['location']}"
         texts.append(Gtk.Label(label=when, xalign=0, ellipsize=3, css_classes=["dim-label", "caption"]))
@@ -470,7 +471,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         """Shift+Ctrl+T: jump to a date (typed as 24.12.2026 or 24.12.)."""
         from .inspector import parse_date
         popover = Gtk.Popover()
-        entry = Gtk.Entry(placeholder_text="Gehe zu Datum (TT.MM.JJJJ)", width_chars=24)
+        entry = Gtk.Entry(placeholder_text=_("Gehe zu Datum (TT.MM.JJJJ)"), width_chars=24)
         entry.set_margin_start(8)
         entry.set_margin_end(8)
         entry.set_margin_top(8)
@@ -544,8 +545,8 @@ class CalendarWindow(Adw.ApplicationWindow):
             mark = "✓ " if calendar["id"] == item.get("calendar") else "    "
             entry(mark + calendar["name"], lambda calendar=calendar: self.set_calendar(item, calendar["id"]))
         box.append(Gtk.Separator())
-        entry("Als QR-Code teilen …", lambda: self.share_event(item["id"]))
-        entry("Löschen", lambda: self.delete_occurrence(item["id"], item.get("zoneStart", item["start"])), "lical-delete")
+        entry(_("Als QR-Code teilen …"), lambda: self.share_event(item["id"]))
+        entry(_("Löschen"), lambda: self.delete_occurrence(item["id"], item.get("zoneStart", item["start"])), "lical-delete")
         popover.set_parent(widget)
         popover.set_pointing_to(Gdk.Rectangle(x=int(x), y=int(y), width=1, height=1))
         popover.connect("closed", lambda p: GLib.idle_add(lambda: p.unparent() and False))
@@ -557,7 +558,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         from . import ics
         found = ics.from_ics(text)
         if found is None:
-            dialog = Adw.AlertDialog(heading="Kein Termin gefunden", body=f"In „{name}“ steht kein Termin, den LiCal lesen kann.")
+            dialog = Adw.AlertDialog(heading=_("Kein Termin gefunden"), body=_("In „{name}“ steht kein Termin, den LiCal lesen kann.", name=name))
             dialog.add_response("ok", "OK")
             dialog.present(self)
             self.import_dialog = dialog
@@ -565,16 +566,16 @@ class CalendarWindow(Adw.ApplicationWindow):
         first = rules.parse(found["start"])
         day = first.date() if isinstance(first, datetime) else first
         when = f"{theme.WEEKDAYS_LONG[day.weekday()]}, {day.day}. {theme.MONTHS[day.month - 1]} {day.year}"
-        when += ", ganztägig" if found["allDay"] else f", {first:%H:%M}–{rules.parse(found['end']):%H:%M} Uhr"
+        when += _(", ganztägig") if found["allDay"] else _(", {first:%H:%M}–{parse:%H:%M} Uhr", first=first, parse=rules.parse(found['end']))
         body = when + (f"\n{found['location']}" if found.get("location") else "")
-        dialog = Adw.AlertDialog(heading=f"„{found['title']}“ hinzufügen?", body=body)
+        dialog = Adw.AlertDialog(heading=_("„{value}“ hinzufügen?", value=found['title']), body=body)
         calendars = Gtk.DropDown.new_from_strings([calendar["name"] for calendar in self.store.calendars])
         visible = [i for i, calendar in enumerate(self.store.calendars) if calendar.get("visible", True)]
         calendars.set_selected(visible[0] if visible else 0)
         calendars.set_halign(Gtk.Align.CENTER)
         dialog.set_extra_child(calendars)
-        dialog.add_response("cancel", "Abbrechen")
-        dialog.add_response("add", "Hinzufügen")
+        dialog.add_response("cancel", _("Abbrechen"))
+        dialog.add_response("add", _("Hinzufügen"))
         dialog.set_response_appearance("add", Adw.ResponseAppearance.SUGGESTED)
         dialog.set_default_response("add")
         dialog.set_close_response("cancel")

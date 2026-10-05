@@ -10,6 +10,7 @@ gi.require_version("Pango", "1.0")
 gi.require_version("PangoCairo", "1.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, Pango, PangoCairo
+from .i18n import _
 
 FONT = "Inter"
 FONT_FILE = Path(__file__).resolve().parent / "fonts" / "InterVariable.ttf"
@@ -151,10 +152,10 @@ def circle(cr, x, y, radius):
     cr.close_path()
 
 
-MONTHS = ("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember")
-WEEKDAYS_SHORT = ("Mo", "Di", "Mi", "Do", "Fr", "Sa", "So")
-WEEKDAYS_LONG = ("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag")
-WEEKDAYS_LETTER = ("M", "D", "M", "D", "F", "S", "S")
+MONTHS = (_("Januar"), _("Februar"), _("März"), _("April"), _("Mai"), _("Juni"), _("Juli"), _("August"), _("September"), _("Oktober"), _("November"), _("Dezember"))
+WEEKDAYS_SHORT = tuple(_("Mo Di Mi Do Fr Sa So").split())
+WEEKDAYS_LONG = (_("Montag"), _("Dienstag"), _("Mittwoch"), _("Donnerstag"), _("Freitag"), _("Samstag"), _("Sonntag"))
+WEEKDAYS_LETTER = tuple(_("M D M D F S S").split())
 
 if os.environ.get("LICAL_NO_FONT") != "1":
     load_font()

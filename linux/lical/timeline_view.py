@@ -11,6 +11,7 @@ gi.require_version("Gtk", "4.0")
 from gi.repository import GLib, GObject, Gtk
 
 from . import rules, theme
+from .i18n import _
 
 GUTTER = 58
 HOUR = 50
@@ -144,7 +145,7 @@ class TimelineView(Gtk.Box):
                 theme.text(cr, number, right, 15.5, 13, color, weight=600, align="right")
                 theme.text(cr, name, right - number_width - 6, 15.5, 13, palette.secondary, align="right")
             self.header_areas.append(("day", day, x, 0, column, 44))
-        theme.text(cr, "ganztägig", GUTTER - 8, self.band_top() + 4, 10.5, palette.secondary, align="right")
+        theme.text(cr, _("ganztägig"), GUTTER - 8, self.band_top() + 4, 10.5, palette.secondary, align="right")
         # All-day band.
         cr.set_source_rgb(*palette.separator)
         cr.set_line_width(1)

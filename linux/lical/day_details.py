@@ -11,6 +11,7 @@ from gi.repository import GObject, Gtk
 
 from . import editing, rules, theme
 from .sidebar import MiniMonth
+from .i18n import _
 
 
 class DayDetails(Gtk.Box):
@@ -56,34 +57,34 @@ class DayDetails(Gtk.Box):
         first, last = rules.days_covered(item)
         when = f"{theme.WEEKDAYS_LONG[first.weekday()]}, {first.day}. {theme.MONTHS[first.month - 1]} {first.year}"
         if last != first:
-            when += f" bis {last.day}. {theme.MONTHS[last.month - 1]} {last.year}"
+            when += _(" bis {day}. {value} {year}", day=last.day, value=theme.MONTHS[last.month - 1], year=last.year)
         self.label(when, ["lical-details-line"])
         if not item.get("allDay"):
             end = rules.parse(item["end"])
-            self.label(f"{start.strftime('%H:%M')} bis {end.strftime('%H:%M')} Uhr", ["lical-details-line"])
+            self.label(_("{date} bis {date2} Uhr", date=start.strftime('%H:%M'), date2=end.strftime('%H:%M')), ["lical-details-line"])
             if item.get("zoneStart"):  # another zone (card 7a9187d6): its own times too
                 from . import settings
                 own_start, own_end = rules.parse(item["zoneStart"]), rules.parse(item["zoneEnd"])
-                self.label(f"{own_start:%H:%M} bis {own_end:%H:%M} Uhr in {settings.zone_label(item['tz'])}", ["lical-details-dim"])
+                self.label(_("{own_start:%H:%M} bis {own_end:%H:%M} Uhr in {zone_label}", own_start=own_start, own_end=own_end, zone_label=settings.zone_label(item['tz'])), ["lical-details-dim"])
         else:
-            self.label("ganztägig", ["lical-details-line"])
+            self.label(_("ganztägig"), ["lical-details-line"])
         if item.get("absence"):
             self.label(editing.absence_text(item), ["lical-details-line"])
         if item.get("rrule"):
-            self.label(f"Wiederholen: {editing.repeat_label(item['rrule'])}", ["lical-details-dim"])
+            self.label(_("Wiederholen: {repeat_label}", repeat_label=editing.repeat_label(item['rrule'])), ["lical-details-dim"])
         if item.get("location"):
             self.label(item["location"], ["lical-details-line"])
         if calendar:
-            self.label(f"Kalender: {calendar['name']}", ["lical-details-dim"])
+            self.label(_("Kalender: {value}", value=calendar['name']), ["lical-details-dim"])
         if item.get("notes"):
             self.label(item["notes"], ["lical-details-notes"], selectable=True)
-        self.label("Doppelklick oder Strg+E zum Bearbeiten", ["lical-details-dim"], margin_top=8)
+        self.label(_("Doppelklick oder Strg+E zum Bearbeiten"), ["lical-details-dim"], margin_top=8)
 
     def show_day(self, day):
         items = self.store.occurrences(day, day + rules.timedelta(days=1))
         self.label(f"{theme.WEEKDAYS_LONG[day.weekday()]}, {day.day}. {theme.MONTHS[day.month - 1]}", ["lical-details-title"])
         if not items:
-            self.label("Keine Termine", ["lical-details-dim"])
+            self.label(_("Keine Termine"), ["lical-details-dim"])
         for item in items:
             row = Gtk.Box(spacing=8)
             calendar = self.store.calendar(item["calendar"])
@@ -94,7 +95,7 @@ class DayDetails(Gtk.Box):
             texts = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
             texts.append(Gtk.Label(label=item.get("title", ""), xalign=0, ellipsize=3, css_classes=["lical-details-line"]))
             start = rules.parse(item["start"])
-            texts.append(Gtk.Label(label="ganztägig" if item.get("allDay") or isinstance(start, datetime) is False
+            texts.append(Gtk.Label(label=_("ganztägig") if item.get("allDay") or isinstance(start, datetime) is False
                                    else f"{start.strftime('%H:%M')}–{rules.parse(item['end']).strftime('%H:%M')}",
                                    xalign=0, css_classes=["lical-details-dim"]))
             row.append(texts)

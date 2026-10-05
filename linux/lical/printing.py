@@ -12,6 +12,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk
 
 from . import rules, theme
+from .i18n import _
 
 MARGIN = 28          # points inside the printable area
 TITLE = 34
@@ -36,7 +37,7 @@ def list_lines(store, first, last, notes):
             lines.append(("day", f"{theme.WEEKDAYS_LONG[day.weekday()]}, {day.day}. {theme.MONTHS[day.month - 1]} {day.year}"))
             for item in today:
                 if item.get("allDay") or rules.days_covered(item)[0] != rules.days_covered(item)[1]:
-                    when = "ganztägig"
+                    when = _("ganztägig")
                 else:
                     when = f"{rules.parse(item['start']):%H:%M}–{rules.parse(item['end']):%H:%M}"
                 detail = item.get("location", "")
@@ -114,7 +115,7 @@ class Printer:
                    MARGIN, MARGIN - 4, 15, palette.label, weight=700)
         y = MARGIN + TITLE
         if not self.lines:
-            theme.text(cr, "Keine Termine", MARGIN, y, 11, palette.secondary)
+            theme.text(cr, _("Keine Termine"), MARGIN, y, 11, palette.secondary)
         for line in self.lines[number * self.per_page:(number + 1) * self.per_page]:
             if line[0] == "day":
                 theme.text(cr, line[1], MARGIN, y + 2, 10.5, palette.label, weight=700)
@@ -143,7 +144,7 @@ class Printer:
 
 def show_print(window):
     """The sheet before printing (like the Mac's: view, range, options, preview of the count)."""
-    dialog = Adw.Dialog(title="Drucken", content_width=380)
+    dialog = Adw.Dialog(title=_("Drucken"), content_width=380)
     header = Adw.HeaderBar()
     page = Adw.PreferencesPage()
     group = Adw.PreferencesGroup()
@@ -155,14 +156,14 @@ def show_print(window):
     first.set_selected(12)
     count = Adw.SpinRow.new_with_range(1, 12, 1)
     count.set_title("Monate")
-    notes = Adw.SwitchRow(title="Notizen einbeziehen", subtitle="Nur in der Liste")
+    notes = Adw.SwitchRow(title=_("Notizen einbeziehen"), subtitle=_("Nur in der Liste"))
     for row in (view, first, count, notes):
         group.add(row)
     page.add(group)
-    hint = Gtk.Label(label="Gedruckt werden die eingeblendeten Kalender.", css_classes=["dim-label", "caption"], margin_top=4)
+    hint = Gtk.Label(label=_("Gedruckt werden die eingeblendeten Kalender."), css_classes=["dim-label", "caption"], margin_top=4)
     buttons = Gtk.Box(spacing=8, halign=Gtk.Align.END, margin_start=18, margin_end=18, margin_bottom=18)
-    pdf = Gtk.Button(label="Als PDF sichern …")
-    print_button = Gtk.Button(label="Drucken …", css_classes=["suggested-action"])
+    pdf = Gtk.Button(label=_("Als PDF sichern …"))
+    print_button = Gtk.Button(label=_("Drucken …"), css_classes=["suggested-action"])
     buttons.append(pdf)
     buttons.append(print_button)
     content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
@@ -179,7 +180,7 @@ def show_print(window):
 
     def to_pdf(_button):
         chosen = job()
-        name = f"LiCal {theme.MONTHS[chosen.months[0].month - 1]} {chosen.months[0].year}.pdf"
+        name = _("LiCal {value} {year}.pdf", value=theme.MONTHS[chosen.months[0].month - 1], year=chosen.months[0].year)
         chooser = Gtk.FileDialog(initial_name=name)
 
         def done(source, result):

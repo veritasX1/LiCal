@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.app.job.JobInfo
@@ -65,7 +67,7 @@ object WidgetArt {
     }
 
     private val STAMP = java.time.format.DateTimeFormatter.ofPattern("HH:mm")
-    private val SHORT_MONTHS = listOf("Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sept.", "Okt.", "Nov.", "Dez.")
+    private val SHORT_MONTHS = listOf("Jan.", "Feb.", tr("März"), "Apr.", tr("Mai"), tr("Juni"), tr("Juli"), "Aug.", "Sept.", "Okt.", "Nov.", "Dez.")
 
     /** What is still to come: today's events not yet over (all-day ones included), then the next days. */
     fun upcoming(store: Store, now: LocalDateTime, days: Long = 7): List<Occurrence> =
@@ -93,7 +95,7 @@ object WidgetArt {
         val textX = x + ink.dp(9f)
         val textWidth = width - ink.dp(9f)
         val (first, last) = Rules.daysCovered(item)
-        val time = if (item.allDay || first != last) "ganztägig"
+        val time = if (item.allDay || first != last) tr("ganztägig")
             else "${Rules.parse(item.start).at.format(STAMP)}–${Rules.parse(item.end).at.format(STAMP)}"
         if (compact) {
             ink.text(canvas, item.title, textX, top, 13f, 600, ink.label, textWidth * 0.68f)
@@ -167,7 +169,7 @@ object WidgetArt {
         val firstColumn = if (wide) todays else items
         val shown = events(ink, canvas, store, firstColumn, today, pad, headBottom + ink.dp(8f), columnWidth, height - pad,
             headings = !wide, startDay = today)
-        if (firstColumn.isEmpty()) ink.text(canvas, if (items.isEmpty()) "Keine Termine" else "Keine weiteren Termine heute",
+        if (firstColumn.isEmpty()) ink.text(canvas, if (items.isEmpty()) tr("Keine Termine") else tr("Keine weiteren Termine heute"),
             pad, headBottom + ink.dp(8f), 12f, 400, ink.secondary, columnWidth)
         if (wide) {
             val rest = items.drop(shown)
@@ -206,7 +208,7 @@ object WidgetArt {
         ink.text(canvas, "${today.dayOfMonth}. ${MONTHS[today.monthValue - 1]}", pad, pad + weekday, 22f, 600, ink.label, width - 2 * pad)
         val top = pad + weekday + ink.dp(36f)
         val items = upcoming(store, now, 14)
-        if (items.isEmpty()) ink.text(canvas, "Keine Termine in den nächsten zwei Wochen", pad, top, 13f, 400, ink.secondary, width - 2 * pad)
+        if (items.isEmpty()) ink.text(canvas, tr("Keine Termine in den nächsten zwei Wochen"), pad, top, 13f, 400, ink.secondary, width - 2 * pad)
         events(ink, canvas, store, items, today, pad, top, width - 2 * pad, height - pad, headings = true, startDay = null)
     }
 
@@ -297,9 +299,9 @@ object CalendarWidgets {
     private fun describe(kind: WidgetArt.Kind, store: Store, now: LocalDateTime): String {
         val today = now.toLocalDate()
         val head = "${WEEKDAYS_LONG[today.dayOfWeek.value - 1]}, ${today.dayOfMonth}. ${MONTHS[today.monthValue - 1]}"
-        if (kind == WidgetArt.Kind.Month) return "LiCal, $head"
+        if (kind == WidgetArt.Kind.Month) return tr("LiCal, {head}", "head" to head)
         val next = WidgetArt.upcoming(store, now).take(3).joinToString("; ") { it.title }
-        return "LiCal, $head. ${if (next.isEmpty()) "Keine Termine" else next}"
+        return tr("LiCal, {head}. {if}", "head" to head, "if" to (if (next.isEmpty()) "Keine Termine" else next))
     }
 
     /** DAVx⁵ changed the phone's calendars – also while LiCal is closed: Android starts this job then. */

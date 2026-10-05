@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -11,14 +13,14 @@ data class Alert(val key: String, val at: String, val minutes: Int, val id: Stri
  *  linux/lical/alerts.py (shared/cases/alerts.json). An event keeps up to two numbers, minutes before
  *  its start; all-day events count from midnight of their first day ("Am Tag (9:00)" = -540). */
 object Alerts {
-    val TIMED = listOf(0 to "Zum Zeitpunkt des Ereignisses", 5 to "5 Minuten vorher", 10 to "10 Minuten vorher",
-        15 to "15 Minuten vorher", 30 to "30 Minuten vorher", 60 to "1 Stunde vorher", 120 to "2 Stunden vorher",
-        1440 to "1 Tag vorher", 2880 to "2 Tage vorher", 10080 to "1 Woche vorher")
-    val ALL_DAY = listOf(-540 to "Am Tag des Ereignisses (9:00)", 900 to "1 Tag vorher (9:00)",
-        2340 to "2 Tage vorher (9:00)", 9540 to "1 Woche vorher (9:00)")
+    val TIMED = listOf(0 to tr("Zum Zeitpunkt des Ereignisses"), 5 to tr("5 Minuten vorher"), 10 to tr("10 Minuten vorher"),
+        15 to tr("15 Minuten vorher"), 30 to tr("30 Minuten vorher"), 60 to tr("1 Stunde vorher"), 120 to tr("2 Stunden vorher"),
+        1440 to tr("1 Tag vorher"), 2880 to tr("2 Tage vorher"), 10080 to tr("1 Woche vorher"))
+    val ALL_DAY = listOf(-540 to tr("Am Tag des Ereignisses (9:00)"), 900 to tr("1 Tag vorher (9:00)"),
+        2340 to tr("2 Tage vorher (9:00)"), 9540 to tr("1 Woche vorher (9:00)"))
     const val MOST = 2
     private val STAMP = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
-    private val WEEKDAYS = listOf("Mo", "Di", "Mi", "Do", "Fr", "Sa", "So")
+    private val WEEKDAYS get() = tr("Mo Di Mi Do Fr Sa So").split(" ")
 
     fun choices(allDay: Boolean) = if (allDay) ALL_DAY else TIMED
 
@@ -26,18 +28,18 @@ object Alerts {
         if (minutes == null) return "Keiner"
         choices(allDay).firstOrNull { it.first == minutes }?.let { return it.second }
         if (allDay) {  // counted from midnight of the first day
-            val (whenText, clock) = if (minutes <= 0) "Am Tag des Ereignisses" to -minutes else {
+            val (whenText, clock) = if (minutes <= 0) tr("Am Tag des Ereignisses") to -minutes else {
                 val days = Math.floorDiv(minutes + 1439, 1440)
-                (if (days == 1) "1 Tag vorher" else "$days Tage vorher") to days * 1440 - minutes
+                (if (days == 1) tr("1 Tag vorher") else tr("{days} Tage vorher", "days" to days)) to days * 1440 - minutes
             }
             return "$whenText (${clock / 60}:%02d)".format(clock % 60)
         }
         return when {
-            minutes < 0 -> "${-minutes} Minuten danach"
-            minutes % 10080 == 0 -> if (minutes == 10080) "1 Woche vorher" else "${minutes / 10080} Wochen vorher"
-            minutes % 1440 == 0 -> "${minutes / 1440} Tage vorher"
-            minutes % 60 == 0 -> "${minutes / 60} Stunden vorher"
-            else -> "$minutes Minuten vorher"
+            minutes < 0 -> tr("{value} Minuten danach", "value" to (-minutes))
+            minutes % 10080 == 0 -> if (minutes == 10080) tr("1 Woche vorher") else tr("{value} Wochen vorher", "value" to (minutes / 10080))
+            minutes % 1440 == 0 -> tr("{value} Tage vorher", "value" to (minutes / 1440))
+            minutes % 60 == 0 -> tr("{value} Stunden vorher", "value" to (minutes / 60))
+            else -> tr("{minutes} Minuten vorher", "minutes" to minutes)
         }
     }
 
@@ -74,11 +76,11 @@ object Alerts {
         val day = start.date
         val today = now.toLocalDate()
         var whenText = when (day) {
-            today -> "Heute"
-            today.plusDays(1) -> "Morgen"
+            today -> tr("Heute")
+            today.plusDays(1) -> tr("Morgen")
             else -> "${WEEKDAYS[day.dayOfWeek.value - 1]}, ${day.dayOfMonth}.${day.monthValue}."
         }
-        whenText += if (alert.allDay) ", ganztägig"
+        whenText += if (alert.allDay) tr(", ganztägig")
         else ", %02d:%02d–%02d:%02d".format(start.at.hour, start.at.minute, Rules.parse(alert.end).at.hour, Rules.parse(alert.end).at.minute)
         return whenText + if (alert.location.isNotEmpty()) " · ${alert.location}" else ""
     }

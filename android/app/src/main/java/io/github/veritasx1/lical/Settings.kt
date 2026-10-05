@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import android.content.Context
 import android.content.SharedPreferences
 
@@ -50,7 +52,7 @@ object Settings {
     /** "America/New_York" → "New York (Amerika)" – as on Ubuntu (settings.zone_label). */
     fun zoneLabel(name: String): String {
         val regions = mapOf("Africa" to "Afrika", "America" to "Amerika", "Antarctica" to "Antarktis", "Asia" to "Asien",
-            "Atlantic" to "Atlantik", "Australia" to "Australien", "Europe" to "Europa", "Indian" to "Indischer Ozean", "Pacific" to "Pazifik")
+            "Atlantic" to "Atlantik", "Australia" to "Australien", "Europe" to "Europa", "Indian" to tr("Indischer Ozean"), "Pacific" to "Pazifik")
         if ('/' !in name) return name
         val region = name.substringBefore('/')
         return "${name.substringAfterLast('/').replace('_', ' ')} (${regions[region] ?: region})"

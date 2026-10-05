@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import android.Manifest
 import android.app.AlarmManager
 import android.app.Notification
@@ -65,8 +67,8 @@ object Reminders {
     private fun channel(context: Context): NotificationManager {
         val manager = context.getSystemService(NotificationManager::class.java)
         if (manager.getNotificationChannel(CHANNEL) == null) {
-            manager.createNotificationChannel(NotificationChannel(CHANNEL, "Hinweise zu Terminen", NotificationManager.IMPORTANCE_HIGH).apply {
-                description = "Erinnerungen vor Terminen in LiCal"
+            manager.createNotificationChannel(NotificationChannel(CHANNEL, tr("Hinweise zu Terminen"), NotificationManager.IMPORTANCE_HIGH).apply {
+                description = tr("Erinnerungen vor Terminen in LiCal")
                 lockscreenVisibility = Notification.VISIBILITY_PRIVATE
             })
         }
@@ -80,10 +82,10 @@ object Reminders {
             Intent(context, MainActivity::class.java).putExtra(MainActivity.DAY, alert.start.take(10))
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        val hidden = Notification.Builder(context, CHANNEL).setSmallIcon(R.drawable.ic_notification).setContentTitle("Termin").build()
+        val hidden = Notification.Builder(context, CHANNEL).setSmallIcon(R.drawable.ic_notification).setContentTitle(tr("Termin")).build()
         val notification = Notification.Builder(context, CHANNEL)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle(alert.title.ifEmpty { "Termin" })
+            .setContentTitle(alert.title.ifEmpty { tr("Termin") })
             .setContentText(Alerts.text(alert, now))
             .setCategory(Notification.CATEGORY_EVENT)
             .setVisibility(Notification.VISIBILITY_PRIVATE)

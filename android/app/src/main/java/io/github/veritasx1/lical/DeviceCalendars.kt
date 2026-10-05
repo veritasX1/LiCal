@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import android.Manifest
 import android.content.ContentUris
 import android.content.ContentValues
@@ -37,7 +39,7 @@ class DeviceCalendars(private val context: Context) {
             CalendarContract.Calendars.CALENDAR_COLOR, CalendarContract.Calendars.ACCOUNT_NAME, CalendarContract.Calendars.CALENDAR_ACCESS_LEVEL)
         runCatching {
             context.contentResolver.query(CalendarContract.Calendars.CONTENT_URI, projection, "${CalendarContract.Calendars.VISIBLE} = 1", null, null)?.use { c ->
-                while (c.moveToNext()) result.add(DeviceCalendar(c.getLong(0), c.getString(1) ?: "Kalender", c.getInt(2), c.getString(3) ?: "",
+                while (c.moveToNext()) result.add(DeviceCalendar(c.getLong(0), c.getString(1) ?: tr("Kalender"), c.getInt(2), c.getString(3) ?: "",
                     c.getInt(4) >= CalendarContract.Calendars.CAL_ACCESS_CONTRIBUTOR))
             }
         }

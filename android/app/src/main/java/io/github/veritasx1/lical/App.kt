@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -87,13 +89,13 @@ fun LiCalApp(store: Store, dark: Boolean = isSystemInDarkTheme(), start: Screen 
                 Spacer(Modifier.weight(1f))
                 if (screen == Screen.Month) Box(Modifier.size(44.dp).clip(RoundedCornerShape(10.dp))
                     .background(if (mode == MonthMode.Details) colors.red else Color.Transparent).clickable { modeMenu = true }
-                    .semantics { contentDescription = "Monatsansicht wählen" }, contentAlignment = Alignment.Center) {
+                    .semantics { contentDescription = tr("Monatsansicht wählen") }, contentAlignment = Alignment.Center) {
                     GlyphIcon(if (mode == MonthMode.Details) Glyph.List else if (mode == MonthMode.Stacked) Glyph.Stacked else Glyph.Compact,
                         if (mode == MonthMode.Details) Color.White else colors.red, 24.dp)
                 }
                 Box(Modifier.size(44.dp).clip(CircleShape).clickable {
                     create(if (screen == Screen.Month && YearMonth.from(day) != visibleMonth) visibleMonth.atDay(1) else day)
-                }.semantics { contentDescription = "Neuer Termin" }, contentAlignment = Alignment.Center) {
+                }.semantics { contentDescription = tr("Neuer Termin") }, contentAlignment = Alignment.Center) {
                     GlyphIcon(Glyph.Plus, colors.red, 24.dp)
                 }
             }
@@ -121,14 +123,14 @@ fun LiCalApp(store: Store, dark: Boolean = isSystemInDarkTheme(), start: Screen 
             Box(Modifier.fillMaxWidth().height(0.5.dp).background(colors.separator))
             Row(Modifier.fillMaxWidth().background(colors.bar).windowInsetsPadding(WindowInsets.navigationBars).height(50.dp).padding(horizontal = 8.dp),
                 verticalAlignment = Alignment.CenterVertically) {
-                ToolbarText("Heute", Modifier.weight(1f), Alignment.CenterStart) {
+                ToolbarText(tr("Heute"), Modifier.weight(1f), Alignment.CenterStart) {
                     val today = LocalDate.now()
                     day = today
                     month = YearMonth.from(today)
                     visibleMonth = month
                     if (screen == Screen.Year) screen = Screen.Month
                 }
-                ToolbarText("Kalender", Modifier.weight(1f), Alignment.Center) { calendarsOpen = true }
+                ToolbarText(tr("Kalender"), Modifier.weight(1f), Alignment.Center) { calendarsOpen = true }
                 Spacer(Modifier.weight(1f))
             }
         }
@@ -208,8 +210,8 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
             .background(if (colors.dark) Color(0xFF1C1C1E) else Color(0xFFF2F2F7)).padding(vertical = 14.dp)
             .verticalScroll(rememberScrollState())) {
             Row(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
-                BasicText("Kalender", style = style(20f, 700, colors.label), modifier = Modifier.weight(1f))
-                BasicText("Fertig", style = style(17f, 600, colors.red), modifier = Modifier.clip(CircleShape).clickable(onClick = onClose).padding(10.dp))
+                BasicText(tr("Kalender"), style = style(20f, 700, colors.label), modifier = Modifier.weight(1f))
+                BasicText(tr("Fertig"), style = style(17f, 600, colors.red), modifier = Modifier.clip(CircleShape).clickable(onClick = onClose).padding(10.dp))
             }
             key(revision) {
                 val groups = linkedMapOf<String, List<CalendarInfo>>("LICAL" to store.calendars)
@@ -229,7 +231,7 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
                                     if (calendar.visible) BasicText("✓", style = style(14f, 700, Color.White))
                                 }
                                 BasicText(calendar.name, style = style(17f, 400, colors.label), modifier = Modifier.padding(start = 14.dp).weight(1f))
-                                if (store.isReadOnly(calendar.id)) BasicText("nur lesen", style = style(13f, 400, colors.secondary))
+                                if (store.isReadOnly(calendar.id)) BasicText(tr("nur lesen"), style = style(13f, 400, colors.secondary))
                             }
                             if (index < list.lastIndex) Box(Modifier.padding(start = 54.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
                         }
@@ -241,12 +243,12 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
                 var widgetsOpen by remember { mutableStateOf(false) }
                 Column(Modifier.padding(start = 16.dp, end = 16.dp, top = 22.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
                     Column(Modifier.fillMaxWidth().clickable { widgetsOpen = !widgetsOpen }.padding(horizontal = 16.dp, vertical = 12.dp)) {
-                        BasicText("Widgets auf den Startbildschirm", style = style(17f, 400, colors.red))
-                        BasicText("Als Nächstes, Monat, Liste – und Apples Kalender-Symbol mit dem heutigen Datum.",
+                        BasicText(tr("Widgets auf den Startbildschirm"), style = style(17f, 400, colors.red))
+                        BasicText(tr("Als Nächstes, Monat, Liste – und Apples Kalender-Symbol mit dem heutigen Datum."),
                             style = style(13f, 400, colors.secondary), modifier = Modifier.padding(top = 2.dp))
                     }
-                    if (widgetsOpen) listOf("Als Nächstes" to UpNextWidget::class.java, "Monat" to MonthWidget::class.java,
-                        "Liste" to ListWidget::class.java, "Datum (wie ein App-Symbol)" to DateWidget::class.java).forEach { (name, type) ->
+                    if (widgetsOpen) listOf(tr("Als Nächstes") to UpNextWidget::class.java, tr("Monat") to MonthWidget::class.java,
+                        "Liste" to ListWidget::class.java, tr("Datum (wie ein App-Symbol)") to DateWidget::class.java).forEach { (name, type) ->
                         Box(Modifier.padding(start = 16.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
                         BasicText(name, style = style(17f, 400, colors.label), modifier = Modifier.fillMaxWidth()
                             .clickable { DateWidget.pin(context, type); widgetsOpen = false }.padding(horizontal = 16.dp, vertical = 12.dp))
@@ -279,15 +281,30 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
                 Spacer(Modifier.height(8.dp))
                 Row(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(12.dp)).background(card).padding(horizontal = 16.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically) {
-                    BasicText("Zeitzonen-Unterstützung", style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
+                    BasicText(tr("Zeitzonen-Unterstützung"), style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
                     IosSwitch(zones) { zones = it; Settings.timeZones = it }
                 }
+                // Language: like the system or chosen here – takes effect at the next start.
+                Spacer(Modifier.height(8.dp))
+                val i18n = io.github.veritasx1.lical.i18n.I18n
+                var language by remember { mutableStateOf(i18n.chosen) }
+                Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
+                    (listOf<String?>(null) + i18n.LANGUAGES.keys).forEach { code ->
+                        Row(Modifier.fillMaxWidth().clickable { i18n.chosen = code; language = code }.padding(horizontal = 16.dp, vertical = 11.dp),
+                            verticalAlignment = Alignment.CenterVertically) {
+                            BasicText(code?.let { i18n.LANGUAGES[it] } ?: tr("Sprache: wie das System"), style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
+                            if (code == language) BasicText("✓", style = style(17f, 600, colors.red))
+                        }
+                    }
+                }
+                BasicText(tr("Die Sprache wechselt beim nächsten Start von LiCal."), style = style(13f, 400, colors.secondary),
+                    modifier = Modifier.padding(start = 32.dp, end = 32.dp, top = 6.dp))
                 if (!store.devicePermitted()) {
                     Column(Modifier.padding(16.dp).clip(RoundedCornerShape(12.dp)).background(card).clickable {
                         permission.launch(arrayOf(android.Manifest.permission.READ_CALENDAR, android.Manifest.permission.WRITE_CALENDAR))
                     }.padding(16.dp)) {
-                        BasicText("Kalender des Handys zeigen", style = style(17f, 400, colors.red))
-                        BasicText("Google (über DAVx⁵), Feiertage und andere Kalender des Handys erscheinen in LiCal und lassen sich hier bearbeiten. Es wird nichts kopiert.",
+                        BasicText(tr("Kalender des Handys zeigen"), style = style(17f, 400, colors.red))
+                        BasicText(tr("Google (über DAVx⁵), Feiertage und andere Kalender des Handys erscheinen in LiCal und lassen sich hier bearbeiten. Es wird nichts kopiert."),
                             style = style(13f, 400, colors.secondary), modifier = Modifier.padding(top = 4.dp))
                     }
                 }
@@ -311,7 +328,7 @@ private fun HolidaysGroup(store: Store, card: Color) {
                 if (info.visible) BasicText("✓", style = style(14f, 700, Color.White))
             }
             BasicText(info.name, style = style(17f, 400, colors.label), modifier = Modifier.padding(start = 14.dp).weight(1f))
-            BasicText("nur lesen", style = style(13f, 400, colors.secondary))
+            BasicText(tr("nur lesen"), style = style(13f, 400, colors.secondary))
         }
         Box(Modifier.padding(start = 54.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
         Row(Modifier.fillMaxWidth().clickable { open = !open }.padding(horizontal = 16.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -329,7 +346,7 @@ private fun HolidaysGroup(store: Store, card: Color) {
         }
     }
     if (!store.holidays.chosen && !info.visible && store.holidays.visible)
-        BasicText("Ausgeblendet, weil der Feiertagskalender des Handys schon gezeigt wird.", style = style(13f, 400, colors.secondary),
+        BasicText(tr("Ausgeblendet, weil der Feiertagskalender des Handys schon gezeigt wird."), style = style(13f, 400, colors.secondary),
             modifier = Modifier.padding(start = 32.dp, end = 24.dp, top = 6.dp))
 }
 

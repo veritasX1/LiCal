@@ -12,6 +12,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk
 
 from . import alerts, editing, rules, settings, theme
+from .i18n import _
 
 
 def format_date(day):
@@ -82,10 +83,10 @@ class Inspector(Gtk.Popover):
         self.save_timer = None
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, width_request=320)
-        self.title = Gtk.Entry(text=self.event.get("title", ""), placeholder_text="Neuer Termin", css_classes=["lical-inspector-title", "flat"])
-        self.title.connect("changed", lambda entry: self.change(title=entry.get_text().strip() or "Neuer Termin", later=True))
+        self.title = Gtk.Entry(text=self.event.get("title", ""), placeholder_text=_("Neuer Termin"), css_classes=["lical-inspector-title", "flat"])
+        self.title.connect("changed", lambda entry: self.change(title=entry.get_text().strip() or _("Neuer Termin"), later=True))
         box.append(self.title)
-        self.place = Gtk.Entry(text=self.event.get("location", ""), placeholder_text="Ort hinzufügen", css_classes=["lical-inspector-place", "flat"])
+        self.place = Gtk.Entry(text=self.event.get("location", ""), placeholder_text=_("Ort hinzufügen"), css_classes=["lical-inspector-place", "flat"])
         self.place.connect("changed", lambda entry: self.change(location=entry.get_text().strip(), later=True))
         box.append(self.place)
         box.append(Gtk.Separator(margin_top=6, margin_bottom=6))
@@ -104,7 +105,7 @@ class Inspector(Gtk.Popover):
         self.calendar.connect("notify::selected", lambda dropdown, _p: self.set_calendar(dropdown.get_selected()))
         # Time zone (card 7a9187d6): only with "Zeitzonen-Unterstützung" on, or when the event has one.
         self.zone_names = [None] + settings.zones()
-        self.zone = Gtk.DropDown.new_from_strings(["Ortszeit (schwebend)"] + [settings.zone_label(name) for name in self.zone_names[1:]])
+        self.zone = Gtk.DropDown.new_from_strings([_("Ortszeit (schwebend)")] + [settings.zone_label(name) for name in self.zone_names[1:]])
         self.zone.set_enable_search(True)
         self.zone.set_expression(Gtk.PropertyExpression.new(Gtk.StringObject, None, "string"))
         self.zone.connect("notify::selected", lambda dropdown, _p: self.set_zone(dropdown.get_selected()))
@@ -114,19 +115,19 @@ class Inspector(Gtk.Popover):
         for slot, dropdown in enumerate(self.alert_boxes):
             dropdown.connect("notify::selected", lambda dropdown, _p, slot=slot: self.set_alert(slot, dropdown.get_selected()))
         # Absence (Urlaub, Krank …) with a deputy and quick lengths (card 471febc2).
-        self.absence = Gtk.DropDown.new_from_strings(["Keine"] + [label for _key, label, _away in editing.ABSENCES])
+        self.absence = Gtk.DropDown.new_from_strings([_("Keine")] + [label for _key, label, _away in editing.ABSENCES])
         self.absence.connect("notify::selected", lambda dropdown, _p: self.set_absence(dropdown.get_selected()))
-        self.deputy = Gtk.Entry(placeholder_text="Name", width_chars=16)
+        self.deputy = Gtk.Entry(placeholder_text=_("Name"), width_chars=16)
         self.deputy.connect("changed", lambda entry: self.change(later=True, **{"deputy": entry.get_text().strip()})
                             if not self.updating else None)
         self.weeks = Gtk.Box(css_classes=["linked"])
         for weeks in (1, 2, 3, 4):
-            button = Gtk.Button(label=f"{weeks} Wo.", tooltip_text=f"{weeks} {'Woche' if weeks == 1 else 'Wochen'} ab Beginn")
+            button = Gtk.Button(label=_("{weeks} Wo.", weeks=weeks), tooltip_text=_("{weeks} {value} ab Beginn", weeks=weeks, value='Woche' if weeks == 1 else 'Wochen'))
             button.connect("clicked", lambda _b, weeks=weeks: self.replace(editing.absence_weeks(self.event, weeks)))
             self.weeks.append(button)
-        rows = [("ganztägig", [self.all_day]), ("Beginn", [self.start_date, self.start_time]),
-                ("Ende", [self.end_date, self.end_time]), ("Zeitzone", [self.zone]), ("Wiederholen", [self.repeat]), ("Kalender", [self.calendar]),
-                ("Hinweis", [self.alert_boxes[0]]), ("", [self.alert_boxes[1]]), ("Abwesenheit", [self.absence]), ("Vertretung", [self.deputy]), ("Dauer", [self.weeks])]
+        rows = [(_("ganztägig"), [self.all_day]), (_("Beginn"), [self.start_date, self.start_time]),
+                (_("Ende"), [self.end_date, self.end_time]), (_("Zeitzone"), [self.zone]), (_("Wiederholen"), [self.repeat]), (_("Kalender"), [self.calendar]),
+                (_("Hinweis"), [self.alert_boxes[0]]), ("", [self.alert_boxes[1]]), (_("Abwesenheit"), [self.absence]), (_("Vertretung"), [self.deputy]), ("Dauer", [self.weeks])]
         self.absence_rows = []
         for row, (label, widgets) in enumerate(rows):
             name = Gtk.Label(label=label, xalign=1, css_classes=["lical-inspector-label"], width_request=86)
@@ -135,7 +136,7 @@ class Inspector(Gtk.Popover):
             for widget in widgets:
                 line.append(widget)
             grid.attach(line, 1, row, 1, 1)
-            if label in ("Vertretung", "Dauer"):
+            if label in (_("Vertretung"), "Dauer"):
                 self.absence_rows += [name, line]
             if widgets[0] is self.alert_boxes[1]:
                 self.second_alert_row = [name, line]
@@ -148,13 +149,13 @@ class Inspector(Gtk.Popover):
         self.notes.get_buffer().connect("changed", lambda buffer: self.change(
             notes=buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), False), later=True))
         notes_frame = Gtk.ScrolledWindow(child=self.notes, min_content_height=48, max_content_height=140, propagate_natural_height=True)
-        self.notes_hint = Gtk.Label(label="Notiz hinzufügen", xalign=0, css_classes=["lical-inspector-hint"], can_target=False)
+        self.notes_hint = Gtk.Label(label=_("Notiz hinzufügen"), xalign=0, css_classes=["lical-inspector-hint"], can_target=False)
         overlay = Gtk.Overlay(child=notes_frame)
         overlay.add_overlay(self.notes_hint)
         box.append(overlay)
-        delete = Gtk.Button(label="Termin löschen", css_classes=["flat", "lical-delete"], halign=Gtk.Align.START, margin_top=6)
+        delete = Gtk.Button(label=_("Termin löschen"), css_classes=["flat", "lical-delete"], halign=Gtk.Align.START, margin_top=6)
         delete.connect("clicked", lambda _b: (self.popdown(), self.window.delete_occurrence(self.series["id"], self.occurrence_start)))
-        share = Gtk.Button(label="Als QR-Code teilen …", css_classes=["flat"], halign=Gtk.Align.START, margin_top=6)
+        share = Gtk.Button(label=_("Als QR-Code teilen …"), css_classes=["flat"], halign=Gtk.Align.START, margin_top=6)
         share.connect("clicked", lambda _b: (self.popdown(), self.window.share_event(self.series["id"])))
         actions = Gtk.Box(spacing=6)
         actions.append(share)
@@ -382,10 +383,10 @@ class Inspector(Gtk.Popover):
 
 def ask_delete(window, title, on_choice):
     """A repeating event: only this one, or all of them (like the Mac)."""
-    dialog = Adw.AlertDialog(heading="Termin löschen?", body=f"„{title}“ wiederholt sich. Nur diesen Termin löschen oder alle?")
-    dialog.add_response("cancel", "Abbrechen")
-    dialog.add_response("one", "Nur diesen Termin")
-    dialog.add_response("all", "Alle Termine")
+    dialog = Adw.AlertDialog(heading=_("Termin löschen?"), body=_("„{title}“ wiederholt sich. Nur diesen Termin löschen oder alle?", title=title))
+    dialog.add_response("cancel", _("Abbrechen"))
+    dialog.add_response("one", _("Nur diesen Termin"))
+    dialog.add_response("all", _("Alle Termine"))
     dialog.set_response_appearance("all", Adw.ResponseAppearance.DESTRUCTIVE)
     dialog.set_default_response("one")
     dialog.set_close_response("cancel")

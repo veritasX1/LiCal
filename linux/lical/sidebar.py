@@ -9,6 +9,7 @@ gi.require_version("Gtk", "4.0")
 from gi.repository import GLib, GObject, Gtk
 
 from . import holidays, rules, theme
+from .i18n import _
 
 
 class CalendarCheck(Gtk.DrawingArea):
@@ -131,15 +132,15 @@ class Sidebar(Gtk.Box):
             following = child.get_next_sibling()
             self.list.remove(child)
             child = following
-        heading = Gtk.Label(label="Auf diesem Computer", xalign=0, css_classes=["lical-sidebar-heading"])
+        heading = Gtk.Label(label=_("Auf diesem Computer"), xalign=0, css_classes=["lical-sidebar-heading"])
         self.list.append(heading)
         for calendar in self.store.calendars:
             self.list.append(self.calendar_row(calendar))
-        add = Gtk.Button(label="Neuer Kalender", css_classes=["flat", "lical-sidebar-add"], halign=Gtk.Align.START, margin_start=10, margin_top=4)
+        add = Gtk.Button(label=_("Neuer Kalender"), css_classes=["flat", "lical-sidebar-add"], halign=Gtk.Align.START, margin_start=10, margin_top=4)
         add.connect("clicked", lambda _b: self.new_calendar(add))
         self.list.append(add)
         # Computed holidays (card 7a9187d6): like a subscribed calendar on the Mac, under "Andere".
-        self.list.append(Gtk.Label(label="Andere", xalign=0, css_classes=["lical-sidebar-heading"], margin_top=10))
+        self.list.append(Gtk.Label(label=_("Andere"), xalign=0, css_classes=["lical-sidebar-heading"], margin_top=10))
         self.list.append(self.holiday_row())
 
     def holiday_row(self):
@@ -149,7 +150,7 @@ class Sidebar(Gtk.Box):
         row.append(check)
         state = dict(holidays.STATES).get(info.get("state", ""), "")
         row.append(Gtk.Label(label=info["name"], xalign=0, hexpand=True, ellipsize=3,
-                             tooltip_text=f"Gesetzliche Feiertage – {state if info.get('state') else 'bundesweit'}"))
+                             tooltip_text=_("Gesetzliche Feiertage – {value}", value=state if info.get('state') else 'bundesweit')))
         click = Gtk.GestureClick()
 
         def toggle(*_args):
@@ -195,7 +196,7 @@ class Sidebar(Gtk.Box):
         menu = Gtk.GestureClick(button=3)
         menu.connect("pressed", lambda gesture, *_a: (gesture.set_state(Gtk.EventSequenceState.CLAIMED), self.calendar_menu(row, calendar)))
         row.add_controller(menu)
-        row.set_tooltip_text("Ein- oder ausblenden · Rechtsklick: Name, Farbe, Löschen")
+        row.set_tooltip_text(_("Ein- oder ausblenden · Rechtsklick: Name, Farbe, Löschen"))
         return row
 
     # ---- managing calendars ----
@@ -235,7 +236,7 @@ class Sidebar(Gtk.Box):
         name = Gtk.Entry(text=calendar["name"])
         box.append(name)
         box.append(self.colors_row(calendar["color"], lambda color: (self.store.update_calendar(calendar["id"], color=color), popover.popdown())))
-        delete = Gtk.Button(label="Kalender löschen …", css_classes=["flat", "lical-delete"], halign=Gtk.Align.START)
+        delete = Gtk.Button(label=_("Kalender löschen …"), css_classes=["flat", "lical-delete"], halign=Gtk.Align.START)
         box.append(delete)
         popover = self.popover(row, box)
         name.connect("activate", lambda entry: (self.store.update_calendar(calendar["id"], name=entry.get_text().strip() or calendar["name"]), popover.popdown()))
@@ -248,10 +249,10 @@ class Sidebar(Gtk.Box):
         count = sum(1 for event in self.store.events if event.get("calendar") == calendar["id"])
         if len(self.store.calendars) <= 1:
             return
-        dialog = Adw.AlertDialog(heading=f"„{calendar['name']}“ löschen?",
-                                 body=f"Der Kalender und seine {count} Termine werden gelöscht." if count else "Der Kalender ist leer.")
-        dialog.add_response("cancel", "Abbrechen")
-        dialog.add_response("delete", "Löschen")
+        dialog = Adw.AlertDialog(heading=_("„{value}“ löschen?", value=calendar['name']),
+                                 body=_("Der Kalender und seine {count} Termine werden gelöscht.", count=count) if count else _("Der Kalender ist leer."))
+        dialog.add_response("cancel", _("Abbrechen"))
+        dialog.add_response("delete", _("Löschen"))
         dialog.set_response_appearance("delete", Adw.ResponseAppearance.DESTRUCTIVE)
         dialog.set_close_response("cancel")
         dialog.connect("response", lambda _d, response: self.store.delete_calendar(calendar["id"]) if response == "delete" else None)
@@ -262,7 +263,7 @@ class Sidebar(Gtk.Box):
         used = {calendar["color"] for calendar in self.store.calendars}
         color = next((name for name in theme.CALENDAR_COLORS if name not in used), "blue")
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8, margin_start=10, margin_end=10, margin_top=10, margin_bottom=10)
-        name = Gtk.Entry(placeholder_text="Name des Kalenders")
+        name = Gtk.Entry(placeholder_text=_("Name des Kalenders"))
         box.append(name)
         chosen = {"color": color}
         holder = Gtk.Box()

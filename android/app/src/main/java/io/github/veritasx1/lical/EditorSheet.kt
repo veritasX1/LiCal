@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -79,18 +81,18 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
     val context = androidx.compose.ui.platform.LocalContext.current
     val camera = androidx.activity.compose.rememberLauncherForActivityResult(
         androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) { granted ->
-        if (granted) scanning = true else scanHint = "LiCal darf die Kamera nicht benutzen – in den Einstellungen erlauben."
+        if (granted) scanning = true else scanHint = tr("LiCal darf die Kamera nicht benutzen – in den Einstellungen erlauben.")
     }
     var alertHint by remember(request) { mutableStateOf<String?>(null) }
     val notifications = androidx.activity.compose.rememberLauncherForActivityResult(
         androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) { granted ->
-        alertHint = if (granted) null else "Hinweise brauchen Mitteilungen – in den Einstellungen für LiCal erlauben."
+        alertHint = if (granted) null else tr("Hinweise brauchen Mitteilungen – in den Einstellungen für LiCal erlauben.")
     }
     val groupBackground = if (colors.dark) Color(0xFF1C1C1E) else Color.White
     val sheetBackground = if (colors.dark) Color(0xFF000000) else Color(0xFFF2F2F7)
 
     fun save() {
-        if (draft.title.isBlank()) draft = draft.copy(title = "Neuer Termin")
+        if (draft.title.isBlank()) draft = draft.copy(title = tr("Neuer Termin"))
         val stored = if (series?.rrule != null && request.occurrenceStart != null) Editing.applyToSeries(series, request.occurrenceStart, draft) else draft
         onClose(store.put(stored))
     }
@@ -102,19 +104,19 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
             .clip(RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp)).background(sheetBackground)) {
             // ✕  title  ✓
             Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-                CircleButton("Abbrechen", if (colors.dark) Color(0xFF2C2C2E) else Color.White, colors.label) {
+                CircleButton(tr("Abbrechen"), if (colors.dark) Color(0xFF2C2C2E) else Color.White, colors.label) {
                     if (changed && !request.isNew) confirmDiscard = true else onClose(null)
                 }
-                BasicText(if (request.isNew) "Neuer Termin" else if (readOnly) "Termin" else "Termin bearbeiten", style = style(17f, 600, colors.label).copy(textAlign = TextAlign.Center),
+                BasicText(if (request.isNew) tr("Neuer Termin") else if (readOnly) tr("Termin") else tr("Termin bearbeiten"), style = style(17f, 600, colors.label).copy(textAlign = TextAlign.Center),
                     modifier = Modifier.weight(1f))
-                if (readOnly) Spacer(Modifier.size(48.dp)) else CircleButton("Sichern", colors.red, Color.White, check = true) { save() }
+                if (readOnly) Spacer(Modifier.size(48.dp)) else CircleButton(tr("Sichern"), colors.red, Color.White, check = true) { save() }
             }
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).windowInsetsPadding(WindowInsets.ime).padding(horizontal = 16.dp)
                 ) {
                 // A passed-on event (card b483dadf): fill the new event from its QR code.
                 if (request.isNew) {
                     Group(groupBackground) {
-                        BasicText("Aus QR-Code übernehmen", style = style(17f, 400, colors.red), modifier = Modifier.fillMaxWidth().clickable {
+                        BasicText(tr("Aus QR-Code übernehmen"), style = style(17f, 400, colors.red), modifier = Modifier.fillMaxWidth().clickable {
                             scanHint = null
                             if (androidx.core.content.ContextCompat.checkSelfPermission(context, android.Manifest.permission.CAMERA) ==
                                 android.content.pm.PackageManager.PERMISSION_GRANTED) scanning = true
@@ -127,19 +129,19 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
                 Group(groupBackground, lock) {
                     BasicTextField(draft.title, { draft = draft.copy(title = it) }, textStyle = style(22f, 700, colors.label),
                         cursorBrush = SolidColor(colors.red), modifier = Modifier.fillMaxWidth().padding(14.dp)
-                            .focusRequester(titleFocus).semantics { contentDescription = "Titel" },
-                        decorationBox = { inner -> if (draft.title.isEmpty()) BasicText("Titel", style = style(22f, 700, colors.tertiary)); inner() })
+                            .focusRequester(titleFocus).semantics { contentDescription = tr("Titel") },
+                        decorationBox = { inner -> if (draft.title.isEmpty()) BasicText(tr("Titel"), style = style(22f, 700, colors.tertiary)); inner() })
                     Divider(colors)
                     BasicTextField(draft.location, { draft = draft.copy(location = it) }, textStyle = style(17f, 400, colors.label),
                         cursorBrush = SolidColor(colors.red), singleLine = true, modifier = Modifier.fillMaxWidth().padding(14.dp),
-                        decorationBox = { inner -> if (draft.location.isEmpty()) BasicText("Ort oder Videoanruf", style = style(17f, 400, colors.tertiary)); inner() })
+                        decorationBox = { inner -> if (draft.location.isEmpty()) BasicText(tr("Ort oder Videoanruf"), style = style(17f, 400, colors.tertiary)); inner() })
                 }
                 Spacer(Modifier.height(18.dp))
                 Group(groupBackground, lock) {
                     val start = Rules.parse(draft.start)
                     val endDay = Editing.lastDay(draft)
                     val endTime = Rules.parse(draft.end).at.toLocalTime()
-                    TimeRow("Beginn", dateText(start.date), if (draft.allDay) null else "%02d:%02d".format(start.at.hour, start.at.minute),
+                    TimeRow(tr("Beginn"), dateText(start.date), if (draft.allDay) null else "%02d:%02d".format(start.at.hour, start.at.minute),
                         picker == Picker.StartDate, picker == Picker.StartTime,
                         { picker = if (picker == Picker.StartDate) Picker.None else Picker.StartDate },
                         { picker = if (picker == Picker.StartTime) Picker.None else Picker.StartTime })
@@ -150,7 +152,7 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
                         TimeWheel(start.at.hour, start.at.minute) { h, m -> draft = Editing.setStart(draft, Moment(start.date.atTime(h, m), true)) }
                     }
                     Divider(colors)
-                    TimeRow("Ende", dateText(endDay), if (draft.allDay) null else "%02d:%02d".format(endTime.hour, endTime.minute),
+                    TimeRow(tr("Ende"), dateText(endDay), if (draft.allDay) null else "%02d:%02d".format(endTime.hour, endTime.minute),
                         picker == Picker.EndDate, picker == Picker.EndTime,
                         { picker = if (picker == Picker.EndDate) Picker.None else Picker.EndDate },
                         { picker = if (picker == Picker.EndTime) Picker.None else Picker.EndTime })
@@ -163,18 +165,18 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
                     }
                     Divider(colors)
                     Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        BasicText("Ganztägig", style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
+                        BasicText(tr("Ganztägig"), style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
                         IosSwitch(draft.allDay) { on -> draft = Editing.setAllDay(draft, on); picker = Picker.None }
                     }
                     // Time zone (card 7a9187d6): with "Zeitzonen-Unterstützung" or when the event has one; the clock time stays.
                     if (!draft.allDay && (Settings.timeZones || draft.tz != null)) {
                         Divider(colors)
                         val zones = listOf<String?>(null) + (Settings.ZONES + listOfNotNull(draft.tz, Rules.localZone())).distinct().sortedBy { Settings.zoneLabel(it) }
-                        MenuRow("Zeitzone", draft.tz?.let { Settings.zoneLabel(it) } ?: "Ortszeit",
-                            zones.map { it?.let(Settings::zoneLabel) ?: "Ortszeit (schwebend)" }, enabled = !readOnly) { index -> draft = draft.copy(tz = zones[index]) }
+                        MenuRow(tr("Zeitzone"), draft.tz?.let { Settings.zoneLabel(it) } ?: "Ortszeit",
+                            zones.map { it?.let(Settings::zoneLabel) ?: tr("Ortszeit (schwebend)") }, enabled = !readOnly) { index -> draft = draft.copy(tz = zones[index]) }
                     }
                     Divider(colors)
-                    MenuRow("Wiederholen", Editing.repeatLabel(draft.rrule), Editing.REPEATS.map { it.second }) { index ->
+                    MenuRow(tr("Wiederholen"), Editing.repeatLabel(draft.rrule), Editing.REPEATS.map { it.second }) { index ->
                         draft = draft.copy(rrule = Editing.REPEATS[index].first, exdates = emptyList())
                     }
                 }
@@ -182,37 +184,37 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
                 // LiCal's own calendars: Google and other phone calendars have no field for it (it would be lost).
                 if (!draft.calendar.startsWith(DEVICE) && draft.calendar != Holidays.CALENDAR) Spacer(Modifier.height(18.dp))
                 if (!draft.calendar.startsWith(DEVICE) && draft.calendar != Holidays.CALENDAR) Group(groupBackground, lock) {
-                    val labels = listOf("Keine") + Editing.ABSENCES.map { it.label }
-                    MenuRow("Abwesenheit", if (draft.absence == null) "Keine" else Editing.absenceLabel(draft.absence), labels, enabled = !readOnly) { index ->
+                    val labels = listOf(tr("Keine")) + Editing.ABSENCES.map { it.label }
+                    MenuRow(tr("Abwesenheit"), if (draft.absence == null) tr("Keine") else Editing.absenceLabel(draft.absence), labels, enabled = !readOnly) { index ->
                         draft = Editing.setAbsence(draft, if (index == 0) null else Editing.ABSENCES[index - 1].key)
                     }
                     if (draft.absence != null) {
                         Divider(colors)
                         Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-                            BasicText("Vertretung", style = style(17f, 400, colors.label), modifier = Modifier.width(110.dp))
+                            BasicText(tr("Vertretung"), style = style(17f, 400, colors.label), modifier = Modifier.width(110.dp))
                             BasicTextField(draft.deputy ?: "", { draft = Editing.setDeputy(draft, it).copy(deputy = it.ifEmpty { null }) },
                                 textStyle = style(17f, 400, colors.label), singleLine = true, cursorBrush = SolidColor(colors.red),
-                                modifier = Modifier.weight(1f).semantics { contentDescription = "Vertretung" },
-                                decorationBox = { inner -> if ((draft.deputy ?: "").isEmpty()) BasicText("Name", style = style(17f, 400, colors.tertiary)); inner() })
+                                modifier = Modifier.weight(1f).semantics { contentDescription = tr("Vertretung") },
+                                decorationBox = { inner -> if ((draft.deputy ?: "").isEmpty()) BasicText(tr("Name"), style = style(17f, 400, colors.tertiary)); inner() })
                         }
                         Divider(colors)
                         Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 10.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             for (weeks in 1..4) {
-                                BasicText("$weeks Wo.", style = style(15f, 500, colors.red).copy(textAlign = TextAlign.Center), maxLines = 1,
+                                BasicText(tr("{weeks} Wo.", "weeks" to weeks), style = style(15f, 500, colors.red).copy(textAlign = TextAlign.Center), maxLines = 1,
                                     modifier = Modifier.weight(1f).clip(RoundedCornerShape(8.dp)).background(colors.red.copy(alpha = 0.12f))
                                         .clickable { draft = Editing.absenceWeeks(draft, weeks) }
-                                        .semantics { contentDescription = if (weeks == 1) "1 Woche" else "$weeks Wochen" }.padding(vertical = 8.dp))
+                                        .semantics { contentDescription = if (weeks == 1) tr("1 Woche") else tr("{weeks} Wochen", "weeks" to weeks) }.padding(vertical = 8.dp))
                             }
                         }
                     }
                 }
-                if (series?.rrule != null && !request.isNew) BasicText("Änderungen gelten für alle Termine dieser Serie.",
+                if (series?.rrule != null && !request.isNew) BasicText(tr("Änderungen gelten für alle Termine dieser Serie."),
                     style = style(13f, 400, colors.secondary), modifier = Modifier.padding(start = 16.dp, top = 6.dp))
                 Spacer(Modifier.height(18.dp))
                 Group(groupBackground, lock) {
                     val calendar = store.calendar(draft.calendar)
                     val choices = store.writableCalendars()
-                    MenuRow("Kalender", calendar?.name ?: "", choices.map { it.name }, dot = colors.system(calendar?.color ?: "blue"),
+                    MenuRow(tr("Kalender"), calendar?.name ?: "", choices.map { it.name }, dot = colors.system(calendar?.color ?: "blue"),
                         dots = choices.map { colors.system(it.color) }, enabled = !readOnly) { index -> draft = draft.copy(calendar = choices[index].id) }
                 }
                 // Alerts (card 91adf47e) like the iPhone: "Hinweis", then "Zweiter Hinweis" once the first is set.
@@ -230,10 +232,10 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
                         if (chosen != null && !draft.calendar.startsWith(DEVICE) && !Reminders.mayNotify(context) && android.os.Build.VERSION.SDK_INT >= 33)
                             notifications.launch(android.Manifest.permission.POST_NOTIFICATIONS)
                     }
-                    MenuRow("Hinweis", Alerts.label(draft.alerts.getOrNull(0), draft.allDay), labels, enabled = !readOnly) { choose(0, it) }
+                    MenuRow(tr("Hinweis"), Alerts.label(draft.alerts.getOrNull(0), draft.allDay), labels, enabled = !readOnly) { choose(0, it) }
                     if (draft.alerts.isNotEmpty()) {
                         Divider(colors)
-                        MenuRow("Zweiter Hinweis", Alerts.label(draft.alerts.getOrNull(1), draft.allDay), labels, enabled = !readOnly) { choose(1, it) }
+                        MenuRow(tr("Zweiter Hinweis"), Alerts.label(draft.alerts.getOrNull(1), draft.allDay), labels, enabled = !readOnly) { choose(1, it) }
                     }
                 }
                 if (alertHint != null) BasicText(alertHint!!, style = style(13f, 400, colors.secondary), modifier = Modifier.padding(start = 16.dp, top = 6.dp))
@@ -241,20 +243,20 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
                 Group(groupBackground, lock) {
                     BasicTextField(draft.notes, { draft = draft.copy(notes = it) }, textStyle = style(17f, 400, colors.label),
                         cursorBrush = SolidColor(colors.red), modifier = Modifier.fillMaxWidth().height(110.dp).padding(14.dp),
-                        decorationBox = { inner -> if (draft.notes.isEmpty()) BasicText("Notizen", style = style(17f, 400, colors.tertiary)); inner() })
+                        decorationBox = { inner -> if (draft.notes.isEmpty()) BasicText(tr("Notizen"), style = style(17f, 400, colors.tertiary)); inner() })
                 }
-                if (readOnly) BasicText("Dieser Kalender kann nur gelesen werden.", style = style(13f, 400, colors.secondary),
+                if (readOnly) BasicText(tr("Dieser Kalender kann nur gelesen werden."), style = style(13f, 400, colors.secondary),
                     modifier = Modifier.padding(start = 16.dp, top = 10.dp))
                 if (!request.isNew) {
                     Spacer(Modifier.height(18.dp))
                     Group(groupBackground) {
-                        BasicText("Als QR-Code teilen", style = style(17f, 400, colors.red), modifier = Modifier.fillMaxWidth().clickable { sharing = true }.padding(14.dp))
+                        BasicText(tr("Als QR-Code teilen"), style = style(17f, 400, colors.red), modifier = Modifier.fillMaxWidth().clickable { sharing = true }.padding(14.dp))
                     }
                 }
                 if (!request.isNew && !readOnly) {
                     Spacer(Modifier.height(18.dp))
                     Group(groupBackground, lock) {
-                        BasicText("Termin löschen", style = style(17f, 500, colors.red).copy(textAlign = TextAlign.Center),
+                        BasicText(tr("Termin löschen"), style = style(17f, 500, colors.red).copy(textAlign = TextAlign.Center),
                             modifier = Modifier.fillMaxWidth().clickable { confirmDelete = true }.padding(14.dp))
                     }
                 }
@@ -269,15 +271,15 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
             if (found != null) {
                 draft = draft.copy(title = found.title, allDay = found.allDay, start = found.start, end = found.end, location = found.location,
                     notes = found.notes, rrule = found.rrule, exdates = emptyList(), tz = found.tz)
-                scanHint = "Termin übernommen – prüfen und mit ✓ sichern."
+                scanHint = tr("Termin übernommen – prüfen und mit ✓ sichern.")
             } else if (text != null) {
-                scanHint = "In diesem QR-Code steht kein Termin."
+                scanHint = tr("In diesem QR-Code steht kein Termin.")
             }
         }
-        if (confirmDiscard) ActionSheet(listOf("Änderungen verwerfen" to true), onCancel = { confirmDiscard = false }) { onClose(null) }
+        if (confirmDiscard) ActionSheet(listOf(tr("Änderungen verwerfen") to true), onCancel = { confirmDiscard = false }) { onClose(null) }
         if (confirmDelete) {
             val repeating = series?.rrule != null && request.occurrenceStart != null
-            val choices = if (repeating) listOf("Nur diesen Termin löschen" to true, "Alle Termine löschen" to true) else listOf("Termin löschen" to true)
+            val choices = if (repeating) listOf(tr("Nur diesen Termin löschen") to true, tr("Alle Termine löschen") to true) else listOf(tr("Termin löschen") to true)
             ActionSheet(choices, onCancel = { confirmDelete = false }) { index ->
                 if (repeating && index == 0) store.put(Editing.skipOccurrence(series!!, request.occurrenceStart!!)) else store.delete(request.event.id)
                 onClose(null)
@@ -317,10 +319,10 @@ private fun TimeRow(label: String, date: String, time: String?, dateOpen: Boolea
     val colors = palette()
     Row(Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
         BasicText(label, style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
-        Pill(date, dateOpen, "$label Datum", onDate)
+        Pill(date, dateOpen, tr("{label} Datum", "label" to label), onDate)
         if (time != null) {
             Spacer(Modifier.width(8.dp))
-            Pill(time, timeOpen, "$label Uhrzeit", onTime)
+            Pill(time, timeOpen, tr("{label} Uhrzeit", "label" to label), onTime)
         }
     }
 }
@@ -465,7 +467,7 @@ fun ActionSheet(choices: List<Pair<String, Boolean>>, onCancel: () -> Unit, onCh
                 }
             }
             Spacer(Modifier.height(8.dp))
-            BasicText("Abbrechen", style = style(19f, 600, colors.system("blue")).copy(textAlign = TextAlign.Center),
+            BasicText(tr("Abbrechen"), style = style(19f, 600, colors.system("blue")).copy(textAlign = TextAlign.Center),
                 modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(card).clickable(onClick = onCancel).padding(vertical = 17.dp))
         }
     }

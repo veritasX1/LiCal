@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
@@ -62,9 +64,9 @@ fun style(size: Float, weight: Int = 400, color: Color = Color.Unspecified, tabu
     TextStyle(fontFamily = Inter, fontSize = size.sp, fontWeight = FontWeight(weight), color = color,
         fontFeatureSettings = if (tabular) "tnum" else null, letterSpacing = if (size >= 28) (-0.6).sp else 0.sp)
 
-val MONTHS = listOf("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember")
-val WEEKDAY_LETTERS = listOf("M", "D", "M", "D", "F", "S", "S")
-val WEEKDAYS_LONG = listOf("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag")
+val MONTHS = listOf(tr("Januar"), tr("Februar"), tr("März"), tr("April"), tr("Mai"), tr("Juni"), tr("Juli"), tr("August"), tr("September"), tr("Oktober"), tr("November"), tr("Dezember"))
+val WEEKDAY_LETTERS = tr("M D M D F S S").split(" ")
+val WEEKDAYS_LONG = listOf(tr("Montag"), tr("Dienstag"), tr("Mittwoch"), tr("Donnerstag"), tr("Freitag"), tr("Samstag"), tr("Sonntag"))
 
 @Composable
 fun palette() = LocalPalette.current
