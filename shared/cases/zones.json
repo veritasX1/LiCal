@@ -1,0 +1,277 @@
+[
+ {
+  "kind": "occurrences",
+  "from": "2026-10-19",
+  "to": "2026-11-10",
+  "events": [
+   {
+    "id": "ny",
+    "calendar": "arbeit",
+    "title": "Call New York",
+    "allDay": false,
+    "start": "2026-10-19T09:00",
+    "end": "2026-10-19T10:00",
+    "rrule": "FREQ=WEEKLY",
+    "tz": "America/New_York"
+   },
+   {
+    "id": "tk",
+    "calendar": "arbeit",
+    "title": "Tokio früh",
+    "allDay": false,
+    "start": "2026-10-08T06:30",
+    "end": "2026-10-08T07:30",
+    "tz": "Asia/Tokyo"
+   },
+   {
+    "id": "fl",
+    "calendar": "privat",
+    "title": "Ortszeit",
+    "allDay": false,
+    "start": "2026-10-08T06:30",
+    "end": "2026-10-08T07:30"
+   },
+   {
+    "id": "ad",
+    "calendar": "privat",
+    "title": "Ganztägig",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "tz": "Asia/Tokyo"
+   }
+  ],
+  "result": [
+   [
+    "ny@2026-10-19T09:00",
+    "2026-10-19T15:00",
+    "2026-10-19T16:00",
+    "2026-10-19T09:00",
+    "2026-10-19T10:00"
+   ],
+   [
+    "ny@2026-10-26T09:00",
+    "2026-10-26T14:00",
+    "2026-10-26T15:00",
+    "2026-10-26T09:00",
+    "2026-10-26T10:00"
+   ],
+   [
+    "ny@2026-11-02T09:00",
+    "2026-11-02T15:00",
+    "2026-11-02T16:00",
+    "2026-11-02T09:00",
+    "2026-11-02T10:00"
+   ],
+   [
+    "ny@2026-11-09T09:00",
+    "2026-11-09T15:00",
+    "2026-11-09T16:00",
+    "2026-11-09T09:00",
+    "2026-11-09T10:00"
+   ]
+  ]
+ },
+ {
+  "kind": "occurrences",
+  "from": "2026-10-07",
+  "to": "2026-10-09",
+  "events": [
+   {
+    "id": "ny",
+    "calendar": "arbeit",
+    "title": "Call New York",
+    "allDay": false,
+    "start": "2026-10-19T09:00",
+    "end": "2026-10-19T10:00",
+    "rrule": "FREQ=WEEKLY",
+    "tz": "America/New_York"
+   },
+   {
+    "id": "tk",
+    "calendar": "arbeit",
+    "title": "Tokio früh",
+    "allDay": false,
+    "start": "2026-10-08T06:30",
+    "end": "2026-10-08T07:30",
+    "tz": "Asia/Tokyo"
+   },
+   {
+    "id": "fl",
+    "calendar": "privat",
+    "title": "Ortszeit",
+    "allDay": false,
+    "start": "2026-10-08T06:30",
+    "end": "2026-10-08T07:30"
+   },
+   {
+    "id": "ad",
+    "calendar": "privat",
+    "title": "Ganztägig",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "tz": "Asia/Tokyo"
+   }
+  ],
+  "result": [
+   [
+    "tk@2026-10-08T06:30",
+    "2026-10-07T23:30",
+    "2026-10-08T00:30",
+    "2026-10-08T06:30",
+    "2026-10-08T07:30"
+   ],
+   [
+    "ad@2026-10-08",
+    "2026-10-08",
+    "2026-10-09",
+    null,
+    null
+   ],
+   [
+    "fl@2026-10-08T06:30",
+    "2026-10-08T06:30",
+    "2026-10-08T07:30",
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "kind": "occurrences",
+  "from": "2026-10-08",
+  "to": "2026-10-09",
+  "events": [
+   {
+    "id": "ny",
+    "calendar": "arbeit",
+    "title": "Call New York",
+    "allDay": false,
+    "start": "2026-10-19T09:00",
+    "end": "2026-10-19T10:00",
+    "rrule": "FREQ=WEEKLY",
+    "tz": "America/New_York"
+   },
+   {
+    "id": "tk",
+    "calendar": "arbeit",
+    "title": "Tokio früh",
+    "allDay": false,
+    "start": "2026-10-08T06:30",
+    "end": "2026-10-08T07:30",
+    "tz": "Asia/Tokyo"
+   },
+   {
+    "id": "fl",
+    "calendar": "privat",
+    "title": "Ortszeit",
+    "allDay": false,
+    "start": "2026-10-08T06:30",
+    "end": "2026-10-08T07:30"
+   },
+   {
+    "id": "ad",
+    "calendar": "privat",
+    "title": "Ganztägig",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "tz": "Asia/Tokyo"
+   }
+  ],
+  "result": [
+   [
+    "tk@2026-10-08T06:30",
+    "2026-10-07T23:30",
+    "2026-10-08T00:30",
+    "2026-10-08T06:30",
+    "2026-10-08T07:30"
+   ],
+   [
+    "ad@2026-10-08",
+    "2026-10-08",
+    "2026-10-09",
+    null,
+    null
+   ],
+   [
+    "fl@2026-10-08T06:30",
+    "2026-10-08T06:30",
+    "2026-10-08T07:30",
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "kind": "to_zone",
+  "event": {
+   "id": "ny",
+   "calendar": "arbeit",
+   "title": "Call New York",
+   "allDay": false,
+   "start": "2026-10-19T09:00",
+   "end": "2026-10-19T10:00",
+   "rrule": "FREQ=WEEKLY",
+   "tz": "America/New_York"
+  },
+  "moment": "2026-10-28T14:00",
+  "result": "2026-10-28T09:00"
+ },
+ {
+  "kind": "to_zone",
+  "event": {
+   "id": "ny",
+   "calendar": "arbeit",
+   "title": "Call New York",
+   "allDay": false,
+   "start": "2026-10-19T09:00",
+   "end": "2026-10-19T10:00",
+   "rrule": "FREQ=WEEKLY",
+   "tz": "America/New_York"
+  },
+  "moment": "2026-11-03T15:30",
+  "result": "2026-11-03T09:30"
+ },
+ {
+  "kind": "to_zone",
+  "event": {
+   "id": "ny",
+   "calendar": "arbeit",
+   "title": "Call New York",
+   "allDay": false,
+   "start": "2026-10-19T09:00",
+   "end": "2026-10-19T10:00",
+   "rrule": "FREQ=WEEKLY",
+   "tz": "America/New_York"
+  },
+  "moment": "2026-03-29T02:30",
+  "result": "2026-03-28T21:30"
+ },
+ {
+  "kind": "for_editing",
+  "item": {
+   "id": "tk",
+   "calendar": "arbeit",
+   "title": "Tokio früh",
+   "allDay": false,
+   "start": "2026-10-07T23:30",
+   "end": "2026-10-08T00:30",
+   "tz": "Asia/Tokyo",
+   "key": "tk@2026-10-08T06:30",
+   "zoneStart": "2026-10-08T06:30",
+   "zoneEnd": "2026-10-08T07:30"
+  },
+  "result": {
+   "id": "tk",
+   "calendar": "arbeit",
+   "title": "Tokio früh",
+   "allDay": false,
+   "start": "2026-10-08T06:30",
+   "end": "2026-10-08T07:30",
+   "tz": "Asia/Tokyo",
+   "key": "tk@2026-10-08T06:30"
+  }
+ }
+]

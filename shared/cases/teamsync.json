@@ -1,0 +1,654 @@
+[
+ {
+  "kind": "hkdf",
+  "secret": "138a632c6a67e28db35ec03b8c4e4fe0e4880df98b9c2d6baa463e491642f1b5",
+  "info": "lical v1 test",
+  "result": "4ccb11644cb13ef1061c368e3bb1827b412474ffc0f2c7d492a8f27ed929bd9e"
+ },
+ {
+  "kind": "seal",
+  "key": "138a632c6a67e28db35ec03b8c4e4fe0e4880df98b9c2d6baa463e491642f1b5",
+  "text": "Grüße – {\"a\":1}",
+  "aad": "lical v1 s/d#1",
+  "nonce": "7e47af158e9db54fc5e49029",
+  "result": {
+   "n": "fkevFY6dtU/F5JAp",
+   "c": "V/49ldyXfZnr/U0YjRqOLV5I0Ho520a8O0vsS8IW8OrnASU="
+  }
+ },
+ {
+  "kind": "public",
+  "scalar": "10934a22148d91d8daf757ed1e2765e0ff33b68b4e07f485e1b9b467ea749be5",
+  "result": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q="
+ },
+ {
+  "kind": "public",
+  "scalar": "b96ddc4c69b00032769154503348454e95d2bcea5b60679c953d706ea71743e4",
+  "result": "BEfeSdH37jF+g5x/X9NS9EU4ktHi0SfcwosAUfiAlvmn/yV6uoufDhsYD7BIREGL54ekSeBw3c6DUDOzGEwdVmY="
+ },
+ {
+  "kind": "ecdh",
+  "scalar": "10934a22148d91d8daf757ed1e2765e0ff33b68b4e07f485e1b9b467ea749be5",
+  "public": "BEfeSdH37jF+g5x/X9NS9EU4ktHi0SfcwosAUfiAlvmn/yV6uoufDhsYD7BIREGL54ekSeBw3c6DUDOzGEwdVmY=",
+  "result": "c5faaa8ecc81c4bfe98823a99e53dd39f7115cde7c5480ce71b92bb40d262071"
+ },
+ {
+  "kind": "verify",
+  "public": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q=",
+  "data": "lical v1 op\ns\nd\n1\n1\nn\nc",
+  "signature": "MEUCIB0E4ph5296hOvljZPQ8cFQYynt/Yi+nro4ostKSrZLtAiEAtKL2uBgja1Xl8MlD9ZafHUETEfWg/VnMz68jG7lNzQo=",
+  "result": true
+ },
+ {
+  "kind": "verify",
+  "public": "BEfeSdH37jF+g5x/X9NS9EU4ktHi0SfcwosAUfiAlvmn/yV6uoufDhsYD7BIREGL54ekSeBw3c6DUDOzGEwdVmY=",
+  "data": "lical v1 op\ns\nd\n1\n1\nn\nc",
+  "signature": "MEUCIQDnAuRMn9IEFyE+LH1zEKV/70nfHhlYtnhM8GchWubAjwIgJbgr19tq2+KE8EjLx0YXzhiNf/bH9L+Ukz1ZBzlnzlc=",
+  "result": false
+ },
+ {
+  "kind": "wrap",
+  "key": "138a632c6a67e28db35ec03b8c4e4fe0e4880df98b9c2d6baa463e491642f1b5",
+  "recipient": "BEfeSdH37jF+g5x/X9NS9EU4ktHi0SfcwosAUfiAlvmn/yV6uoufDhsYD7BIREGL54ekSeBw3c6DUDOzGEwdVmY=",
+  "ephemeral": "8052dbbff8d07122c5c168764340362969a6f0df447da348bc4eb7f183bf17a7",
+  "nonce": "7d3743b0df823711ee3b530d",
+  "aad": "share x",
+  "result": {
+   "e": "BGILOtTbg57LyIZeskZ31dXS3eMDFRVN9XgYL/2/VLtx5/bd9mTnG6MYbQAH8B+rL4bisA0Tfz3VC0wzLdfD5pc=",
+   "n": "fTdDsN+CNxHuO1MN",
+   "c": "kystQ9xXNk+vCIwY4D+p8YI9hS3LzQw8m+GJAxRH0ofGX8+z66iFEPdDo13DFnGF"
+  },
+  "recipientScalar": "b96ddc4c69b00032769154503348454e95d2bcea5b60679c953d706ea71743e4"
+ },
+ {
+  "kind": "fingerprint",
+  "public": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q=",
+  "result": "75e1b69fad47fcf557a5068832773490ecbfbdf5cc353b9ee3568a88a302db6c"
+ },
+ {
+  "kind": "safety",
+  "a": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q=",
+  "b": "BEfeSdH37jF+g5x/X9NS9EU4ktHi0SfcwosAUfiAlvmn/yV6uoufDhsYD7BIREGL54ekSeBw3c6DUDOzGEwdVmY=",
+  "result": "61083 87289 29010 31681"
+ },
+ {
+  "kind": "projection",
+  "event": {
+   "id": "e1",
+   "calendar": "arbeit",
+   "title": "Kundentermin Müller",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "location": "Köln",
+   "notes": "geheim",
+   "alerts": [
+    15
+   ]
+  },
+  "level": "busy",
+  "result": {
+   "id": "e1",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "title": "Belegt"
+  }
+ },
+ {
+  "kind": "projection",
+  "event": {
+   "id": "e1",
+   "calendar": "arbeit",
+   "title": "Kundentermin Müller",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "location": "Köln",
+   "notes": "geheim",
+   "alerts": [
+    15
+   ]
+  },
+  "level": "details",
+  "result": {
+   "id": "e1",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "title": "Kundentermin Müller",
+   "location": "Köln"
+  }
+ },
+ {
+  "kind": "projection",
+  "event": {
+   "id": "e2",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "urlaub",
+   "deputy": "Jens",
+   "notes": "Kreta"
+  },
+  "level": "busy",
+  "result": {
+   "id": "e2",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "urlaub",
+   "title": "Urlaub",
+   "deputy": "Jens"
+  }
+ },
+ {
+  "kind": "projection",
+  "event": {
+   "id": "e2",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "urlaub",
+   "deputy": "Jens",
+   "notes": "Kreta"
+  },
+  "level": "details",
+  "result": {
+   "id": "e2",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "urlaub",
+   "title": "Urlaub",
+   "deputy": "Jens"
+  }
+ },
+ {
+  "kind": "projection",
+  "event": {
+   "id": "e3",
+   "calendar": "privat",
+   "title": "Arzt",
+   "allDay": false,
+   "start": "2026-10-08T08:00",
+   "end": "2026-10-08T09:00",
+   "rrule": "FREQ=WEEKLY",
+   "tz": "Europe/Berlin"
+  },
+  "level": "busy",
+  "result": {
+   "id": "e3",
+   "allDay": false,
+   "start": "2026-10-08T08:00",
+   "end": "2026-10-08T09:00",
+   "rrule": "FREQ=WEEKLY",
+   "tz": "Europe/Berlin",
+   "title": "Belegt"
+  }
+ },
+ {
+  "kind": "projection",
+  "event": {
+   "id": "e3",
+   "calendar": "privat",
+   "title": "Arzt",
+   "allDay": false,
+   "start": "2026-10-08T08:00",
+   "end": "2026-10-08T09:00",
+   "rrule": "FREQ=WEEKLY",
+   "tz": "Europe/Berlin"
+  },
+  "level": "details",
+  "result": {
+   "id": "e3",
+   "allDay": false,
+   "start": "2026-10-08T08:00",
+   "end": "2026-10-08T09:00",
+   "rrule": "FREQ=WEEKLY",
+   "tz": "Europe/Berlin",
+   "title": "Arzt"
+  }
+ },
+ {
+  "kind": "stream",
+  "owner": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q=",
+  "key": "138a632c6a67e28db35ec03b8c4e4fe0e4880df98b9c2d6baa463e491642f1b5",
+  "stream": "s-olaf",
+  "ops": [
+   {
+    "device": "phone",
+    "seq": 1,
+    "clock": 1,
+    "box": {
+     "n": "ZU4sh9eCDL6xtbVQ",
+     "c": "JKhSUzRQ2Mh0P3tsie+Oyp276Rge7kejzpD93SXpcuJdhkZsu3DVKptyeqobI5S/DTsPZQ2wHiShXwMoBSa0DEnfYDtOkA/NaUTYJkaRnpmYPu4IT273e5lVwJl0IfPlS4V5MIX6pmK/uRdw8AO5ScDeWxsFVs8Cs/kV1/cWxOKmMlCh8JQfpWal0qOweJNtlR4Gb+5X3QY6VfCn+gVv0rCls179QcQ="
+    },
+    "sig": "MEUCICGfDBQSUrc6raOtnFGpkIc69uhw+paJWTcURvjJs+SWAiEAyCE18Oz+3H9Bg/8GePJmQJoVkWsQ+DohVF9QmCvbzts="
+   },
+   {
+    "device": "phone",
+    "seq": 2,
+    "clock": 2,
+    "box": {
+     "n": "6InTC4VCHozIMNFf",
+     "c": "JybqfGuVTdT4Fj2tkD1Wa0mIQ09ZlTakDozZMoSmetKrdNho08aqGIG4DenZryYnGxPibOCb7vEogrruXLh3Kz2TGq8FpcCqlYEJNvfnqDhoRrnqfsEBH5TJI1HgWaMov2Bg343k7IZ2kjPC+CKMgOIrDL6A4mpbP/TuEMp4EuL3bseRM/T9jIeO43yk+M6kZoIFKzSXJgbAOVcP"
+    },
+    "sig": "MEYCIQCOZAE2Lrmi+ASqai5FBk72NsXvdF6oZ63QY/4m5wbswAIhANpQfKo6J+vv2S1+rK/A6D0y0DQWhnICHI8RCGI1FJed"
+   },
+   {
+    "device": "phone",
+    "seq": 3,
+    "clock": 3,
+    "box": {
+     "n": "gBElE20ypih85Csm",
+     "c": "k4FXOUtaB5kcKT2G3m9JuMOAuaj5fgE3JAV9D85nzGV1XznHtj4lPZxYl/+v1Ypoe3im2b9bh8dWF/QAhBb9fLxnaeWd8e79IiZPaa7A3w/WS+xfxLnV2KKH+kOMNZVKrO1tmdhetM2aSXjz93M6PyRvzlob/lF10hNMKX/RpvbxlVoExQOs05xboDpAP54LlngMijE9eEai5c2zBMqzBWfj3HeJ3ebz/7rMCox+jheR"
+    },
+    "sig": "MEUCIBNbu/GkNfPZIA77Mg7VGjMKj6OUCufHvT5/rA9Yobr/AiEAo7vXJWpZTn5uM8wFpsoRFt3AzNx+LjuhQgdf3SmO87s="
+   },
+   {
+    "device": "laptop",
+    "seq": 1,
+    "clock": 4,
+    "box": {
+     "n": "9UKd66tVmrM70wiC",
+     "c": "DNElcdoXeW7Xzkc45gC8vjEZksjka9lmLJjJ+K3JTzFV2dF2kNCD9SQ26yq8Dzw0I2f7ewcU0THGTo2WIS/LgxkcQojUx+rYEMQYzSoJrSuRJFhEF3jx+lT4BbZ+jGYe3jzvOzDwaUJdv36xbhclIfC2VGXOC+B/Q5V3SC8acEyYJ6T5mnjzPwhGMbm9zNNcHeZFjiiRSQsLPXstU+2uSeEg7Wu54OyyjJTIWpfBb901PDwJ"
+    },
+    "sig": "MEUCIBgv4DW9omj6BLAGvQYTewrbI/YhaqnBhq1vE001EBCYAiEAhDvmlZ7X7BSFC6n+AAt11G8sM9mmGd+mzJ51xRDM+AI="
+   },
+   {
+    "device": "phone",
+    "seq": 4,
+    "clock": 4,
+    "box": {
+     "n": "hCJ2M93QlcpivO47",
+     "c": "TweZ9pq2/cGe+smQll2xGBFZwvfkFNzILez2XrUJbIjfBRzmca7vnd7r7A=="
+    },
+    "sig": "MEQCIFYrsVF65dnnrLCSqFtdEYFhn+623ngYwnWVEsQul8udAiB1enO8Z8v/3G2y4h/MPigRCQuB54R1WS/V8RTWafVw9w=="
+   },
+   {
+    "device": "phone",
+    "seq": 1,
+    "clock": 1,
+    "box": {
+     "n": "ZU4sh9eCDL6xtbVQ",
+     "c": "JKhSUzRQ2Mh0P3tsie+Oyp276Rge7kejzpD93SXpcuJdhkZsu3DVKptyeqobI5S/DTsPZQ2wHiShXwMoBSa0DEnfYDtOkA/NaUTYJkaRnpmYPu4IT273e5lVwJl0IfPlS4V5MIX6pmK/uRdw8AO5ScDeWxsFVs8Cs/kV1/cWxOKmMlCh8JQfpWal0qOweJNtlR4Gb+5X3QY6VfCn+gVv0rCls179QcQ="
+    },
+    "sig": "MEUCICGfDBQSUrc6raOtnFGpkIc69uhw+paJWTcURvjJs+SWAiEAyCE18Oz+3H9Bg/8GePJmQJoVkWsQ+DohVF9QmCvbzts="
+   },
+   {
+    "device": "phone",
+    "seq": 2,
+    "clock": 2,
+    "box": {
+     "n": "6InTC4VCHozIMNFf",
+     "c": "JybqfGuVTdT4Fj2tkD1Wa0mIQ09ZlTakDozZMoSmetKrdNho08aqGIG4DenZryYnGxPibOCb7vEogrruXLh3Kz2TGq8FpcCqlYEJNvfnqDhoRrnqfsEBH5TJI1HgWaMov2Bg343k7IZ2kjPC+CKMgOIrDL6A4mpbP/TuEMp4EuL3bseRM/T9jIeO43yk+M6kZoIFKzSXJgbAOVcP"
+    },
+    "sig": "MEYCIQCOZAE2Lrmi+ASqai5FBk72NsXvdF6oZ63QY/4m5wbswAIhANpQfKo6J+vv2S1+rK/A6D0y0DQWhnICHI8RCGI1FJed"
+   },
+   {
+    "device": "phone",
+    "seq": 3,
+    "clock": 3,
+    "box": {
+     "n": "gBElE20ypih85Csm",
+     "c": "k4FXOUtaB5kcKT2G3m9JuMOAuaj5fgE3JAV9D85nzGV1XznHtj4lPZxYl/+v1Ypoe3im2b9bh8dWF/QAhBb9fLxnaeWd8e79IiZPaa7A3w/WS+xfxLnV2KKH+kOMNZVKrO1tmdhetM2aSXjz93M6PyRvzlob/lF10hNMKX/RpvbxlVoExQOs05xboDpAP54LlngMijE9eEai5c2zBMqzBWfj3HeJ3ebz/7rMCox+jheR"
+    },
+    "sig": "MEUCIBNbu/GkNfPZIA77Mg7VGjMKj6OUCufHvT5/rA9Yobr/AiEAo7vXJWpZTn5uM8wFpsoRFt3AzNx+LjuhQgdf3SmO87s="
+   },
+   {
+    "device": "laptop",
+    "seq": 1,
+    "clock": 4,
+    "box": {
+     "n": "9UKd66tVmrM70wiC",
+     "c": "DNElcdoXeW7Xzkc45gC8vjEZksjka9lmLJjJ+K3JTzFV2dF2kNCD9SQ26yq8Dzw0I2f7ewcU0THGTo2WIS/LgxkcQojUx+rYEMQYzSoJrSuRJFhEF3jx+lT4BbZ+jGYe3jzvOzDwaUJdv36xbhclIfC2VGXOC+B/Q5V3SC8acEyYJ6T5mnjzPwhGMbm9zNNcHeZFjiiRSQsLPXstU+2uSeEg7Wu54OyyjJTIWpfBb901PDwJ"
+    },
+    "sig": "MEUCIBgv4DW9omj6BLAGvQYTewrbI/YhaqnBhq1vE001EBCYAiEAhDvmlZ7X7BSFC6n+AAt11G8sM9mmGd+mzJ51xRDM+AI="
+   },
+   {
+    "device": "phone",
+    "seq": 4,
+    "clock": 4,
+    "box": {
+     "n": "hCJ2M93QlcpivO47",
+     "c": "TweZ9pq2/cGe+smQll2xGBFZwvfkFNzILez2XrUJbIjfBRzmca7vnd7r7A=="
+    },
+    "sig": "MEQCIFYrsVF65dnnrLCSqFtdEYFhn+623ngYwnWVEsQul8udAiB1enO8Z8v/3G2y4h/MPigRCQuB54R1WS/V8RTWafVw9w=="
+   }
+  ],
+  "result": {
+   "state": [
+    {
+     "allDay": false,
+     "end": "2026-10-07T15:00",
+     "id": "e1",
+     "location": "Köln",
+     "start": "2026-10-07T14:00",
+     "title": "Kundentermin Müller (verschoben)"
+    },
+    {
+     "absence": "urlaub",
+     "allDay": true,
+     "deputy": "Jens",
+     "end": "2026-10-17",
+     "id": "e2",
+     "start": "2026-10-12",
+     "title": "Urlaub"
+    }
+   ],
+   "heads": {
+    "phone": 4,
+    "laptop": 1
+   }
+  }
+ },
+ {
+  "kind": "stream",
+  "owner": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q=",
+  "key": "138a632c6a67e28db35ec03b8c4e4fe0e4880df98b9c2d6baa463e491642f1b5",
+  "stream": "s-olaf",
+  "ops": [
+   {
+    "device": "phone",
+    "seq": 4,
+    "clock": 4,
+    "box": {
+     "n": "hCJ2M93QlcpivO47",
+     "c": "TweZ9pq2/cGe+smQll2xGBFZwvfkFNzILez2XrUJbIjfBRzmca7vnd7r7A=="
+    },
+    "sig": "MEQCIFYrsVF65dnnrLCSqFtdEYFhn+623ngYwnWVEsQul8udAiB1enO8Z8v/3G2y4h/MPigRCQuB54R1WS/V8RTWafVw9w=="
+   },
+   {
+    "device": "laptop",
+    "seq": 1,
+    "clock": 4,
+    "box": {
+     "n": "9UKd66tVmrM70wiC",
+     "c": "DNElcdoXeW7Xzkc45gC8vjEZksjka9lmLJjJ+K3JTzFV2dF2kNCD9SQ26yq8Dzw0I2f7ewcU0THGTo2WIS/LgxkcQojUx+rYEMQYzSoJrSuRJFhEF3jx+lT4BbZ+jGYe3jzvOzDwaUJdv36xbhclIfC2VGXOC+B/Q5V3SC8acEyYJ6T5mnjzPwhGMbm9zNNcHeZFjiiRSQsLPXstU+2uSeEg7Wu54OyyjJTIWpfBb901PDwJ"
+    },
+    "sig": "MEUCIBgv4DW9omj6BLAGvQYTewrbI/YhaqnBhq1vE001EBCYAiEAhDvmlZ7X7BSFC6n+AAt11G8sM9mmGd+mzJ51xRDM+AI="
+   },
+   {
+    "device": "phone",
+    "seq": 3,
+    "clock": 3,
+    "box": {
+     "n": "gBElE20ypih85Csm",
+     "c": "k4FXOUtaB5kcKT2G3m9JuMOAuaj5fgE3JAV9D85nzGV1XznHtj4lPZxYl/+v1Ypoe3im2b9bh8dWF/QAhBb9fLxnaeWd8e79IiZPaa7A3w/WS+xfxLnV2KKH+kOMNZVKrO1tmdhetM2aSXjz93M6PyRvzlob/lF10hNMKX/RpvbxlVoExQOs05xboDpAP54LlngMijE9eEai5c2zBMqzBWfj3HeJ3ebz/7rMCox+jheR"
+    },
+    "sig": "MEUCIBNbu/GkNfPZIA77Mg7VGjMKj6OUCufHvT5/rA9Yobr/AiEAo7vXJWpZTn5uM8wFpsoRFt3AzNx+LjuhQgdf3SmO87s="
+   },
+   {
+    "device": "phone",
+    "seq": 2,
+    "clock": 2,
+    "box": {
+     "n": "6InTC4VCHozIMNFf",
+     "c": "JybqfGuVTdT4Fj2tkD1Wa0mIQ09ZlTakDozZMoSmetKrdNho08aqGIG4DenZryYnGxPibOCb7vEogrruXLh3Kz2TGq8FpcCqlYEJNvfnqDhoRrnqfsEBH5TJI1HgWaMov2Bg343k7IZ2kjPC+CKMgOIrDL6A4mpbP/TuEMp4EuL3bseRM/T9jIeO43yk+M6kZoIFKzSXJgbAOVcP"
+    },
+    "sig": "MEYCIQCOZAE2Lrmi+ASqai5FBk72NsXvdF6oZ63QY/4m5wbswAIhANpQfKo6J+vv2S1+rK/A6D0y0DQWhnICHI8RCGI1FJed"
+   },
+   {
+    "device": "phone",
+    "seq": 1,
+    "clock": 1,
+    "box": {
+     "n": "ZU4sh9eCDL6xtbVQ",
+     "c": "JKhSUzRQ2Mh0P3tsie+Oyp276Rge7kejzpD93SXpcuJdhkZsu3DVKptyeqobI5S/DTsPZQ2wHiShXwMoBSa0DEnfYDtOkA/NaUTYJkaRnpmYPu4IT273e5lVwJl0IfPlS4V5MIX6pmK/uRdw8AO5ScDeWxsFVs8Cs/kV1/cWxOKmMlCh8JQfpWal0qOweJNtlR4Gb+5X3QY6VfCn+gVv0rCls179QcQ="
+    },
+    "sig": "MEUCICGfDBQSUrc6raOtnFGpkIc69uhw+paJWTcURvjJs+SWAiEAyCE18Oz+3H9Bg/8GePJmQJoVkWsQ+DohVF9QmCvbzts="
+   },
+   {
+    "device": "phone",
+    "seq": 4,
+    "clock": 4,
+    "box": {
+     "n": "hCJ2M93QlcpivO47",
+     "c": "TweZ9pq2/cGe+smQll2xGBFZwvfkFNzILez2XrUJbIjfBRzmca7vnd7r7A=="
+    },
+    "sig": "MEQCIFYrsVF65dnnrLCSqFtdEYFhn+623ngYwnWVEsQul8udAiB1enO8Z8v/3G2y4h/MPigRCQuB54R1WS/V8RTWafVw9w=="
+   },
+   {
+    "device": "laptop",
+    "seq": 1,
+    "clock": 4,
+    "box": {
+     "n": "9UKd66tVmrM70wiC",
+     "c": "DNElcdoXeW7Xzkc45gC8vjEZksjka9lmLJjJ+K3JTzFV2dF2kNCD9SQ26yq8Dzw0I2f7ewcU0THGTo2WIS/LgxkcQojUx+rYEMQYzSoJrSuRJFhEF3jx+lT4BbZ+jGYe3jzvOzDwaUJdv36xbhclIfC2VGXOC+B/Q5V3SC8acEyYJ6T5mnjzPwhGMbm9zNNcHeZFjiiRSQsLPXstU+2uSeEg7Wu54OyyjJTIWpfBb901PDwJ"
+    },
+    "sig": "MEUCIBgv4DW9omj6BLAGvQYTewrbI/YhaqnBhq1vE001EBCYAiEAhDvmlZ7X7BSFC6n+AAt11G8sM9mmGd+mzJ51xRDM+AI="
+   },
+   {
+    "device": "phone",
+    "seq": 3,
+    "clock": 3,
+    "box": {
+     "n": "gBElE20ypih85Csm",
+     "c": "k4FXOUtaB5kcKT2G3m9JuMOAuaj5fgE3JAV9D85nzGV1XznHtj4lPZxYl/+v1Ypoe3im2b9bh8dWF/QAhBb9fLxnaeWd8e79IiZPaa7A3w/WS+xfxLnV2KKH+kOMNZVKrO1tmdhetM2aSXjz93M6PyRvzlob/lF10hNMKX/RpvbxlVoExQOs05xboDpAP54LlngMijE9eEai5c2zBMqzBWfj3HeJ3ebz/7rMCox+jheR"
+    },
+    "sig": "MEUCIBNbu/GkNfPZIA77Mg7VGjMKj6OUCufHvT5/rA9Yobr/AiEAo7vXJWpZTn5uM8wFpsoRFt3AzNx+LjuhQgdf3SmO87s="
+   },
+   {
+    "device": "phone",
+    "seq": 2,
+    "clock": 2,
+    "box": {
+     "n": "6InTC4VCHozIMNFf",
+     "c": "JybqfGuVTdT4Fj2tkD1Wa0mIQ09ZlTakDozZMoSmetKrdNho08aqGIG4DenZryYnGxPibOCb7vEogrruXLh3Kz2TGq8FpcCqlYEJNvfnqDhoRrnqfsEBH5TJI1HgWaMov2Bg343k7IZ2kjPC+CKMgOIrDL6A4mpbP/TuEMp4EuL3bseRM/T9jIeO43yk+M6kZoIFKzSXJgbAOVcP"
+    },
+    "sig": "MEYCIQCOZAE2Lrmi+ASqai5FBk72NsXvdF6oZ63QY/4m5wbswAIhANpQfKo6J+vv2S1+rK/A6D0y0DQWhnICHI8RCGI1FJed"
+   },
+   {
+    "device": "phone",
+    "seq": 1,
+    "clock": 1,
+    "box": {
+     "n": "ZU4sh9eCDL6xtbVQ",
+     "c": "JKhSUzRQ2Mh0P3tsie+Oyp276Rge7kejzpD93SXpcuJdhkZsu3DVKptyeqobI5S/DTsPZQ2wHiShXwMoBSa0DEnfYDtOkA/NaUTYJkaRnpmYPu4IT273e5lVwJl0IfPlS4V5MIX6pmK/uRdw8AO5ScDeWxsFVs8Cs/kV1/cWxOKmMlCh8JQfpWal0qOweJNtlR4Gb+5X3QY6VfCn+gVv0rCls179QcQ="
+    },
+    "sig": "MEUCICGfDBQSUrc6raOtnFGpkIc69uhw+paJWTcURvjJs+SWAiEAyCE18Oz+3H9Bg/8GePJmQJoVkWsQ+DohVF9QmCvbzts="
+   }
+  ],
+  "result": {
+   "state": [
+    {
+     "allDay": false,
+     "end": "2026-10-07T15:00",
+     "id": "e1",
+     "location": "Köln",
+     "start": "2026-10-07T14:00",
+     "title": "Kundentermin Müller (verschoben)"
+    },
+    {
+     "absence": "urlaub",
+     "allDay": true,
+     "deputy": "Jens",
+     "end": "2026-10-17",
+     "id": "e2",
+     "start": "2026-10-12",
+     "title": "Urlaub"
+    }
+   ],
+   "heads": {
+    "phone": 4,
+    "laptop": 1
+   }
+  }
+ },
+ {
+  "kind": "stream",
+  "owner": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q=",
+  "key": "138a632c6a67e28db35ec03b8c4e4fe0e4880df98b9c2d6baa463e491642f1b5",
+  "stream": "s-olaf",
+  "ops": [
+   {
+    "device": "laptop",
+    "seq": 1,
+    "clock": 4,
+    "box": {
+     "n": "9UKd66tVmrM70wiC",
+     "c": "DNElcdoXeW7Xzkc45gC8vjEZksjka9lmLJjJ+K3JTzFV2dF2kNCD9SQ26yq8Dzw0I2f7ewcU0THGTo2WIS/LgxkcQojUx+rYEMQYzSoJrSuRJFhEF3jx+lT4BbZ+jGYe3jzvOzDwaUJdv36xbhclIfC2VGXOC+B/Q5V3SC8acEyYJ6T5mnjzPwhGMbm9zNNcHeZFjiiRSQsLPXstU+2uSeEg7Wu54OyyjJTIWpfBb901PDwJ"
+    },
+    "sig": "MEUCIBgv4DW9omj6BLAGvQYTewrbI/YhaqnBhq1vE001EBCYAiEAhDvmlZ7X7BSFC6n+AAt11G8sM9mmGd+mzJ51xRDM+AI="
+   },
+   {
+    "device": "phone",
+    "seq": 1,
+    "clock": 1,
+    "box": {
+     "n": "ZU4sh9eCDL6xtbVQ",
+     "c": "JKhSUzRQ2Mh0P3tsie+Oyp276Rge7kejzpD93SXpcuJdhkZsu3DVKptyeqobI5S/DTsPZQ2wHiShXwMoBSa0DEnfYDtOkA/NaUTYJkaRnpmYPu4IT273e5lVwJl0IfPlS4V5MIX6pmK/uRdw8AO5ScDeWxsFVs8Cs/kV1/cWxOKmMlCh8JQfpWal0qOweJNtlR4Gb+5X3QY6VfCn+gVv0rCls179QcQ="
+    },
+    "sig": "MEUCICGfDBQSUrc6raOtnFGpkIc69uhw+paJWTcURvjJs+SWAiEAyCE18Oz+3H9Bg/8GePJmQJoVkWsQ+DohVF9QmCvbzts="
+   },
+   {
+    "device": "phone",
+    "seq": 4,
+    "clock": 4,
+    "box": {
+     "n": "hCJ2M93QlcpivO47",
+     "c": "TweZ9pq2/cGe+smQll2xGBFZwvfkFNzILez2XrUJbIjfBRzmca7vnd7r7A=="
+    },
+    "sig": "MEQCIFYrsVF65dnnrLCSqFtdEYFhn+623ngYwnWVEsQul8udAiB1enO8Z8v/3G2y4h/MPigRCQuB54R1WS/V8RTWafVw9w=="
+   },
+   {
+    "device": "phone",
+    "seq": 2,
+    "clock": 2,
+    "box": {
+     "n": "6InTC4VCHozIMNFf",
+     "c": "JybqfGuVTdT4Fj2tkD1Wa0mIQ09ZlTakDozZMoSmetKrdNho08aqGIG4DenZryYnGxPibOCb7vEogrruXLh3Kz2TGq8FpcCqlYEJNvfnqDhoRrnqfsEBH5TJI1HgWaMov2Bg343k7IZ2kjPC+CKMgOIrDL6A4mpbP/TuEMp4EuL3bseRM/T9jIeO43yk+M6kZoIFKzSXJgbAOVcP"
+    },
+    "sig": "MEYCIQCOZAE2Lrmi+ASqai5FBk72NsXvdF6oZ63QY/4m5wbswAIhANpQfKo6J+vv2S1+rK/A6D0y0DQWhnICHI8RCGI1FJed"
+   },
+   {
+    "device": "phone",
+    "seq": 3,
+    "clock": 3,
+    "box": {
+     "n": "gBElE20ypih85Csm",
+     "c": "k4FXOUtaB5kcKT2G3m9JuMOAuaj5fgE3JAV9D85nzGV1XznHtj4lPZxYl/+v1Ypoe3im2b9bh8dWF/QAhBb9fLxnaeWd8e79IiZPaa7A3w/WS+xfxLnV2KKH+kOMNZVKrO1tmdhetM2aSXjz93M6PyRvzlob/lF10hNMKX/RpvbxlVoExQOs05xboDpAP54LlngMijE9eEai5c2zBMqzBWfj3HeJ3ebz/7rMCox+jheR"
+    },
+    "sig": "MEUCIBNbu/GkNfPZIA77Mg7VGjMKj6OUCufHvT5/rA9Yobr/AiEAo7vXJWpZTn5uM8wFpsoRFt3AzNx+LjuhQgdf3SmO87s="
+   },
+   {
+    "device": "laptop",
+    "seq": 1,
+    "clock": 4,
+    "box": {
+     "n": "9UKd66tVmrM70wiC",
+     "c": "DNElcdoXeW7Xzkc45gC8vjEZksjka9lmLJjJ+K3JTzFV2dF2kNCD9SQ26yq8Dzw0I2f7ewcU0THGTo2WIS/LgxkcQojUx+rYEMQYzSoJrSuRJFhEF3jx+lT4BbZ+jGYe3jzvOzDwaUJdv36xbhclIfC2VGXOC+B/Q5V3SC8acEyYJ6T5mnjzPwhGMbm9zNNcHeZFjiiRSQsLPXstU+2uSeEg7Wu54OyyjJTIWpfBb901PDwJ"
+    },
+    "sig": "MEUCIBgv4DW9omj6BLAGvQYTewrbI/YhaqnBhq1vE001EBCYAiEAhDvmlZ7X7BSFC6n+AAt11G8sM9mmGd+mzJ51xRDM+AI="
+   },
+   {
+    "device": "phone",
+    "seq": 1,
+    "clock": 1,
+    "box": {
+     "n": "ZU4sh9eCDL6xtbVQ",
+     "c": "JKhSUzRQ2Mh0P3tsie+Oyp276Rge7kejzpD93SXpcuJdhkZsu3DVKptyeqobI5S/DTsPZQ2wHiShXwMoBSa0DEnfYDtOkA/NaUTYJkaRnpmYPu4IT273e5lVwJl0IfPlS4V5MIX6pmK/uRdw8AO5ScDeWxsFVs8Cs/kV1/cWxOKmMlCh8JQfpWal0qOweJNtlR4Gb+5X3QY6VfCn+gVv0rCls179QcQ="
+    },
+    "sig": "MEUCICGfDBQSUrc6raOtnFGpkIc69uhw+paJWTcURvjJs+SWAiEAyCE18Oz+3H9Bg/8GePJmQJoVkWsQ+DohVF9QmCvbzts="
+   },
+   {
+    "device": "phone",
+    "seq": 4,
+    "clock": 4,
+    "box": {
+     "n": "hCJ2M93QlcpivO47",
+     "c": "TweZ9pq2/cGe+smQll2xGBFZwvfkFNzILez2XrUJbIjfBRzmca7vnd7r7A=="
+    },
+    "sig": "MEQCIFYrsVF65dnnrLCSqFtdEYFhn+623ngYwnWVEsQul8udAiB1enO8Z8v/3G2y4h/MPigRCQuB54R1WS/V8RTWafVw9w=="
+   },
+   {
+    "device": "phone",
+    "seq": 2,
+    "clock": 2,
+    "box": {
+     "n": "6InTC4VCHozIMNFf",
+     "c": "JybqfGuVTdT4Fj2tkD1Wa0mIQ09ZlTakDozZMoSmetKrdNho08aqGIG4DenZryYnGxPibOCb7vEogrruXLh3Kz2TGq8FpcCqlYEJNvfnqDhoRrnqfsEBH5TJI1HgWaMov2Bg343k7IZ2kjPC+CKMgOIrDL6A4mpbP/TuEMp4EuL3bseRM/T9jIeO43yk+M6kZoIFKzSXJgbAOVcP"
+    },
+    "sig": "MEYCIQCOZAE2Lrmi+ASqai5FBk72NsXvdF6oZ63QY/4m5wbswAIhANpQfKo6J+vv2S1+rK/A6D0y0DQWhnICHI8RCGI1FJed"
+   },
+   {
+    "device": "phone",
+    "seq": 3,
+    "clock": 3,
+    "box": {
+     "n": "gBElE20ypih85Csm",
+     "c": "k4FXOUtaB5kcKT2G3m9JuMOAuaj5fgE3JAV9D85nzGV1XznHtj4lPZxYl/+v1Ypoe3im2b9bh8dWF/QAhBb9fLxnaeWd8e79IiZPaa7A3w/WS+xfxLnV2KKH+kOMNZVKrO1tmdhetM2aSXjz93M6PyRvzlob/lF10hNMKX/RpvbxlVoExQOs05xboDpAP54LlngMijE9eEai5c2zBMqzBWfj3HeJ3ebz/7rMCox+jheR"
+    },
+    "sig": "MEUCIBNbu/GkNfPZIA77Mg7VGjMKj6OUCufHvT5/rA9Yobr/AiEAo7vXJWpZTn5uM8wFpsoRFt3AzNx+LjuhQgdf3SmO87s="
+   }
+  ],
+  "result": {
+   "state": [
+    {
+     "allDay": false,
+     "end": "2026-10-07T15:00",
+     "id": "e1",
+     "location": "Köln",
+     "start": "2026-10-07T14:00",
+     "title": "Kundentermin Müller (verschoben)"
+    },
+    {
+     "absence": "urlaub",
+     "allDay": true,
+     "deputy": "Jens",
+     "end": "2026-10-17",
+     "id": "e2",
+     "start": "2026-10-12",
+     "title": "Urlaub"
+    }
+   ],
+   "heads": {
+    "laptop": 1,
+    "phone": 4
+   }
+  }
+ },
+ {
+  "kind": "refused",
+  "owner": "BGd6M6Fd75eT66+NcjlvIp6FNN5HPvbz63STIj+OKknWFDCA7uXRXdQYUsLBrmfanv5U3IyC3bzSwinGKiCgR/Q=",
+  "key": "138a632c6a67e28db35ec03b8c4e4fe0e4880df98b9c2d6baa463e491642f1b5",
+  "stream": "s-olaf",
+  "ops": [
+   {
+    "device": "phone",
+    "seq": 9,
+    "clock": 1,
+    "box": {
+     "n": "ZU4sh9eCDL6xtbVQ",
+     "c": "JKhSUzRQ2Mh0P3tsie+Oyp276Rge7kejzpD93SXpcuJdhkZsu3DVKptyeqobI5S/DTsPZQ2wHiShXwMoBSa0DEnfYDtOkA/NaUTYJkaRnpmYPu4IT273e5lVwJl0IfPlS4V5MIX6pmK/uRdw8AO5ScDeWxsFVs8Cs/kV1/cWxOKmMlCh8JQfpWal0qOweJNtlR4Gb+5X3QY6VfCn+gVv0rCls179QcQ="
+    },
+    "sig": "MEUCIQCfSatvy24fu+MJMhFPMSieA3kE92EmAAG7GAgu/ijItQIgfRf+fJv4rD8o6pZEHVO2YCGz4bwSkviKSWY9YtY9miI="
+   },
+   {
+    "device": "phone",
+    "seq": 2,
+    "clock": 2,
+    "box": {
+     "n": "6InTC4VCHozIMNFf",
+     "c": "JibqfGuVTdT4Fj2tkD1Wa0mIQ09ZlTakDozZMoSmetKrdNho08aqGIG4DenZryYnGxPibOCb7vEogrruXLh3Kz2TGq8FpcCqlYEJNvfnqDhoRrnqfsEBH5TJI1HgWaMov2Bg343k7IZ2kjPC+CKMgOIrDL6A4mpbP/TuEMp4EuL3bseRM/T9jIeO43yk+M6kZoIFKzSXJgbAOVcP"
+    },
+    "sig": "MEYCIQCOZAE2Lrmi+ASqai5FBk72NsXvdF6oZ63QY/4m5wbswAIhANpQfKo6J+vv2S1+rK/A6D0y0DQWhnICHI8RCGI1FJed"
+   },
+   {
+    "device": "phone",
+    "seq": 7,
+    "clock": 3,
+    "box": {
+     "n": "gBElE20ypih85Csm",
+     "c": "k4FXOUtaB5kcKT2G3m9JuMOAuaj5fgE3JAV9D85nzGV1XznHtj4lPZxYl/+v1Ypoe3im2b9bh8dWF/QAhBb9fLxnaeWd8e79IiZPaa7A3w/WS+xfxLnV2KKH+kOMNZVKrO1tmdhetM2aSXjz93M6PyRvzlob/lF10hNMKX/RpvbxlVoExQOs05xboDpAP54LlngMijE9eEai5c2zBMqzBWfj3HeJ3ebz/7rMCox+jheR"
+    },
+    "sig": "MEUCIBNbu/GkNfPZIA77Mg7VGjMKj6OUCufHvT5/rA9Yobr/AiEAo7vXJWpZTn5uM8wFpsoRFt3AzNx+LjuhQgdf3SmO87s="
+   }
+  ]
+ }
+]

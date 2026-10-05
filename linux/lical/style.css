@@ -1,0 +1,148 @@
+/* LiCal – macOS Calendar look: Inter, white content, light gray sidebar, gray capsules. */
+
+window, .lical-content, .lical-toolbar {
+  font-family: Inter, "Ubuntu Sans", sans-serif;
+}
+
+.lical-content {
+  background-color: #ffffff;
+}
+
+.lical-toolbar {
+  background-color: #ffffff;
+  box-shadow: none;
+  border: none;
+  min-height: 52px;
+}
+
+.lical-sidebar {
+  background-color: #f2f2f4;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  padding-top: 6px;
+}
+
+.lical-sidebar-heading {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(60, 60, 67, 0.55);
+  margin: 10px 18px 4px;
+}
+
+.lical-sidebar-row {
+  padding: 5px 10px;
+  margin: 0 8px;
+  border-radius: 7px;
+  font-size: 13px;
+}
+
+.lical-sidebar-row:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Segmented control: a gray capsule, the chosen segment a raised white pill. */
+.lical-segmented {
+  background-color: rgba(120, 120, 128, 0.12);
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.lical-segment {
+  background: none;
+  box-shadow: none;
+  border-radius: 999px;
+  min-height: 26px;
+  padding: 0 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1d1d1f;
+}
+
+.lical-segment.selected {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14), 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+}
+
+/* Glass buttons (round icons, "Heute" pill). */
+.lical-glass {
+  background-color: rgba(120, 120, 128, 0.12);
+  box-shadow: none;
+  border-radius: 999px;
+  min-height: 32px;
+  min-width: 32px;
+  color: #1d1d1f;
+}
+
+.lical-glass:hover {
+  background-color: rgba(120, 120, 128, 0.2);
+}
+
+.lical-glass:checked {
+  background-color: rgba(120, 120, 128, 0.24);
+}
+
+.lical-small {
+  min-height: 28px;
+  min-width: 28px;
+}
+
+.lical-pill {
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 28px;
+}
+
+.lical-title-row {
+  padding: 8px 20px 10px 22px;
+}
+
+.lical-title {
+  font-size: 29px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+}
+
+/* Dark appearance (class set by the window from Adwaita's style manager). */
+.lical-dark .lical-content, .lical-dark .lical-toolbar { background-color: #1e1e1e; }
+.lical-dark .lical-sidebar { background-color: #262628; border-right-color: rgba(255, 255, 255, 0.06); }
+.lical-dark .lical-sidebar-heading { color: rgba(235, 235, 245, 0.5); }
+.lical-dark .lical-sidebar-row:hover { background-color: rgba(255, 255, 255, 0.06); }
+.lical-dark .lical-segmented { background-color: rgba(120, 120, 128, 0.24); }
+.lical-dark .lical-segment { color: #f5f5f7; }
+.lical-dark .lical-segment.selected { background-color: rgba(255, 255, 255, 0.2); box-shadow: none; }
+.lical-dark .lical-glass { background-color: rgba(120, 120, 128, 0.24); color: #f5f5f7; }
+.lical-dark .lical-glass:hover { background-color: rgba(120, 120, 128, 0.34); }
+.lical-dark .lical-title, .lical-dark .lical-sidebar-row { color: #f5f5f7; }
+
+/* Inspector (macOS): a light popover, title large, labels right-aligned in gray. */
+.lical-inspector > contents { padding: 0; border-radius: 12px; }
+.lical-inspector-title { font-size: 17px; font-weight: 600; min-height: 30px; }
+.lical-inspector-place { font-size: 13px; color: rgba(60, 60, 67, 0.75); }
+.lical-inspector-label { font-size: 12px; color: rgba(60, 60, 67, 0.6); }
+.lical-inspector-notes, .lical-inspector-notes text { background: none; font-size: 13px; }
+.lical-inspector-hint { font-size: 13px; color: rgba(60, 60, 67, 0.4); margin-left: 4px; margin-top: 4px; }
+.lical-field { min-height: 26px; padding: 0 6px; font-size: 13px; font-feature-settings: "tnum"; }
+.lical-delete { color: #ff3b30; font-size: 13px; padding: 2px 6px; }
+.lical-dark .lical-inspector-place { color: rgba(235, 235, 245, 0.7); }
+.lical-dark .lical-inspector-label, .lical-dark .lical-inspector-hint { color: rgba(235, 235, 245, 0.5); }
+.lical-dark .lical-delete { color: #ff453a; }
+.lical-inspector entry.flat, .lical-inspector entry.flat:focus-within { outline: none; box-shadow: none; background: none; }
+.lical-inspector dropdown > button { font-weight: 400; font-size: 13px; min-height: 26px; padding: 0 8px; }
+.lical-inspector dropdown > button label { font-weight: 400; }
+
+/* Search field like the Mac: a gray rounded field in the toolbar; ＋ field. */
+.lical-search { border-radius: 999px; min-height: 30px; background-color: rgba(120, 120, 128, 0.12); box-shadow: none; }
+.lical-dark .lical-search { background-color: rgba(120, 120, 128, 0.24); }
+.lical-quick-entry { min-height: 32px; font-size: 14px; }
+.lical-sidebar-add { font-size: 12px; color: rgba(60, 60, 67, 0.6); padding: 2px 8px; }
+.lical-dark .lical-sidebar-add { color: rgba(235, 235, 245, 0.55); }
+
+/* Day view's right column (macOS 26). */
+.lical-day-details { background-color: #fbfbfc; }
+.lical-dark .lical-day-details { background-color: #222224; }
+.lical-details-title { font-size: 17px; font-weight: 700; }
+.lical-details-line { font-size: 13px; }
+.lical-details-dim { font-size: 12px; color: rgba(60, 60, 67, 0.6); }
+.lical-details-notes { font-size: 13px; margin-top: 6px; }
+.lical-dark .lical-details-dim { color: rgba(235, 235, 245, 0.55); }
