@@ -1,0 +1,630 @@
+[
+ {
+  "kind": "label",
+  "minutes": 15,
+  "allDay": false,
+  "result": "15 Minuten vorher"
+ },
+ {
+  "kind": "label",
+  "minutes": 0,
+  "allDay": false,
+  "result": "Zum Zeitpunkt des Ereignisses"
+ },
+ {
+  "kind": "label",
+  "minutes": 1440,
+  "allDay": false,
+  "result": "1 Tag vorher"
+ },
+ {
+  "kind": "label",
+  "minutes": 45,
+  "allDay": false,
+  "result": "45 Minuten vorher"
+ },
+ {
+  "kind": "label",
+  "minutes": 180,
+  "allDay": false,
+  "result": "3 Stunden vorher"
+ },
+ {
+  "kind": "label",
+  "minutes": 4320,
+  "allDay": false,
+  "result": "3 Tage vorher"
+ },
+ {
+  "kind": "label",
+  "minutes": -10,
+  "allDay": false,
+  "result": "10 Minuten danach"
+ },
+ {
+  "kind": "label",
+  "minutes": null,
+  "allDay": false,
+  "result": "Keiner"
+ },
+ {
+  "kind": "label",
+  "minutes": -540,
+  "allDay": true,
+  "result": "Am Tag des Ereignisses (9:00)"
+ },
+ {
+  "kind": "label",
+  "minutes": 900,
+  "allDay": true,
+  "result": "1 Tag vorher (9:00)"
+ },
+ {
+  "kind": "label",
+  "minutes": 9540,
+  "allDay": true,
+  "result": "1 Woche vorher (9:00)"
+ },
+ {
+  "kind": "label",
+  "minutes": -480,
+  "allDay": true,
+  "result": "Am Tag des Ereignisses (8:00)"
+ },
+ {
+  "kind": "label",
+  "minutes": 1020,
+  "allDay": true,
+  "result": "1 Tag vorher (7:00)"
+ },
+ {
+  "kind": "label",
+  "minutes": 2880,
+  "allDay": true,
+  "result": "2 Tage vorher (0:00)"
+ },
+ {
+  "kind": "due",
+  "after": "2026-10-04T00:00",
+  "until": "2026-10-20T00:00",
+  "events": [
+   {
+    "id": "z",
+    "calendar": "privat",
+    "title": "Zahnarzt",
+    "allDay": false,
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "location": "Dr. Weber",
+    "alerts": [
+     15,
+     1440
+    ]
+   },
+   {
+    "id": "j",
+    "calendar": "arbeit",
+    "title": "Jour fixe",
+    "allDay": false,
+    "start": "2026-10-05T09:00",
+    "end": "2026-10-05T10:00",
+    "rrule": "FREQ=WEEKLY;BYDAY=MO",
+    "exdates": [
+     "2026-10-12"
+    ],
+    "alerts": [
+     0
+    ]
+   },
+   {
+    "id": "g",
+    "calendar": "familie",
+    "title": "Geburtstag Mia",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "alerts": [
+     -540,
+     900
+    ]
+   },
+   {
+    "id": "o",
+    "calendar": "privat",
+    "title": "Ohne Hinweis",
+    "allDay": false,
+    "start": "2026-10-07T10:00",
+    "end": "2026-10-07T11:00"
+   }
+  ],
+  "result": [
+   {
+    "key": "j@2026-10-05T09:00#0",
+    "at": "2026-10-05T09:00",
+    "minutes": 0,
+    "id": "j",
+    "title": "Jour fixe",
+    "start": "2026-10-05T09:00",
+    "end": "2026-10-05T10:00",
+    "allDay": false,
+    "location": ""
+   },
+   {
+    "key": "z@2026-10-07T08:30#1440",
+    "at": "2026-10-06T08:30",
+    "minutes": 1440,
+    "id": "z",
+    "title": "Zahnarzt",
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "allDay": false,
+    "location": "Dr. Weber"
+   },
+   {
+    "key": "z@2026-10-07T08:30#15",
+    "at": "2026-10-07T08:15",
+    "minutes": 15,
+    "id": "z",
+    "title": "Zahnarzt",
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "allDay": false,
+    "location": "Dr. Weber"
+   },
+   {
+    "key": "g@2026-10-08#900",
+    "at": "2026-10-07T09:00",
+    "minutes": 900,
+    "id": "g",
+    "title": "Geburtstag Mia",
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "allDay": true,
+    "location": ""
+   },
+   {
+    "key": "g@2026-10-08#-540",
+    "at": "2026-10-08T09:00",
+    "minutes": -540,
+    "id": "g",
+    "title": "Geburtstag Mia",
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "allDay": true,
+    "location": ""
+   },
+   {
+    "key": "j@2026-10-19T09:00#0",
+    "at": "2026-10-19T09:00",
+    "minutes": 0,
+    "id": "j",
+    "title": "Jour fixe",
+    "start": "2026-10-19T09:00",
+    "end": "2026-10-19T10:00",
+    "allDay": false,
+    "location": ""
+   }
+  ]
+ },
+ {
+  "kind": "due",
+  "after": "2026-10-06T08:30",
+  "until": "2026-10-07T08:15",
+  "events": [
+   {
+    "id": "z",
+    "calendar": "privat",
+    "title": "Zahnarzt",
+    "allDay": false,
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "location": "Dr. Weber",
+    "alerts": [
+     15,
+     1440
+    ]
+   },
+   {
+    "id": "j",
+    "calendar": "arbeit",
+    "title": "Jour fixe",
+    "allDay": false,
+    "start": "2026-10-05T09:00",
+    "end": "2026-10-05T10:00",
+    "rrule": "FREQ=WEEKLY;BYDAY=MO",
+    "exdates": [
+     "2026-10-12"
+    ],
+    "alerts": [
+     0
+    ]
+   },
+   {
+    "id": "g",
+    "calendar": "familie",
+    "title": "Geburtstag Mia",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "alerts": [
+     -540,
+     900
+    ]
+   },
+   {
+    "id": "o",
+    "calendar": "privat",
+    "title": "Ohne Hinweis",
+    "allDay": false,
+    "start": "2026-10-07T10:00",
+    "end": "2026-10-07T11:00"
+   }
+  ],
+  "result": [
+   {
+    "key": "z@2026-10-07T08:30#15",
+    "at": "2026-10-07T08:15",
+    "minutes": 15,
+    "id": "z",
+    "title": "Zahnarzt",
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "allDay": false,
+    "location": "Dr. Weber"
+   }
+  ]
+ },
+ {
+  "kind": "due",
+  "after": "2026-10-07T08:15",
+  "until": "2026-10-07T08:16",
+  "events": [
+   {
+    "id": "z",
+    "calendar": "privat",
+    "title": "Zahnarzt",
+    "allDay": false,
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "location": "Dr. Weber",
+    "alerts": [
+     15,
+     1440
+    ]
+   },
+   {
+    "id": "j",
+    "calendar": "arbeit",
+    "title": "Jour fixe",
+    "allDay": false,
+    "start": "2026-10-05T09:00",
+    "end": "2026-10-05T10:00",
+    "rrule": "FREQ=WEEKLY;BYDAY=MO",
+    "exdates": [
+     "2026-10-12"
+    ],
+    "alerts": [
+     0
+    ]
+   },
+   {
+    "id": "g",
+    "calendar": "familie",
+    "title": "Geburtstag Mia",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "alerts": [
+     -540,
+     900
+    ]
+   },
+   {
+    "id": "o",
+    "calendar": "privat",
+    "title": "Ohne Hinweis",
+    "allDay": false,
+    "start": "2026-10-07T10:00",
+    "end": "2026-10-07T11:00"
+   }
+  ],
+  "result": []
+ },
+ {
+  "kind": "due",
+  "after": "2026-10-19T09:00",
+  "until": "2026-10-26T09:00",
+  "events": [
+   {
+    "id": "z",
+    "calendar": "privat",
+    "title": "Zahnarzt",
+    "allDay": false,
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "location": "Dr. Weber",
+    "alerts": [
+     15,
+     1440
+    ]
+   },
+   {
+    "id": "j",
+    "calendar": "arbeit",
+    "title": "Jour fixe",
+    "allDay": false,
+    "start": "2026-10-05T09:00",
+    "end": "2026-10-05T10:00",
+    "rrule": "FREQ=WEEKLY;BYDAY=MO",
+    "exdates": [
+     "2026-10-12"
+    ],
+    "alerts": [
+     0
+    ]
+   },
+   {
+    "id": "g",
+    "calendar": "familie",
+    "title": "Geburtstag Mia",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "alerts": [
+     -540,
+     900
+    ]
+   },
+   {
+    "id": "o",
+    "calendar": "privat",
+    "title": "Ohne Hinweis",
+    "allDay": false,
+    "start": "2026-10-07T10:00",
+    "end": "2026-10-07T11:00"
+   }
+  ],
+  "result": [
+   {
+    "key": "j@2026-10-26T09:00#0",
+    "at": "2026-10-26T09:00",
+    "minutes": 0,
+    "id": "j",
+    "title": "Jour fixe",
+    "start": "2026-10-26T09:00",
+    "end": "2026-10-26T10:00",
+    "allDay": false,
+    "location": ""
+   }
+  ]
+ },
+ {
+  "kind": "set",
+  "event": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00"
+  },
+  "alerts": [
+   15
+  ],
+  "result": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "alerts": [
+    15
+   ]
+  }
+ },
+ {
+  "kind": "set",
+  "event": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00"
+  },
+  "alerts": [
+   15,
+   15,
+   null
+  ],
+  "result": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "alerts": [
+    15
+   ]
+  }
+ },
+ {
+  "kind": "set",
+  "event": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00"
+  },
+  "alerts": [
+   null,
+   60
+  ],
+  "result": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "alerts": [
+    60
+   ]
+  }
+ },
+ {
+  "kind": "set",
+  "event": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00"
+  },
+  "alerts": [
+   5,
+   10,
+   30
+  ],
+  "result": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00",
+   "alerts": [
+    5,
+    10
+   ]
+  }
+ },
+ {
+  "kind": "set",
+  "event": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00"
+  },
+  "alerts": [],
+  "result": {
+   "id": "o",
+   "calendar": "privat",
+   "title": "Ohne Hinweis",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:00"
+  }
+ },
+ {
+  "kind": "next",
+  "after": "2026-10-07T08:15",
+  "events": [
+   {
+    "id": "z",
+    "calendar": "privat",
+    "title": "Zahnarzt",
+    "allDay": false,
+    "start": "2026-10-07T08:30",
+    "end": "2026-10-07T09:15",
+    "location": "Dr. Weber",
+    "alerts": [
+     15,
+     1440
+    ]
+   },
+   {
+    "id": "j",
+    "calendar": "arbeit",
+    "title": "Jour fixe",
+    "allDay": false,
+    "start": "2026-10-05T09:00",
+    "end": "2026-10-05T10:00",
+    "rrule": "FREQ=WEEKLY;BYDAY=MO",
+    "exdates": [
+     "2026-10-12"
+    ],
+    "alerts": [
+     0
+    ]
+   },
+   {
+    "id": "g",
+    "calendar": "familie",
+    "title": "Geburtstag Mia",
+    "allDay": true,
+    "start": "2026-10-08",
+    "end": "2026-10-09",
+    "alerts": [
+     -540,
+     900
+    ]
+   },
+   {
+    "id": "o",
+    "calendar": "privat",
+    "title": "Ohne Hinweis",
+    "allDay": false,
+    "start": "2026-10-07T10:00",
+    "end": "2026-10-07T11:00"
+   }
+  ],
+  "result": "2026-10-07T09:00"
+ },
+ {
+  "kind": "text",
+  "alert": {
+   "key": "j@2026-10-05T09:00#0",
+   "at": "2026-10-05T09:00",
+   "minutes": 0,
+   "id": "j",
+   "title": "Jour fixe",
+   "start": "2026-10-05T09:00",
+   "end": "2026-10-05T10:00",
+   "allDay": false,
+   "location": ""
+  },
+  "now": "2026-10-07T08:15",
+  "result": "Mo, 5.10., 09:00–10:00"
+ },
+ {
+  "kind": "text",
+  "alert": {
+   "key": "z@2026-10-07T08:30#15",
+   "at": "2026-10-07T08:15",
+   "minutes": 15,
+   "id": "z",
+   "title": "Zahnarzt",
+   "start": "2026-10-07T08:30",
+   "end": "2026-10-07T09:15",
+   "allDay": false,
+   "location": "Dr. Weber"
+  },
+  "now": "2026-10-07T21:00",
+  "result": "Heute, 08:30–09:15 · Dr. Weber"
+ },
+ {
+  "kind": "text",
+  "alert": {
+   "key": "j@2026-10-05T09:00#0",
+   "at": "2026-10-05T09:00",
+   "minutes": 0,
+   "id": "j",
+   "title": "Jour fixe",
+   "start": "2026-10-05T09:00",
+   "end": "2026-10-05T10:00",
+   "allDay": false,
+   "location": ""
+  },
+  "now": "2026-10-03T12:00",
+  "result": "Mo, 5.10., 09:00–10:00"
+ }
+]

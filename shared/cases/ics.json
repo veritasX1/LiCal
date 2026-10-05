@@ -1,0 +1,92 @@
+[
+ {
+  "kind": "to",
+  "event": {
+   "title": "Zahnarzt",
+   "allDay": false,
+   "start": "2026-10-07T08:30",
+   "end": "2026-10-07T09:15",
+   "location": "Dr. Weber, Köln"
+  },
+  "result": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//LiCal//DE\r\nBEGIN:VEVENT\r\nSUMMARY:Zahnarzt\r\nDTSTART:20261007T083000\r\nDTEND:20261007T091500\r\nLOCATION:Dr. Weber\\, Köln\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+ },
+ {
+  "kind": "to",
+  "event": {
+   "title": "Urlaub; Kreta, Süden",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "notes": "Zeile 1\nZeile 2 \\ Ende"
+  },
+  "result": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//LiCal//DE\r\nBEGIN:VEVENT\r\nSUMMARY:Urlaub\\; Kreta\\, Süden\r\nDTSTART;VALUE=DATE:20261012\r\nDTEND;VALUE=DATE:20261017\r\nDESCRIPTION:Zeile 1\\nZeile 2 \\\\ Ende\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+ },
+ {
+  "kind": "to",
+  "event": {
+   "title": "Jour fixe",
+   "allDay": false,
+   "start": "2026-10-05T09:00",
+   "end": "2026-10-05T10:00",
+   "rrule": "FREQ=WEEKLY;BYDAY=MO"
+  },
+  "result": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//LiCal//DE\r\nBEGIN:VEVENT\r\nSUMMARY:Jour fixe\r\nDTSTART:20261005T090000\r\nDTEND:20261005T100000\r\nRRULE:FREQ=WEEKLY;BYDAY=MO\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+ },
+ {
+  "kind": "to",
+  "event": {
+   "title": "Call New York",
+   "allDay": false,
+   "start": "2026-10-19T09:00",
+   "end": "2026-10-19T10:00",
+   "tz": "America/New_York"
+  },
+  "result": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//LiCal//DE\r\nBEGIN:VEVENT\r\nSUMMARY:Call New York\r\nDTSTART;TZID=America/New_York:20261019T090000\r\nDTEND;TZID=America/New_York:20261019T100000\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+ },
+ {
+  "kind": "from",
+  "text": "BEGIN:VCALENDAR\r\nBEGIN:VEVENT\r\nDTSTART:20261009T180000Z\r\nDTEND:20261009T193000Z\r\nSUMMARY:Konzert im\r\n  Park\r\nEND:VEVENT\r\nEND:VCALENDAR",
+  "result": {
+   "title": "Konzert im Park",
+   "allDay": false,
+   "start": "2026-10-09T20:00",
+   "end": "2026-10-09T21:30"
+  }
+ },
+ {
+  "kind": "from",
+  "text": "BEGIN:VEVENT\nSUMMARY:Feiertag\nDTSTART;VALUE=DATE:20261003\nEND:VEVENT",
+  "result": {
+   "title": "Feiertag",
+   "allDay": true,
+   "start": "2026-10-03",
+   "end": "2026-10-04"
+  }
+ },
+ {
+  "kind": "from",
+  "text": "BEGIN:VEVENT\nDTSTART;TZID=Europe/Berlin:20261010T110000\nSUMMARY:Ohne Ende\nLOCATION:\nEND:VEVENT",
+  "result": {
+   "title": "Ohne Ende",
+   "allDay": false,
+   "start": "2026-10-10T11:00",
+   "end": "2026-10-10T12:00",
+   "tz": "Europe/Berlin"
+  }
+ },
+ {
+  "kind": "from",
+  "text": "kein Kalender",
+  "result": null
+ },
+ {
+  "kind": "from",
+  "text": "BEGIN:VEVENT\nDTSTART;TZID=W. Europe Standard Time:20261010T110000\nDTEND;TZID=W. Europe Standard Time:20261010T120000\nSUMMARY:Outlook\nEND:VEVENT",
+  "result": {
+   "title": "Outlook",
+   "allDay": false,
+   "start": "2026-10-10T11:00",
+   "end": "2026-10-10T12:00"
+  }
+ }
+]

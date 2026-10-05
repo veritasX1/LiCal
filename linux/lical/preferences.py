@@ -1,0 +1,36 @@
+"""Settings like the Mac's Calendar > Settings (Ctrl+,): time zone support and the holidays' Bundesland."""
+
+import gi
+
+gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
+from gi.repository import Adw, Gtk
+
+from . import holidays, settings
+
+
+def show_preferences(window):
+    dialog = Adw.PreferencesDialog(title="Einstellungen")
+    page = Adw.PreferencesPage(title="Allgemein", icon_name="preferences-system-symbolic")
+    general = Adw.PreferencesGroup(title="Erweitert")
+    zones = Adw.SwitchRow(title="Zeitzonen-Unterstützung",
+                          subtitle="Termine können eine eigene Zeitzone haben und erscheinen in der Ortszeit dieses Computers.")
+    zones.set_active(bool(settings.get("timeZones")))
+    zones.connect("notify::active", lambda row, _p: (settings.put("timeZones", row.get_active()), window.refresh()))
+    general.add(zones)
+    page.add(general)
+    days = Adw.PreferencesGroup(title="Feiertage", description="Gesetzliche Feiertage, auf diesem Computer berechnet.")
+    keys = [key for key, _name in holidays.STATES]
+    state = Adw.ComboRow(title="Bundesland", model=Gtk.StringList.new([name for _key, name in holidays.STATES]))
+    state.set_selected(keys.index(window.store.holidays.get("state", "")) if window.store.holidays.get("state", "") in keys else 0)
+    state.connect("notify::selected", lambda row, _p: window.store.set_holidays(state=keys[row.get_selected()]))
+    shown = Adw.SwitchRow(title="Feiertage zeigen")
+    shown.set_active(bool(window.store.holidays.get("visible", True)))
+    shown.connect("notify::active", lambda row, _p: window.store.set_holidays(visible=row.get_active()))
+    days.add(shown)
+    days.add(state)
+    page.add(days)
+    dialog.add(page)
+    dialog.controls = {"zones": zones, "state": state, "shown": shown}
+    dialog.present(window)
+    return dialog

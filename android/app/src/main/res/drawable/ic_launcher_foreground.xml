@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LiCal's app icon in the look of Apple's calendar icon (white face, red weekday line, black below).
+     Android's launcher cannot show today's date on an app icon – the widget "LiCal – Datum" does that.
+     108 dp canvas, content inside the 66 dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <!-- weekday line, bold red like "So." -->
+    <path android:fillColor="#FF3B30" android:pathData="M44,30.5h20a3.5,3.5 0 0 1 0,7h-20a3.5,3.5 0 0 1 0,-7z" />
+    <!-- the month's days, black; today in red -->
+    <path android:fillColor="#000000"
+        android:pathData="M37,48m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M49,48m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M61,48m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M73,48m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M37,60m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M49,60m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M73,60m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M37,72m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M49,72m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M61,72m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0M73,72m-3.6,0a3.6,3.6 0 1 0 7.2,0a3.6,3.6 0 1 0 -7.2,0" />
+    <path android:fillColor="#FF3B30" android:pathData="M61,60m-5.2,0a5.2,5.2 0 1 0 10.4,0a5.2,5.2 0 1 0 -10.4,0" />
+</vector>

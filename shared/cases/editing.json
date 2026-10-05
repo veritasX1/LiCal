@@ -1,0 +1,674 @@
+[
+ {
+  "kind": "new",
+  "day": "2026-10-04",
+  "now": "2026-10-04T15:07",
+  "hour": null,
+  "result": {
+   "id": "n",
+   "calendar": "privat",
+   "title": "Neuer Termin",
+   "allDay": false,
+   "start": "2026-10-04T16:00",
+   "end": "2026-10-04T17:00"
+  }
+ },
+ {
+  "kind": "new",
+  "day": "2026-10-08",
+  "now": "2026-10-04T15:07",
+  "hour": null,
+  "result": {
+   "id": "n",
+   "calendar": "privat",
+   "title": "Neuer Termin",
+   "allDay": false,
+   "start": "2026-10-08T09:00",
+   "end": "2026-10-08T10:00"
+  }
+ },
+ {
+  "kind": "new",
+  "day": "2026-10-04",
+  "now": "2026-10-04T23:30",
+  "hour": null,
+  "result": {
+   "id": "n",
+   "calendar": "privat",
+   "title": "Neuer Termin",
+   "allDay": false,
+   "start": "2026-10-04T23:00",
+   "end": "2026-10-05T00:00"
+  }
+ },
+ {
+  "kind": "new",
+  "day": "2026-10-09",
+  "now": "2026-10-04T08:00",
+  "hour": 14,
+  "result": {
+   "id": "n",
+   "calendar": "privat",
+   "title": "Neuer Termin",
+   "allDay": false,
+   "start": "2026-10-09T14:00",
+   "end": "2026-10-09T15:00"
+  }
+ },
+ {
+  "kind": "start",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "value": "2026-10-09T14:15",
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-09T14:15",
+   "end": "2026-10-09T15:45"
+  }
+ },
+ {
+  "kind": "start",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "value": "2026-10-09",
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-09T10:00",
+   "end": "2026-10-09T11:30"
+  }
+ },
+ {
+  "kind": "start",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "value": "2026-10-20",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-20",
+   "end": "2026-10-25"
+  }
+ },
+ {
+  "kind": "start",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "value": "2026-10-20T08:00",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-20",
+   "end": "2026-10-25"
+  }
+ },
+ {
+  "kind": "end",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "value": "2026-10-07T12:00",
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T12:00"
+  }
+ },
+ {
+  "kind": "end",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "value": "2026-10-07T09:00",
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T10:05"
+  }
+ },
+ {
+  "kind": "end",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "value": "2026-10-08",
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-08T11:30"
+  }
+ },
+ {
+  "kind": "end",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "value": "2026-10-14",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-15"
+  }
+ },
+ {
+  "kind": "end",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "value": "2026-10-01",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-13"
+  }
+ },
+ {
+  "kind": "allday",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "on": true,
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": true,
+   "start": "2026-10-07",
+   "end": "2026-10-08"
+  }
+ },
+ {
+  "kind": "allday",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "on": false,
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": false,
+   "start": "2026-10-12T09:00",
+   "end": "2026-10-12T10:00"
+  }
+ },
+ {
+  "kind": "allday",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "on": false,
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  }
+ },
+ {
+  "kind": "allday",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-09T00:00"
+  },
+  "on": true,
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": true,
+   "start": "2026-10-07",
+   "end": "2026-10-09"
+  }
+ },
+ {
+  "kind": "label",
+  "rrule": null,
+  "result": "Nie"
+ },
+ {
+  "kind": "label",
+  "rrule": "FREQ=WEEKLY",
+  "result": "Wöchentlich"
+ },
+ {
+  "kind": "label",
+  "rrule": "FREQ=WEEKLY;INTERVAL=2",
+  "result": "Alle 2 Wochen"
+ },
+ {
+  "kind": "label",
+  "rrule": "FREQ=WEEKLY;BYDAY=MO,WE",
+  "result": "Benutzerdefiniert"
+ },
+ {
+  "kind": "series",
+  "series": {
+   "id": "s",
+   "calendar": "arbeit",
+   "title": "Jour fixe",
+   "allDay": false,
+   "start": "2026-10-05T09:00",
+   "end": "2026-10-05T10:00",
+   "rrule": "FREQ=WEEKLY;BYDAY=MO",
+   "exdates": [
+    "2026-10-19"
+   ]
+  },
+  "occurrence": "2026-10-12T09:00",
+  "edited": {
+   "id": "s",
+   "calendar": "arbeit",
+   "title": "Jour fixe neu",
+   "allDay": false,
+   "start": "2026-10-12T09:30",
+   "end": "2026-10-12T10:45",
+   "rrule": "FREQ=WEEKLY;BYDAY=MO",
+   "exdates": [
+    "2026-10-19"
+   ]
+  },
+  "result": {
+   "id": "s",
+   "calendar": "arbeit",
+   "title": "Jour fixe neu",
+   "allDay": false,
+   "start": "2026-10-05T09:30",
+   "end": "2026-10-05T10:45",
+   "rrule": "FREQ=WEEKLY;BYDAY=MO",
+   "exdates": [
+    "2026-10-19"
+   ]
+  }
+ },
+ {
+  "kind": "absence",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "absence": "urlaub",
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": true,
+   "start": "2026-10-07",
+   "end": "2026-10-08",
+   "absence": "urlaub"
+  }
+ },
+ {
+  "kind": "absence",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Neuer Termin",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "absence": "krank",
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Krank",
+   "allDay": true,
+   "start": "2026-10-07",
+   "end": "2026-10-08",
+   "absence": "krank"
+  }
+ },
+ {
+  "kind": "absence",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "absence": null,
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  }
+ },
+ {
+  "kind": "absence",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "urlaub",
+   "deputy": "Jens"
+  },
+  "absence": null,
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  }
+ },
+ {
+  "kind": "absence",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "urlaub"
+  },
+  "absence": "dienstreise",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Dienstreise",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "dienstreise"
+  }
+ },
+ {
+  "kind": "deputy",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "name": "Jens",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "deputy": "Jens"
+  }
+ },
+ {
+  "kind": "deputy",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "name": "  ",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  }
+ },
+ {
+  "kind": "deputy",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "deputy": "Jens"
+  },
+  "name": "",
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  }
+ },
+ {
+  "kind": "weeks",
+  "event": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": false,
+   "start": "2026-10-07T10:00",
+   "end": "2026-10-07T11:30"
+  },
+  "weeks": 1,
+  "result": {
+   "id": "t",
+   "calendar": "arbeit",
+   "title": "Review",
+   "allDay": true,
+   "start": "2026-10-07",
+   "end": "2026-10-14"
+  }
+ },
+ {
+  "kind": "weeks",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "weeks": 2,
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-26"
+  }
+ },
+ {
+  "kind": "weeks",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "weeks": 4,
+  "result": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-11-09"
+  }
+ },
+ {
+  "kind": "absence_text",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "urlaub",
+   "deputy": "Jens"
+  },
+  "result": "Urlaub · Vertretung: Jens"
+ },
+ {
+  "kind": "absence_text",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17",
+   "absence": "homeoffice"
+  },
+  "result": "Im Homeoffice"
+ },
+ {
+  "kind": "absence_text",
+  "event": {
+   "id": "u",
+   "calendar": "privat",
+   "title": "Urlaub",
+   "allDay": true,
+   "start": "2026-10-12",
+   "end": "2026-10-17"
+  },
+  "result": ""
+ },
+ {
+  "kind": "skip",
+  "series": {
+   "id": "s",
+   "calendar": "arbeit",
+   "title": "Jour fixe",
+   "allDay": false,
+   "start": "2026-10-05T09:00",
+   "end": "2026-10-05T10:00",
+   "rrule": "FREQ=WEEKLY;BYDAY=MO",
+   "exdates": [
+    "2026-10-19"
+   ]
+  },
+  "occurrence": "2026-10-12T09:00",
+  "result": {
+   "id": "s",
+   "calendar": "arbeit",
+   "title": "Jour fixe",
+   "allDay": false,
+   "start": "2026-10-05T09:00",
+   "end": "2026-10-05T10:00",
+   "rrule": "FREQ=WEEKLY;BYDAY=MO",
+   "exdates": [
+    "2026-10-12",
+    "2026-10-19"
+   ]
+  }
+ }
+]

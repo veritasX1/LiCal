@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="date_widget_label">LiCal – Datum</string>
+    <string name="date_widget_description">Apples Kalender-Symbol mit dem heutigen Datum – wechselt um Mitternacht, öffnet LiCal.</string>
+    <string name="widget_upnext_label">LiCal – Als Nächstes</string>
+    <string name="widget_upnext_description">Heutiges Datum und die nächsten Termine – klein oder breit.</string>
+    <string name="widget_month_label">LiCal – Monat</string>
+    <string name="widget_month_description">Der Monat mit dem heutigen Tag.</string>
+    <string name="widget_list_label">LiCal – Liste</string>
+    <string name="widget_list_description">Heute, morgen und die nächsten Tage mit ihren Terminen.</string>
+</resources>

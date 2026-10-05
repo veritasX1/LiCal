@@ -1,0 +1,4351 @@
+[
+ {
+  "kind": "easter",
+  "year": 2000,
+  "result": "2000-04-23"
+ },
+ {
+  "kind": "easter",
+  "year": 2019,
+  "result": "2019-04-21"
+ },
+ {
+  "kind": "easter",
+  "year": 2024,
+  "result": "2024-03-31"
+ },
+ {
+  "kind": "easter",
+  "year": 2025,
+  "result": "2025-04-20"
+ },
+ {
+  "kind": "easter",
+  "year": 2026,
+  "result": "2026-04-05"
+ },
+ {
+  "kind": "easter",
+  "year": 2027,
+  "result": "2027-03-28"
+ },
+ {
+  "kind": "easter",
+  "year": 2028,
+  "result": "2028-04-16"
+ },
+ {
+  "kind": "easter",
+  "year": 2030,
+  "result": "2030-04-21"
+ },
+ {
+  "kind": "easter",
+  "year": 2038,
+  "result": "2038-04-25"
+ },
+ {
+  "kind": "easter",
+  "year": 2049,
+  "result": "2049-04-18"
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "BW",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-06-15",
+    "Fronleichnam"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "BY",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-06-15",
+    "Fronleichnam"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "BE",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "BB",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-16",
+    "Ostersonntag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-04",
+    "Pfingstsonntag"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "HB",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "HH",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "HE",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-06-15",
+    "Fronleichnam"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "MV",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "NI",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "NW",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-06-15",
+    "Fronleichnam"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "RP",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-06-15",
+    "Fronleichnam"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "SL",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-06-15",
+    "Fronleichnam"
+   ],
+   [
+    "2017-08-15",
+    "Mariä Himmelfahrt"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "SN",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-11-22",
+    "Buß- und Bettag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "ST",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "SH",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2017,
+  "state": "TH",
+  "result": [
+   [
+    "2017-01-01",
+    "Neujahr"
+   ],
+   [
+    "2017-04-14",
+    "Karfreitag"
+   ],
+   [
+    "2017-04-17",
+    "Ostermontag"
+   ],
+   [
+    "2017-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2017-05-25",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2017-06-05",
+    "Pfingstmontag"
+   ],
+   [
+    "2017-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2017-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2017-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2017-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "BW",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-05-31",
+    "Fronleichnam"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "BY",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-05-31",
+    "Fronleichnam"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "BE",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "BB",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-01",
+    "Ostersonntag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-20",
+    "Pfingstsonntag"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "HB",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "HH",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "HE",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-05-31",
+    "Fronleichnam"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "MV",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "NI",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "NW",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-05-31",
+    "Fronleichnam"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "RP",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-05-31",
+    "Fronleichnam"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "SL",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-05-31",
+    "Fronleichnam"
+   ],
+   [
+    "2018-08-15",
+    "Mariä Himmelfahrt"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "SN",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-11-21",
+    "Buß- und Bettag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "ST",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "SH",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2018,
+  "state": "TH",
+  "result": [
+   [
+    "2018-01-01",
+    "Neujahr"
+   ],
+   [
+    "2018-03-30",
+    "Karfreitag"
+   ],
+   [
+    "2018-04-02",
+    "Ostermontag"
+   ],
+   [
+    "2018-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2018-05-10",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2018-05-21",
+    "Pfingstmontag"
+   ],
+   [
+    "2018-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2018-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2018-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2018-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "BW",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-06-16",
+    "Fronleichnam"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "BY",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-06-16",
+    "Fronleichnam"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "BE",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-03-08",
+    "Internationaler Frauentag"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "BB",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-17",
+    "Ostersonntag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-05",
+    "Pfingstsonntag"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "HB",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "HH",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "HE",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-06-16",
+    "Fronleichnam"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "MV",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "NI",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "NW",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-06-16",
+    "Fronleichnam"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "RP",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-06-16",
+    "Fronleichnam"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "SL",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-06-16",
+    "Fronleichnam"
+   ],
+   [
+    "2022-08-15",
+    "Mariä Himmelfahrt"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "SN",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-11-16",
+    "Buß- und Bettag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "ST",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "SH",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2022,
+  "state": "TH",
+  "result": [
+   [
+    "2022-01-01",
+    "Neujahr"
+   ],
+   [
+    "2022-04-15",
+    "Karfreitag"
+   ],
+   [
+    "2022-04-18",
+    "Ostermontag"
+   ],
+   [
+    "2022-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2022-05-26",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2022-06-06",
+    "Pfingstmontag"
+   ],
+   [
+    "2022-09-20",
+    "Weltkindertag"
+   ],
+   [
+    "2022-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2022-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2022-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2022-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "BW",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-06-04",
+    "Fronleichnam"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "BY",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-06-04",
+    "Fronleichnam"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "BE",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-03-08",
+    "Internationaler Frauentag"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "BB",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-05",
+    "Ostersonntag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-24",
+    "Pfingstsonntag"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "HB",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "HH",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "HE",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-06-04",
+    "Fronleichnam"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "MV",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-03-08",
+    "Internationaler Frauentag"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "NI",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "NW",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-06-04",
+    "Fronleichnam"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "RP",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-06-04",
+    "Fronleichnam"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "SL",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-06-04",
+    "Fronleichnam"
+   ],
+   [
+    "2026-08-15",
+    "Mariä Himmelfahrt"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "SN",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-11-18",
+    "Buß- und Bettag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "ST",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "SH",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2026,
+  "state": "TH",
+  "result": [
+   [
+    "2026-01-01",
+    "Neujahr"
+   ],
+   [
+    "2026-04-03",
+    "Karfreitag"
+   ],
+   [
+    "2026-04-06",
+    "Ostermontag"
+   ],
+   [
+    "2026-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2026-05-14",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2026-05-25",
+    "Pfingstmontag"
+   ],
+   [
+    "2026-09-20",
+    "Weltkindertag"
+   ],
+   [
+    "2026-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2026-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2026-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2026-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "BW",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-05-27",
+    "Fronleichnam"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "BY",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-05-27",
+    "Fronleichnam"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "BE",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-08",
+    "Internationaler Frauentag"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "BB",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-28",
+    "Ostersonntag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-16",
+    "Pfingstsonntag"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "HB",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "HH",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "HE",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-05-27",
+    "Fronleichnam"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "MV",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-08",
+    "Internationaler Frauentag"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "NI",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "NW",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-05-27",
+    "Fronleichnam"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "RP",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-05-27",
+    "Fronleichnam"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "SL",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-05-27",
+    "Fronleichnam"
+   ],
+   [
+    "2027-08-15",
+    "Mariä Himmelfahrt"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-11-01",
+    "Allerheiligen"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "SN",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-11-17",
+    "Buß- und Bettag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "ST",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-01-06",
+    "Heilige Drei Könige"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "SH",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "days",
+  "year": 2027,
+  "state": "TH",
+  "result": [
+   [
+    "2027-01-01",
+    "Neujahr"
+   ],
+   [
+    "2027-03-26",
+    "Karfreitag"
+   ],
+   [
+    "2027-03-29",
+    "Ostermontag"
+   ],
+   [
+    "2027-05-01",
+    "Tag der Arbeit"
+   ],
+   [
+    "2027-05-06",
+    "Christi Himmelfahrt"
+   ],
+   [
+    "2027-05-17",
+    "Pfingstmontag"
+   ],
+   [
+    "2027-09-20",
+    "Weltkindertag"
+   ],
+   [
+    "2027-10-03",
+    "Tag der Deutschen Einheit"
+   ],
+   [
+    "2027-10-31",
+    "Reformationstag"
+   ],
+   [
+    "2027-12-25",
+    "1. Weihnachtstag"
+   ],
+   [
+    "2027-12-26",
+    "2. Weihnachtstag"
+   ]
+  ]
+ },
+ {
+  "kind": "events",
+  "first": "2026-12-20",
+  "last": "2027-01-07",
+  "state": "BY",
+  "result": [
+   {
+    "id": "feiertag:2026-12-25",
+    "calendar": "feiertage",
+    "title": "1. Weihnachtstag",
+    "allDay": true,
+    "start": "2026-12-25",
+    "end": "2026-12-26"
+   },
+   {
+    "id": "feiertag:2026-12-26",
+    "calendar": "feiertage",
+    "title": "2. Weihnachtstag",
+    "allDay": true,
+    "start": "2026-12-26",
+    "end": "2026-12-27"
+   },
+   {
+    "id": "feiertag:2027-01-01",
+    "calendar": "feiertage",
+    "title": "Neujahr",
+    "allDay": true,
+    "start": "2027-01-01",
+    "end": "2027-01-02"
+   },
+   {
+    "id": "feiertag:2027-01-06",
+    "calendar": "feiertage",
+    "title": "Heilige Drei Könige",
+    "allDay": true,
+    "start": "2027-01-06",
+    "end": "2027-01-07"
+   }
+  ]
+ }
+]

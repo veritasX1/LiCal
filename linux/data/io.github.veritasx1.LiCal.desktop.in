@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Name=LiCal
+GenericName=Kalender
+Comment=Kalender im Stil von Apples Kalender – Termine, Teams, deine Daten bleiben bei dir
+Exec=@EXEC@ %F
+Icon=io.github.veritasx1.LiCal
+Terminal=false
+Categories=Office;Calendar;GTK;
+Keywords=Kalender;Calendar;Termine;Termin;Team;Urlaub;
+StartupNotify=true
+MimeType=text/calendar;
+StartupWMClass=io.github.veritasx1.LiCal
+Actions=new-event;
+
+[Desktop Action new-event]
+Name=Neuer Termin
+Exec=@EXEC@ --neuer-termin
