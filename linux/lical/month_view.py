@@ -11,6 +11,7 @@ gi.require_version("Gtk", "4.0")
 from gi.repository import GObject, Gtk
 
 from . import rules, theme
+from .i18n import _
 
 HEADER = 30
 ROW = 19
@@ -118,7 +119,7 @@ class MonthView(Gtk.DrawingArea):
                     self.draw_line(cr, palette, by_key[key], x, y, column_width - 8)
                     y += ROW
                 if hidden:
-                    theme.text(cr, f"{hidden} weitere", x + 7, y + 2, 11, palette.secondary, weight=500)
+                    theme.text(cr, _("{hidden} weitere", hidden=hidden), x + 7, y + 2, 11, palette.secondary, weight=500)
                     self.areas.append(("more", week[column], x, y, column_width - 8, ROW))
         if self.drag and self.drag.get("active"):
             self.draw_drag(cr, palette)

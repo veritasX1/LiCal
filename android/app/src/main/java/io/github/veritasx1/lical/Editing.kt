@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -8,17 +10,17 @@ import java.time.temporal.ChronoUnit
 /** Editing rules shared with Ubuntu – the twin of linux/lical/editing.py (EditingTest replays
  *  shared/cases/editing.json). They only change events; the screens call them. */
 object Editing {
-    val REPEATS = listOf(null to "Nie", "FREQ=DAILY" to "Täglich", "FREQ=WEEKLY" to "Wöchentlich",
-        "FREQ=WEEKLY;INTERVAL=2" to "Alle 2 Wochen", "FREQ=MONTHLY" to "Monatlich", "FREQ=YEARLY" to "Jährlich")
+    val REPEATS = listOf(null to tr("Nie"), "FREQ=DAILY" to tr("Täglich"), "FREQ=WEEKLY" to tr("Wöchentlich"),
+        "FREQ=WEEKLY;INTERVAL=2" to tr("Alle 2 Wochen"), "FREQ=MONTHLY" to tr("Monatlich"), "FREQ=YEARLY" to tr("Jährlich"))
 
     private fun stamp(at: LocalDateTime) = Rules.stamp(Moment(at, true))
 
     /** Absences (card 471febc2): key, label, away. Same list as editing.ABSENCES on Ubuntu. */
     data class Absence(val key: String, val label: String, val away: Boolean)
     val ABSENCES = listOf(Absence("urlaub", "Urlaub", true), Absence("krank", "Krank", true), Absence("weiterbildung", "Weiterbildung", true),
-        Absence("freistellung", "Freistellung", true), Absence("abwesend", "Abwesend", true), Absence("dienstreise", "Dienstreise", true),
-        Absence("anderer_ort", "An einem anderen Ort tätig", false), Absence("homeoffice", "Im Homeoffice", false),
-        Absence("office", "Im Office", false), Absence("anwesend", "Anwesend", false))
+        Absence("freistellung", "Freistellung", true), Absence("abwesend", tr("Abwesend"), true), Absence("dienstreise", "Dienstreise", true),
+        Absence("anderer_ort", tr("An einem anderen Ort tätig"), false), Absence("homeoffice", tr("Im Homeoffice"), false),
+        Absence("office", tr("Im Office"), false), Absence("anwesend", "Anwesend", false))
     fun absenceLabel(key: String?) = ABSENCES.firstOrNull { it.key == key }?.label ?: key ?: ""
 
     /** Make an event an absence (null: ordinary again); all-day; a generic title becomes the kind's name. */
@@ -40,14 +42,14 @@ object Editing {
     /** "Urlaub · Vertretung: Jens" ("" for an ordinary event). */
     fun absenceText(event: Event): String {
         if (event.absence == null) return ""
-        return absenceLabel(event.absence) + (event.deputy?.let { " · Vertretung: $it" } ?: "")
+        return absenceLabel(event.absence) + (event.deputy?.let { tr(" · Vertretung: {it}", "it" to it) } ?: "")
     }
 
     /** On today the next full hour, on another day 9:00 (or the hour given), one hour, "Neuer Termin". */
     fun newEvent(day: LocalDate, now: LocalDateTime, calendar: String, id: String, hour: Int? = null): Event {
         val h = hour ?: if (day == now.toLocalDate()) minOf(23, now.hour + 1) else 9
         val start = day.atTime(h, 0)
-        return Event(id, calendar, "Neuer Termin", false, stamp(start), stamp(start.plusHours(1)))
+        return Event(id, calendar, tr("Neuer Termin"), false, stamp(start), stamp(start.plusHours(1)))
     }
 
     fun durationMinutes(event: Event) = ChronoUnit.MINUTES.between(Rules.parse(event.start).at, Rules.parse(event.end).at)

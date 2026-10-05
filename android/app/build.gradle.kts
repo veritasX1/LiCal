@@ -56,6 +56,8 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
         unitTests.all {
+            // Tests check the German texts (the source language) – regardless of the computer's locale.
+            it.systemProperty("lical.language", (project.findProperty("lang") as String?) ?: "de")
             it.systemProperty("robolectric.pixelCopyRenderMode", "hardware")
             it.systemProperty("lical.cases", rootProject.file("../shared/cases").absolutePath)
             // Pictures: ./gradlew testDebugUnitTest --tests '*ShotTest*' -Pshots=/folder
@@ -70,6 +72,14 @@ android {
         resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
     }
 }
+
+// The translations: one catalogue for both apps, kept with the Ubuntu app.
+val copyLocale by tasks.registering(Sync::class) {
+    from(rootProject.file("../linux/lical/locale")) { include("*.json") }
+    into(layout.buildDirectory.dir("generated/locale/locale"))
+}
+android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/locale"))
+tasks.named("preBuild") { dependsOn(copyLocale) }
 
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2024.09.03")

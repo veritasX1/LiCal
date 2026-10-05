@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -47,7 +49,7 @@ class DateWidget : AppWidgetProvider() {
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
             val views = RemoteViews(context.packageName, R.layout.date_widget).apply {
                 setImageViewBitmap(R.id.date_icon, DateIcon.draw(context, today, 256))
-                setContentDescription(R.id.date_icon, "LiCal, ${DateIcon.WEEKDAYS[today.dayOfWeek.value - 1]} ${today.dayOfMonth}.")
+                setContentDescription(R.id.date_icon, tr("LiCal, {value} {dayOfMonth}.", "value" to (DateIcon.WEEKDAYS[today.dayOfWeek.value - 1]), "dayOfMonth" to today.dayOfMonth))
                 setOnClickPendingIntent(R.id.date_root, open)
             }
             manager.updateAppWidget(ids, views)

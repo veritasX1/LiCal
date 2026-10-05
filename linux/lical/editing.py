@@ -4,14 +4,15 @@ written by tests/test_editing.py). They only change event dicts; the screens cal
 from datetime import date, datetime, timedelta
 
 from .rules import as_datetime, parse, stamp
+from .i18n import _
 
 REPEATS = (
-    (None, "Nie"),
-    ("FREQ=DAILY", "Täglich"),
-    ("FREQ=WEEKLY", "Wöchentlich"),
-    ("FREQ=WEEKLY;INTERVAL=2", "Alle 2 Wochen"),
-    ("FREQ=MONTHLY", "Monatlich"),
-    ("FREQ=YEARLY", "Jährlich"),
+    (None, _("Nie")),
+    ("FREQ=DAILY", _("Täglich")),
+    ("FREQ=WEEKLY", _("Wöchentlich")),
+    ("FREQ=WEEKLY;INTERVAL=2", _("Alle 2 Wochen")),
+    ("FREQ=MONTHLY", _("Monatlich")),
+    ("FREQ=YEARLY", _("Jährlich")),
 )
 
 
@@ -21,11 +22,11 @@ ABSENCES = (
     ("krank", "Krank", True),
     ("weiterbildung", "Weiterbildung", True),
     ("freistellung", "Freistellung", True),
-    ("abwesend", "Abwesend", True),
+    ("abwesend", _("Abwesend"), True),
     ("dienstreise", "Dienstreise", True),
-    ("anderer_ort", "An einem anderen Ort tätig", False),
-    ("homeoffice", "Im Homeoffice", False),
-    ("office", "Im Office", False),
+    ("anderer_ort", _("An einem anderen Ort tätig"), False),
+    ("homeoffice", _("Im Homeoffice"), False),
+    ("office", _("Im Office"), False),
     ("anwesend", "Anwesend", False),
 )
 ABSENCE_LABELS = {key: label for key, label, _away in ABSENCES}
@@ -41,7 +42,7 @@ def set_absence(event, kind):
         return result
     result = set_all_day(result, True)
     result["absence"] = kind
-    if result.get("title", "") in ("", "Neuer Termin") or result.get("title") in ABSENCE_LABELS.values():
+    if result.get("title", "") in ("", _("Neuer Termin")) or result.get("title") in ABSENCE_LABELS.values():
         result["title"] = ABSENCE_LABELS.get(kind, kind)
     return result
 
@@ -70,7 +71,7 @@ def absence_text(event):
         return ""
     text = ABSENCE_LABELS.get(event["absence"], event["absence"])
     if event.get("deputy"):
-        text += f" · Vertretung: {event['deputy']}"
+        text += _(" · Vertretung: {value}", value=event['deputy'])
     return text
 
 
@@ -80,7 +81,7 @@ def new_event(day, now, calendar, event_id, hour=None):
     if hour is None:
         hour = min(23, now.hour + 1) if day == now.date() else 9
     start = datetime(day.year, day.month, day.day, hour)
-    return {"id": event_id, "calendar": calendar, "title": "Neuer Termin", "allDay": False,
+    return {"id": event_id, "calendar": calendar, "title": _("Neuer Termin"), "allDay": False,
             "start": stamp(start), "end": stamp(start + timedelta(hours=1))}
 
 

@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import android.content.Context
 import android.content.Intent
 import android.provider.CalendarContract
@@ -62,7 +64,7 @@ object IncomingIntents {
             }
         }
         event = event.copy(
-            title = intent.getStringExtra(CalendarContract.Events.TITLE)?.trim().orEmpty().ifEmpty { "Neuer Termin" },
+            title = intent.getStringExtra(CalendarContract.Events.TITLE)?.trim().orEmpty().ifEmpty { tr("Neuer Termin") },
             location = intent.getStringExtra(CalendarContract.Events.EVENT_LOCATION)?.trim().orEmpty(),
             notes = intent.getStringExtra(CalendarContract.Events.DESCRIPTION)?.trim().orEmpty(),
             rrule = intent.getStringExtra(CalendarContract.Events.RRULE)?.ifEmpty { null },

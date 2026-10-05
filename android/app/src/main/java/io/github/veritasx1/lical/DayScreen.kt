@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -128,10 +130,10 @@ private fun DayTimeline(store: Store, day: LocalDate, onEvent: (Occurrence) -> U
     Column(Modifier.fillMaxSize()) {
         if (allDay.isNotEmpty()) {
             Row(Modifier.fillMaxWidth().padding(end = 10.dp, top = 4.dp, bottom = 4.dp)) {
-                BasicText("ganztägig", style = style(9.5f, 500, colors.secondary).copy(textAlign = TextAlign.End), softWrap = false, maxLines = 1,
+                BasicText(tr("ganztägig"), style = style(9.5f, 500, colors.secondary).copy(textAlign = TextAlign.End), softWrap = false, maxLines = 1,
                     modifier = Modifier.width(GUTTER - 4.dp).padding(top = 5.dp))
                 Column(Modifier.weight(1f).padding(start = 6.dp)) {
-                    for (item in allDay) EventPill(item.title + (item.event.deputy?.let { " · Vertretung: $it" } ?: ""),
+                    for (item in allDay) EventPill(item.title + (item.event.deputy?.let { tr(" · Vertretung: {it}", "it" to it) } ?: ""),
                         colors.system(store.calendar(item.event.calendar)?.color ?: "blue"),
                         Modifier.fillMaxWidth().padding(bottom = 2.dp).clickable { onEvent(item) }, height = 22.dp, fontSize = 12f,
                         striped = item.event.absence != null)

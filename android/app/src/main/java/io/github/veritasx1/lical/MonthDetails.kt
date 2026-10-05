@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -109,7 +111,7 @@ fun MonthDetails(store: Store, day: LocalDate, onDay: (LocalDate) -> Unit, onMon
                     verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.width(56.dp)) {
                         if (item.allDay || Rules.daysCovered(item).let { (a, b) -> b > a }) {
-                            BasicText("ganztägig", style = style(11f, 500, colors.label))
+                            BasicText(tr("ganztägig"), style = style(11f, 500, colors.label))
                         } else {
                             BasicText(Rules.parse(item.start).at.toLocalTime().toString(), style = style(11f, 500, colors.label, tabular = true))
                             BasicText(Rules.parse(item.end).at.toLocalTime().toString(), style = style(11f, 400, colors.secondary, tabular = true))
@@ -125,7 +127,7 @@ fun MonthDetails(store: Store, day: LocalDate, onDay: (LocalDate) -> Unit, onMon
                 Box(Modifier.padding(start = 16.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
             }
             if (items.isEmpty()) item {
-                BasicText("Keine Termine", style = style(15f, 400, colors.secondary).copy(textAlign = TextAlign.Center),
+                BasicText(tr("Keine Termine"), style = style(15f, 400, colors.secondary).copy(textAlign = TextAlign.Center),
                     modifier = Modifier.fillMaxWidth().padding(top = 28.dp))
             }
             item { Spacer(Modifier.height(24.dp)) }
