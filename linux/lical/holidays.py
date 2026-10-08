@@ -5,6 +5,8 @@ chosen. Only days off by law for the whole state (not the ones of single towns).
 
 from datetime import date, timedelta
 
+from .i18n import _
+
 CALENDAR = "feiertage"
 PREFIX = "feiertag:"
 
@@ -41,31 +43,31 @@ def days(year, state=""):
         if (where == ALL or state in where.split()) and (since is None or year >= since):
             found.append((day, name))
 
-    add(date(year, 1, 1), "Neujahr")
-    add(date(year, 1, 6), "Heilige Drei Könige", "BW BY ST")
-    add(date(year, 3, 8), "Internationaler Frauentag", "BE", 2019)
-    add(date(year, 3, 8), "Internationaler Frauentag", "MV", 2023)
-    add(sunday - timedelta(days=2), "Karfreitag")
-    add(sunday, "Ostersonntag", "BB")
-    add(sunday + timedelta(days=1), "Ostermontag")
-    add(date(year, 5, 1), "Tag der Arbeit")
-    add(sunday + timedelta(days=39), "Christi Himmelfahrt")
-    add(sunday + timedelta(days=49), "Pfingstsonntag", "BB")
-    add(sunday + timedelta(days=50), "Pfingstmontag")
-    add(sunday + timedelta(days=60), "Fronleichnam", "BW BY HE NW RP SL")
-    add(date(year, 8, 15), "Mariä Himmelfahrt", "SL")
-    add(date(year, 9, 20), "Weltkindertag", "TH", 2019)
-    add(date(year, 10, 3), "Tag der Deutschen Einheit")
+    add(date(year, 1, 1), _("Neujahr"))
+    add(date(year, 1, 6), _("Heilige Drei Könige"), "BW BY ST")
+    add(date(year, 3, 8), _("Internationaler Frauentag"), "BE", 2019)
+    add(date(year, 3, 8), _("Internationaler Frauentag"), "MV", 2023)
+    add(sunday - timedelta(days=2), _("Karfreitag"))
+    add(sunday, _("Ostersonntag"), "BB")
+    add(sunday + timedelta(days=1), _("Ostermontag"))
+    add(date(year, 5, 1), _("Tag der Arbeit"))
+    add(sunday + timedelta(days=39), _("Christi Himmelfahrt"))
+    add(sunday + timedelta(days=49), _("Pfingstsonntag"), "BB")
+    add(sunday + timedelta(days=50), _("Pfingstmontag"))
+    add(sunday + timedelta(days=60), _("Fronleichnam"), "BW BY HE NW RP SL")
+    add(date(year, 8, 15), _("Mariä Himmelfahrt"), "SL")
+    add(date(year, 9, 20), _("Weltkindertag"), "TH", 2019)
+    add(date(year, 10, 3), _("Tag der Deutschen Einheit"))
     if year == 2017:  # 500 years of the Reformation: once nationwide
-        add(date(year, 10, 31), "Reformationstag")
+        add(date(year, 10, 31), _("Reformationstag"))
     else:
-        add(date(year, 10, 31), "Reformationstag", "BB MV SN ST TH")
-        add(date(year, 10, 31), "Reformationstag", "HB HH NI SH", 2018)
-    add(date(year, 11, 1), "Allerheiligen", "BW BY NW RP SL")
+        add(date(year, 10, 31), _("Reformationstag"), "BB MV SN ST TH")
+        add(date(year, 10, 31), _("Reformationstag"), "HB HH NI SH", 2018)
+    add(date(year, 11, 1), _("Allerheiligen"), "BW BY NW RP SL")
     # Buß- und Bettag: the Wednesday before 23 November.
-    add(date(year, 11, 22) - timedelta(days=(date(year, 11, 22).weekday() - 2) % 7), "Buß- und Bettag", "SN")
-    add(date(year, 12, 25), "1. Weihnachtstag")
-    add(date(year, 12, 26), "2. Weihnachtstag")
+    add(date(year, 11, 22) - timedelta(days=(date(year, 11, 22).weekday() - 2) % 7), _("Buß- und Bettag"), "SN")
+    add(date(year, 12, 25), _("1. Weihnachtstag"))
+    add(date(year, 12, 26), _("2. Weihnachtstag"))
     found.sort()
     return found
 

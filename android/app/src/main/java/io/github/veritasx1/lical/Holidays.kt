@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import java.time.LocalDate
 
 /** German public holidays, computed on the phone (card 7a9187d6) – no subscription, nothing fetched.
@@ -35,32 +37,32 @@ object Holidays {
         fun add(day: LocalDate, name: String, where: String = "*", since: Int? = null) {
             if ((where == "*" || state in where.split(" ")) && (since == null || year >= since)) found += day to name
         }
-        add(LocalDate.of(year, 1, 1), "Neujahr")
-        add(LocalDate.of(year, 1, 6), "Heilige Drei Könige", "BW BY ST")
-        add(LocalDate.of(year, 3, 8), "Internationaler Frauentag", "BE", 2019)
-        add(LocalDate.of(year, 3, 8), "Internationaler Frauentag", "MV", 2023)
-        add(sunday.minusDays(2), "Karfreitag")
-        add(sunday, "Ostersonntag", "BB")
-        add(sunday.plusDays(1), "Ostermontag")
-        add(LocalDate.of(year, 5, 1), "Tag der Arbeit")
-        add(sunday.plusDays(39), "Christi Himmelfahrt")
-        add(sunday.plusDays(49), "Pfingstsonntag", "BB")
-        add(sunday.plusDays(50), "Pfingstmontag")
-        add(sunday.plusDays(60), "Fronleichnam", "BW BY HE NW RP SL")
-        add(LocalDate.of(year, 8, 15), "Mariä Himmelfahrt", "SL")
-        add(LocalDate.of(year, 9, 20), "Weltkindertag", "TH", 2019)
-        add(LocalDate.of(year, 10, 3), "Tag der Deutschen Einheit")
-        if (year == 2017) add(LocalDate.of(year, 10, 31), "Reformationstag")  // 500 years: once nationwide
+        add(LocalDate.of(year, 1, 1), tr("Neujahr"))
+        add(LocalDate.of(year, 1, 6), tr("Heilige Drei Könige"), "BW BY ST")
+        add(LocalDate.of(year, 3, 8), tr("Internationaler Frauentag"), "BE", 2019)
+        add(LocalDate.of(year, 3, 8), tr("Internationaler Frauentag"), "MV", 2023)
+        add(sunday.minusDays(2), tr("Karfreitag"))
+        add(sunday, tr("Ostersonntag"), "BB")
+        add(sunday.plusDays(1), tr("Ostermontag"))
+        add(LocalDate.of(year, 5, 1), tr("Tag der Arbeit"))
+        add(sunday.plusDays(39), tr("Christi Himmelfahrt"))
+        add(sunday.plusDays(49), tr("Pfingstsonntag"), "BB")
+        add(sunday.plusDays(50), tr("Pfingstmontag"))
+        add(sunday.plusDays(60), tr("Fronleichnam"), "BW BY HE NW RP SL")
+        add(LocalDate.of(year, 8, 15), tr("Mariä Himmelfahrt"), "SL")
+        add(LocalDate.of(year, 9, 20), tr("Weltkindertag"), "TH", 2019)
+        add(LocalDate.of(year, 10, 3), tr("Tag der Deutschen Einheit"))
+        if (year == 2017) add(LocalDate.of(year, 10, 31), tr("Reformationstag"))  // 500 years: once nationwide
         else {
-            add(LocalDate.of(year, 10, 31), "Reformationstag", "BB MV SN ST TH")
-            add(LocalDate.of(year, 10, 31), "Reformationstag", "HB HH NI SH", 2018)
+            add(LocalDate.of(year, 10, 31), tr("Reformationstag"), "BB MV SN ST TH")
+            add(LocalDate.of(year, 10, 31), tr("Reformationstag"), "HB HH NI SH", 2018)
         }
-        add(LocalDate.of(year, 11, 1), "Allerheiligen", "BW BY NW RP SL")
+        add(LocalDate.of(year, 11, 1), tr("Allerheiligen"), "BW BY NW RP SL")
         // Buß- und Bettag: the Wednesday before 23 November.
         val before = LocalDate.of(year, 11, 22)
-        add(before.minusDays(((before.dayOfWeek.value - 1 - 2) % 7 + 7) % 7L), "Buß- und Bettag", "SN")
-        add(LocalDate.of(year, 12, 25), "1. Weihnachtstag")
-        add(LocalDate.of(year, 12, 26), "2. Weihnachtstag")
+        add(before.minusDays(((before.dayOfWeek.value - 1 - 2) % 7 + 7) % 7L), tr("Buß- und Bettag"), "SN")
+        add(LocalDate.of(year, 12, 25), tr("1. Weihnachtstag"))
+        add(LocalDate.of(year, 12, 26), tr("2. Weihnachtstag"))
         return found.sortedWith(compareBy({ it.first }, { it.second }))
     }
 

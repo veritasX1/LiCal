@@ -68,6 +68,8 @@ fun LiCalApp(store: Store, dark: Boolean = isSystemInDarkTheme(), start: Screen 
             val calendar = store.defaultCalendar()
             editing = EditRequest(Editing.newEvent(on, java.time.LocalDateTime.now(), calendar, java.util.UUID.randomUUID().toString().replace("-", ""), hour), null, true)
         }
+        // A tap shows the event first (Apple; card 45400a07) – „Bearbeiten“ there opens the editor.
+        var showing by remember { mutableStateOf<Occurrence?>(null) }
         fun edit(item: Occurrence) {
             // A phone calendar's occurrence carries no alerts: take them from the stored event.
             val alerts = if (item.event.id.startsWith(DEVICE)) store.event(item.event.id)?.alerts ?: emptyList() else item.event.alerts
@@ -82,7 +84,7 @@ fun LiCalApp(store: Store, dark: Boolean = isSystemInDarkTheme(), start: Screen 
             Row(Modifier.fillMaxWidth().windowInsetsPadding(WindowInsets.statusBars).height(44.dp).padding(horizontal = 8.dp),
                 verticalAlignment = Alignment.CenterVertically) {
                 when (screen) {
-                    Screen.Month -> BackButton(if (mode == MonthMode.Details) "${MONTHS[visibleMonth.monthValue - 1].take(3)} ${visibleMonth.year}" else visibleMonth.year.toString()) { screen = Screen.Year }
+                    Screen.Month -> BackButton(if (mode == MonthMode.Details) "${Dates.shortMonth(visibleMonth.monthValue)} ${visibleMonth.year}" else visibleMonth.year.toString()) { screen = Screen.Year }
                     Screen.Day -> BackButton(MONTHS[day.monthValue - 1]) { month = YearMonth.from(day); screen = Screen.Month }
                     Screen.Year -> Spacer(Modifier.size(1.dp))
                 }
@@ -110,10 +112,10 @@ fun LiCalApp(store: Store, dark: Boolean = isSystemInDarkTheme(), start: Screen 
                             if (mode == MonthMode.Details) {
                                 // Details: the chosen day stays in the month in view; a tap only chooses it.
                                 MonthDetails(store, if (YearMonth.from(day) == visibleMonth) day else visibleMonth.atDay(1),
-                                    onDay = { picked -> day = picked }, onMonth = { shown -> visibleMonth = shown; month = shown }, onEvent = { edit(it) })
+                                    onDay = { picked -> day = picked }, onMonth = { shown -> visibleMonth = shown; month = shown }, onEvent = { showing = it })
                             } else MonthScreen(store, month, monthList, mode == MonthMode.Compact, onVisibleMonth = { visibleMonth = it }) { picked -> day = picked; screen = Screen.Day }
                         }
-                        Screen.Day -> DayScreen(store, day, onEvent = { edit(it) }, onSlot = { on, hour -> create(on, hour) }) { picked -> day = picked }
+                        Screen.Day -> DayScreen(store, day, onEvent = { showing = it }, onSlot = { on, hour -> create(on, hour) }) { picked -> day = picked }
                         Screen.Year -> YearScreen(visibleMonth.year) { picked -> month = picked; visibleMonth = picked; screen = Screen.Month }
                     }
                 }
@@ -141,6 +143,7 @@ fun LiCalApp(store: Store, dark: Boolean = isSystemInDarkTheme(), start: Screen 
                 Settings.monthMode = chosen
                 modeMenu = false
             }
+            showing?.let { item -> EventDetails(store, item, onEdit = { showing = null; edit(item) }) { showing = null } }
             editing?.let { request ->
                 EditorSheet(store, request) { saved ->
                     editing = null
@@ -205,7 +208,10 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
     val permission = androidx.activity.compose.rememberLauncherForActivityResult(
         androidx.activity.result.contract.ActivityResultContracts.RequestMultiplePermissions()) { store.refreshDevice() }
     val card = if (colors.dark) Color(0xFF2C2C2E) else Color.White
+    var editing by remember { mutableStateOf<CalendarInfo?>(null) }
     Dialog(onDismissRequest = onClose, properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false)) {
+        // Like the iPhone: name and color open inside the sheet, „Abbrechen“/„Fertig“ lead back to the list.
+        editing?.let { calendar -> CalendarEditor(store, calendar) { editing = null }; return@Dialog }
         Column(Modifier.padding(horizontal = 12.dp).fillMaxWidth().clip(RoundedCornerShape(26.dp))
             .background(if (colors.dark) Color(0xFF1C1C1E) else Color(0xFFF2F2F7)).padding(vertical = 14.dp)
             .verticalScroll(rememberScrollState())) {
@@ -232,9 +238,15 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
                                 }
                                 BasicText(calendar.name, style = style(17f, 400, colors.label), modifier = Modifier.padding(start = 14.dp).weight(1f))
                                 if (store.isReadOnly(calendar.id)) BasicText(tr("nur lesen"), style = style(13f, 400, colors.secondary))
+                                // Like the iPhone: ⓘ opens name, color and „Kalender löschen“ – for LiCal's own calendars.
+                                if (account == "LICAL") BasicText("ⓘ", style = style(22f, 400, colors.red), modifier = Modifier.clip(CircleShape)
+                                    .clickable(onClickLabel = tr("Kalender bearbeiten")) { editing = calendar }.padding(horizontal = 6.dp))
                             }
-                            if (index < list.lastIndex) Box(Modifier.padding(start = 54.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
+                            if (index < list.lastIndex || account == "LICAL") Box(Modifier.padding(start = 54.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
                         }
+                        // „Kalender hinzufügen“ (Olaf 07.10.): name and color, only on this device and its own sync – not shared.
+                        if (account == "LICAL") BasicText(tr("Kalender hinzufügen"), style = style(17f, 400, colors.red),
+                            modifier = Modifier.fillMaxWidth().clickable { editing = CalendarInfo("", "", "blue") }.padding(horizontal = 16.dp, vertical = 12.dp))
                     }
                 }
                 HolidaysGroup(store, card)
@@ -259,12 +271,12 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
                 val writable = store.writableCalendars()
                 val chosen = store.calendar(store.defaultCalendar())
                 var zones by remember { mutableStateOf(Settings.timeZones) }
-                BasicText("EINSTELLUNGEN", style = style(13f, 400, colors.secondary), modifier = Modifier.padding(start = 32.dp, top = 14.dp, bottom = 6.dp))
+                BasicText(tr("Einstellungen").uppercase(), style = style(13f, 400, colors.secondary), modifier = Modifier.padding(start = 32.dp, top = 14.dp, bottom = 6.dp))
                 Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
                     Row(Modifier.fillMaxWidth().clickable { defaultOpen = !defaultOpen }.padding(horizontal = 16.dp, vertical = 12.dp),
                         verticalAlignment = Alignment.CenterVertically) {
                         // The label stays on one line; a long name (an e-mail address) is shortened with "…".
-                        BasicText("Standardkalender", style = style(17f, 400, colors.label), maxLines = 1, softWrap = false)
+                        BasicText(tr("Standardkalender"), style = style(17f, 400, colors.label), maxLines = 1, softWrap = false)
                         BasicText(chosen?.name ?: "", style = style(17f, 400, colors.secondary).copy(textAlign = TextAlign.End), maxLines = 1,
                             overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(start = 12.dp).weight(1f))
                         UpDownChevron(colors.secondary)
@@ -284,21 +296,41 @@ private fun CalendarsSheet(store: Store, onClose: () -> Unit) {
                     BasicText(tr("Zeitzonen-Unterstützung"), style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
                     IosSwitch(zones) { zones = it; Settings.timeZones = it }
                 }
-                // Language: like the system or chosen here – takes effect at the next start.
-                Spacer(Modifier.height(8.dp))
+                // Language: like the system or chosen here – takes effect at the next start. Own section „Sprache“ like Ubuntu/LiMail.
+                BasicText(tr("Sprache").uppercase(), style = style(13f, 400, colors.secondary),
+                    modifier = Modifier.padding(start = 32.dp, top = 18.dp, bottom = 6.dp))
                 val i18n = io.github.veritasx1.lical.i18n.I18n
                 var language by remember { mutableStateOf(i18n.chosen) }
                 Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
-                    (listOf<String?>(null) + i18n.LANGUAGES.keys).forEach { code ->
+                    (listOf<String?>(null) + i18n.LANGUAGES.keys).forEachIndexed { index, code ->
+                        // Separator inset like every grouped list (Michelle 16e05d3c)
+                        if (index > 0) Box(Modifier.padding(start = 16.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
                         Row(Modifier.fillMaxWidth().clickable { i18n.chosen = code; language = code }.padding(horizontal = 16.dp, vertical = 11.dp),
                             verticalAlignment = Alignment.CenterVertically) {
-                            BasicText(code?.let { i18n.LANGUAGES[it] } ?: tr("Sprache: wie das System"), style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
+                            BasicText(code?.let { i18n.LANGUAGES[it] } ?: tr("Wie das System"),   // same words as Ubuntu and LiMail (b895f806)
+                                 style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
                             if (code == language) BasicText("✓", style = style(17f, 600, colors.red))
                         }
                     }
                 }
-                BasicText(tr("Die Sprache wechselt beim nächsten Start von LiCal."), style = style(13f, 400, colors.secondary),
+                BasicText(tr("Gilt nach einem Neustart von LiCal."), style = style(13f, 400, colors.secondary),
                     modifier = Modifier.padding(start = 32.dp, end = 32.dp, top = 6.dp))
+                // Hilfe and Über LiCal like LiMail (card d38290c7)
+                var helpOpen by remember { mutableStateOf(false) }
+                var aboutOpen by remember { mutableStateOf(false) }
+                Spacer(Modifier.height(16.dp))
+                Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
+                    listOf(tr("Hilfe") to { helpOpen = true }, tr("Über LiCal") to { aboutOpen = true }).forEachIndexed { i, (name, open) ->
+                        if (i > 0) Box(Modifier.padding(start = 16.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
+                        Row(Modifier.fillMaxWidth().clickable(onClick = open).padding(horizontal = 16.dp, vertical = 12.dp),
+                            verticalAlignment = Alignment.CenterVertically) {
+                            BasicText(name, style = style(17f, 400, colors.label), modifier = Modifier.weight(1f))
+                            BasicText("›", style = style(20f, 400, colors.tertiary))
+                        }
+                    }
+                }
+                if (helpOpen) HelpScreen { helpOpen = false }
+                if (aboutOpen) AboutScreen { aboutOpen = false }
                 if (!store.devicePermitted()) {
                     Column(Modifier.padding(16.dp).clip(RoundedCornerShape(12.dp)).background(card).clickable {
                         permission.launch(arrayOf(android.Manifest.permission.READ_CALENDAR, android.Manifest.permission.WRITE_CALENDAR))
@@ -319,7 +351,7 @@ private fun HolidaysGroup(store: Store, card: Color) {
     val colors = palette()
     val info = store.holidayInfo()
     var open by remember { mutableStateOf(false) }
-    BasicText("ANDERE", style = style(13f, 400, colors.secondary), modifier = Modifier.padding(start = 32.dp, top = 14.dp, bottom = 6.dp))
+    BasicText(tr("Andere").uppercase(), style = style(13f, 400, colors.secondary), modifier = Modifier.padding(start = 32.dp, top = 14.dp, bottom = 6.dp))
     Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
         Row(Modifier.fillMaxWidth().clickable { store.setVisible(Holidays.CALENDAR, !info.visible) }.padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically) {
@@ -332,15 +364,16 @@ private fun HolidaysGroup(store: Store, card: Color) {
         }
         Box(Modifier.padding(start = 54.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
         Row(Modifier.fillMaxWidth().clickable { open = !open }.padding(horizontal = 16.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-            BasicText("Bundesland", style = style(17f, 400, colors.label), maxLines = 1, softWrap = false, modifier = Modifier.padding(start = 38.dp))
-            BasicText(Holidays.STATES.firstOrNull { it.first == store.holidays.state }?.second.orEmpty(), style = style(17f, 400, colors.secondary).copy(textAlign = TextAlign.End),
+            BasicText(tr("Bundesland"), style = style(17f, 400, colors.label), maxLines = 1, softWrap = false, modifier = Modifier.padding(start = 38.dp))
+            BasicText(Holidays.STATES.firstOrNull { it.first == store.holidays.state }?.second?.let { tr(it) }.orEmpty(),   // „Nur bundesweit“ übersetzt (b895f806)
+                style = style(17f, 400, colors.secondary).copy(textAlign = TextAlign.End),
                 maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(start = 12.dp).weight(1f))
             UpDownChevron(colors.secondary)
         }
         if (open) Holidays.STATES.forEach { (key, name) ->
             Row(Modifier.fillMaxWidth().clickable { store.setHolidays(store.holidays.copy(state = key)); open = false }
                 .padding(start = 70.dp, end = 16.dp, top = 10.dp, bottom = 10.dp), verticalAlignment = Alignment.CenterVertically) {
-                BasicText(name, style = style(16f, 400, colors.label), modifier = Modifier.weight(1f))
+                BasicText(tr(name), style = style(16f, 400, colors.label), modifier = Modifier.weight(1f))
                 if (key == store.holidays.state) BasicText("✓", style = style(16f, 600, colors.red))
             }
         }
@@ -352,3 +385,62 @@ private fun HolidaysGroup(store: Store, card: Color) {
 
 @Composable
 private fun key(value: Any, content: @Composable () -> Unit) = androidx.compose.runtime.key(value) { content() }
+
+
+/** New or own calendar like the iPhone's „Kalender hinzufügen“ / ⓘ: name, color, and for an existing one „Kalender löschen“
+ *  (asks first; its events go with it; the last calendar stays). Twin of the Ubuntu sidebar's calendar menu. */
+@Composable
+private fun CalendarEditor(store: Store, calendar: CalendarInfo, onClose: () -> Unit) {
+    val colors = palette()
+    val isNew = calendar.id.isEmpty()
+    var name by remember(calendar) { mutableStateOf(calendar.name) }
+    var color by remember(calendar) { mutableStateOf(calendar.color) }
+    var confirm by remember { mutableStateOf(false) }
+    val card = if (colors.dark) Color(0xFF2C2C2E) else Color.White
+    Box {
+        Column(Modifier.padding(horizontal = 12.dp).fillMaxWidth().clip(RoundedCornerShape(26.dp))
+            .background(if (colors.dark) Color(0xFF1C1C1E) else Color(0xFFF2F2F7)).padding(vertical = 14.dp)) {
+            Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
+                BasicText(tr("Abbrechen"), style = style(17f, 400, colors.red), modifier = Modifier.clip(CircleShape).clickable(onClick = onClose).padding(10.dp))
+                BasicText(if (isNew) tr("Neuer Kalender") else tr("Kalender bearbeiten"),
+                    style = style(17f, 600, colors.label).copy(textAlign = androidx.compose.ui.text.style.TextAlign.Center),
+                    maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+                val ok = name.isNotBlank()
+                BasicText(tr("Fertig"), style = style(17f, 600, if (ok) colors.red else colors.secondary), modifier = Modifier.clip(CircleShape)
+                    .clickable(enabled = ok) {
+                        if (isNew) store.addCalendar(name, color) else store.updateCalendar(calendar.id, name, color)
+                        onClose()
+                    }.padding(10.dp))
+            }
+            Column(Modifier.padding(horizontal = 16.dp, vertical = 8.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
+                androidx.compose.foundation.text.BasicTextField(name, { name = it }, singleLine = true, textStyle = style(17f, 400, colors.label),
+                    cursorBrush = androidx.compose.ui.graphics.SolidColor(colors.red),
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp)
+                        .semantics { contentDescription = tr("Name des Kalenders") },
+                    decorationBox = { inner -> Box { if (name.isEmpty()) BasicText(tr("Name"), style = style(17f, 400, colors.secondary)); inner() } })
+            }
+            BasicText(tr("FARBE"), style = style(13f, 400, colors.secondary), modifier = Modifier.padding(start = 32.dp, top = 12.dp, bottom = 6.dp))
+            Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(12.dp)).background(card)) {
+                CALENDAR_COLORS.forEachIndexed { i, (key, label) ->
+                    Row(Modifier.fillMaxWidth().clickable { color = key }.padding(horizontal = 16.dp, vertical = 11.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Box(Modifier.size(20.dp).clip(CircleShape).background(colors.system(key)))
+                        BasicText(label, style = style(17f, 400, colors.label), modifier = Modifier.padding(start = 14.dp).weight(1f))
+                        if (color == key) BasicText("✓", style = style(17f, 600, colors.red))
+                    }
+                    if (i < CALENDAR_COLORS.lastIndex) Box(Modifier.padding(start = 50.dp).fillMaxWidth().height(0.5.dp).background(colors.separator))
+                }
+            }
+            if (!isNew && store.calendars.size > 1) BasicText(tr("Kalender löschen"), style = style(17f, 400, colors.red),
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp).fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(card)
+                    .clickable { confirm = true }.padding(horizontal = 16.dp, vertical = 12.dp))
+        }
+        if (confirm) ActionSheet(listOf(tr("Kalender löschen") to true), onCancel = { confirm = false },
+            message = tr("Alle Termine in diesem Kalender werden gelöscht.")) {
+            store.deleteCalendar(calendar.id); confirm = false; onClose()
+        }
+    }
+}
+
+/** Apple's calendar colors in its order. */
+private val CALENDAR_COLORS get() = listOf("red" to tr("Rot"), "orange" to tr("Orange"), "yellow" to tr("Gelb"), "green" to tr("Grün"),
+    "blue" to tr("Blau"), "purple" to tr("Lila"), "brown" to tr("Braun"))

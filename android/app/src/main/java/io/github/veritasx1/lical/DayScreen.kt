@@ -67,7 +67,7 @@ fun DayScreen(store: Store, day: LocalDate, onEvent: (Occurrence) -> Unit = {}, 
     }
     Column(Modifier.fillMaxSize()) {
         WeekStrip(day, onDay)
-        BasicText("${WEEKDAYS_LONG[day.dayOfWeek.value - 1]} – ${day.dayOfMonth}. ${MONTHS[day.monthValue - 1]} ${day.year}",
+        BasicText(Dates.text(day),
             style = style(13f, 600, colors.label).copy(textAlign = TextAlign.Center), modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp))
         HorizontalPager(pager, Modifier.fillMaxSize(), beyondViewportPageCount = 1) { page ->
             val shown = origin.plusDays((page - DAYS_AROUND).toLong())

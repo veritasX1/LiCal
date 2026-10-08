@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.mandatorySystemGestures
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -39,6 +40,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.layout.boundsInWindow
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,7 +58,9 @@ import java.time.LocalDate
 import java.time.YearMonth
 
 /** What the editor works on: a new event, or an occurrence of a stored one. */
-data class EditRequest(val event: Event, val occurrenceStart: String?, val isNew: Boolean)
+/** [focusTitle]: false when another app hands the event over (Apple: no keyboard then – taps on the calendar choice landed
+ *  in the title, Michelle 07.10.). */
+data class EditRequest(val event: Event, val occurrenceStart: String?, val isNew: Boolean, val focusTitle: Boolean = true)
 
 private enum class Picker { None, StartDate, StartTime, EndDate, EndTime }
 
@@ -98,7 +103,7 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
     }
 
     // A new event: the keyboard opens for the title right away (like the iPhone).
-    if (request.isNew) LaunchedEffect(request) { runCatching { titleFocus.requestFocus() } }
+    if (request.isNew && request.focusTitle) LaunchedEffect(request) { runCatching { titleFocus.requestFocus() } }
     Box(Modifier.fillMaxSize().background(Color(0x66000000)).clickable(enabled = false) {}) {
         Column(Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.statusBars).padding(top = 10.dp)
             .clip(RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp)).background(sheetBackground)) {
@@ -288,7 +293,7 @@ fun EditorSheet(store: Store, request: EditRequest, onClose: (saved: Event?) -> 
     }
 }
 
-private fun dateText(day: LocalDate) = "${day.dayOfMonth}. ${MONTHS[day.monthValue - 1].take(3)}${if (MONTHS[day.monthValue - 1].length > 3) "." else ""} ${day.year}"
+private fun dateText(day: LocalDate) = Dates.text(day, weekday = false, short = true)
 
 @Composable
 private fun Group(background: Color, modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
@@ -454,21 +459,61 @@ private fun Wheel(values: List<Int>, selected: Int, onPick: (Int) -> Unit) {
 
 /** An iOS action sheet: the choices in a card, "Abbrechen" below. */
 @Composable
-fun ActionSheet(choices: List<Pair<String, Boolean>>, onCancel: () -> Unit, onChoose: (Int) -> Unit) {
+fun ActionSheet(choices: List<Pair<String, Boolean>>, onCancel: () -> Unit, message: String? = null, onChoose: (Int) -> Unit) {
     val colors = palette()
     val card = if (colors.dark) Color(0xFF2C2C2E) else Color.White
-    Box(Modifier.fillMaxSize().background(Color(0x55000000)).clickable(onClick = onCancel), contentAlignment = Alignment.BottomCenter) {
-        Column(Modifier.windowInsetsPadding(WindowInsets.navigationBars).padding(10.dp)) {
-            Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(card)) {
-                choices.forEachIndexed { index, (label, destructive) ->
-                    if (index > 0) Box(Modifier.fillMaxWidth().height(0.5.dp).background(colors.separator))
-                    BasicText(label, style = style(19f, 400, if (destructive) colors.red else colors.system("blue")).copy(textAlign = TextAlign.Center),
-                        modifier = Modifier.fillMaxWidth().clickable { onChoose(index) }.padding(vertical = 17.dp))
+    // Its own edge-to-edge window: inside another dialog the system bars give no insets, and „Abbrechen“ slid
+    // under the gesture bar (Michelle 288c354d). The window dims the screen itself.
+    androidx.compose.ui.window.Dialog(onDismissRequest = onCancel, properties = androidx.compose.ui.window.DialogProperties(
+        usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+        // Measured where it matters (Michelle 288c354d, three tries with window flags and insets failed): where the
+        // „Abbrechen“ card ends on the screen, and where it should end – above the gesture zone of the app's own window
+        // (inside dialogs the insets read 0), 8 dp higher. The difference goes onto the bottom space.
+        val view = androidx.compose.ui.platform.LocalView.current
+        val density = androidx.compose.ui.platform.LocalDensity.current
+        val gestureFoot = remember { activityBottomInset(view.context) }
+        var lift by remember { mutableStateOf(0) }
+        Box(Modifier.fillMaxSize().clickable(onClick = onCancel), contentAlignment = Alignment.BottomCenter) {
+            Column(Modifier.padding(start = 10.dp, end = 10.dp, top = 10.dp, bottom = 10.dp + with(density) { lift.toDp() })) {
+                Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(card)) {
+                    // The explanation above the choices, small and grey like iOS
+                    if (message != null) {
+                        BasicText(message, style = style(13f, 400, colors.secondary).copy(textAlign = TextAlign.Center),
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp))
+                        Box(Modifier.fillMaxWidth().height(0.5.dp).background(colors.separator))
+                    }
+                    choices.forEachIndexed { index, (label, destructive) ->
+                        if (index > 0) Box(Modifier.fillMaxWidth().height(0.5.dp).background(colors.separator))
+                        BasicText(label, style = style(19f, 400, if (destructive) colors.red else colors.system("blue")).copy(textAlign = TextAlign.Center),
+                            modifier = Modifier.fillMaxWidth().clickable { onChoose(index) }.padding(vertical = 17.dp))
+                    }
                 }
+                Spacer(Modifier.height(8.dp))
+                BasicText(tr("Abbrechen"), style = style(19f, 600, colors.red).copy(textAlign = TextAlign.Center),   // LiCal's accent, bold like the iOS calendar
+                    modifier = Modifier.fillMaxWidth().onGloballyPositioned { card ->
+                        val origin = IntArray(2).also { view.getLocationOnScreen(it) }
+                        val cardFoot = origin[1] + card.boundsInWindow().bottom.toInt()
+                        val wanted = screenHeight(view.context) - gestureFoot - with(density) { 8.dp.roundToPx() }
+                        val next = (lift + cardFoot - wanted).coerceIn(0, screenHeight(view.context) / 4)   // never more than a quarter
+                        if (kotlin.math.abs(next - lift) > 1) lift = next
+                    }.clip(RoundedCornerShape(14.dp)).background(card).clickable(onClick = onCancel).padding(vertical = 17.dp))
             }
-            Spacer(Modifier.height(8.dp))
-            BasicText(tr("Abbrechen"), style = style(19f, 600, colors.system("blue")).copy(textAlign = TextAlign.Center),
-                modifier = Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(card).clickable(onClick = onCancel).padding(vertical = 17.dp))
         }
     }
 }
+
+/** The bottom inset of the app's own (edge-to-edge) window: the larger of navigation bar and gesture zone. */
+private fun activityBottomInset(context: android.content.Context): Int {
+    var c: android.content.Context? = context
+    while (c is android.content.ContextWrapper && c !is android.app.Activity) c = c.baseContext
+    val insets = (c as? android.app.Activity)?.window?.decorView?.rootWindowInsets ?: return 0
+    val compat = androidx.core.view.WindowInsetsCompat.toWindowInsetsCompat(insets)
+    return maxOf(compat.getInsets(androidx.core.view.WindowInsetsCompat.Type.navigationBars()).bottom,
+        compat.getInsets(androidx.core.view.WindowInsetsCompat.Type.mandatorySystemGestures()).bottom)
+}
+
+/** The whole screen's height in pixels (status and navigation bars included). */
+private fun screenHeight(context: android.content.Context): Int =
+    if (android.os.Build.VERSION.SDK_INT >= 30)
+        context.getSystemService(android.view.WindowManager::class.java).currentWindowMetrics.bounds.height()
+    else context.resources.displayMetrics.heightPixels

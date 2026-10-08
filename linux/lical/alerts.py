@@ -8,7 +8,16 @@ is -540 and "1 Tag vorher (9:00)" is 900."""
 from datetime import datetime, timedelta
 
 from .rules import as_datetime, occurrences, parse
-from .i18n import _
+from .i18n import _, language
+
+
+def _numeric(day):
+    """5.10. · 10/5 · 05/10 (alerts stay free of the drawing code in theme)."""
+    if language() == "en":
+        return f"{day.month}/{day.day}"
+    if language() == "fr":
+        return f"{day.day:02d}/{day.month:02d}"
+    return f"{day.day}.{day.month}."
 
 TIMED = (
     (0, _("Zum Zeitpunkt des Ereignisses")),
@@ -114,7 +123,7 @@ def text(alert, now):
     elif day == today + timedelta(days=1):
         when = _("Morgen")
     else:
-        when = f"{['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'][day.weekday()]}, {day.day}.{day.month}."
+        when = f"{_('Mo Di Mi Do Fr Sa So').split()[day.weekday()]}, {_numeric(day)}"
     if alert["allDay"]:
         when += _(", ganztägig")
     else:

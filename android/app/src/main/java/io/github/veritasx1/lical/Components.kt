@@ -71,12 +71,12 @@ fun GlassText(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, 
     }
 }
 
-enum class Glyph { Back, Search, Plus, List, Calendars, Inbox, Compact, Stacked }
+enum class Glyph { Back, Chevron, Search, Plus, List, Calendars, Inbox, Compact, Stacked }
 
 /** LiCal's own symbols, drawn like SF Symbols (regular weight, round ends). */
 @Composable
-fun GlyphIcon(glyph: Glyph, color: Color, size: Dp) {
-    Canvas(Modifier.size(size)) { drawGlyph(glyph, color) }
+fun GlyphIcon(glyph: Glyph, color: Color, size: Dp, modifier: Modifier = Modifier) {
+    Canvas(modifier.size(size)) { drawGlyph(glyph, color) }
 }
 
 private fun DrawScope.drawGlyph(glyph: Glyph, color: Color) {
@@ -88,6 +88,8 @@ private fun DrawScope.drawGlyph(glyph: Glyph, color: Color) {
     }
     when (glyph) {
         Glyph.Back -> drawPath(path(15f to 4.5f, 7.5f to 12f, 15f to 19.5f), color, style = Stroke(2.6f * s, cap = StrokeCap.Round, join = StrokeJoin.Round))
+        // "›" at the end of a row that opens a page, as in the iPhone's lists (LiMail's Glyph.Chevron)
+        Glyph.Chevron -> drawPath(path(9f to 5f, 16f to 12f, 9f to 19f), color, style = Stroke(2.4f * s, cap = StrokeCap.Round, join = StrokeJoin.Round))
         Glyph.Search -> {
             drawCircle(color, 7f * s, Offset(10.5f * s, 10.5f * s), style = stroke)
             drawPath(path(15.6f to 15.6f, 21f to 21f), color, style = Stroke(2.4f * s, cap = StrokeCap.Round))

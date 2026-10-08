@@ -145,7 +145,13 @@ class TimelineView(Gtk.Box):
                 theme.text(cr, number, right, 15.5, 13, color, weight=600, align="right")
                 theme.text(cr, name, right - number_width - 6, 15.5, 13, palette.secondary, align="right")
             self.header_areas.append(("day", day, x, 0, column, 44))
-        theme.text(cr, _("ganztägig"), GUTTER - 8, self.band_top() + 4, 10.5, palette.secondary, align="right")
+        label = _("ganztägig")
+        if theme.text_width(cr, label, 10.5) <= GUTTER - 10 or " " not in label:
+            theme.text(cr, label, GUTTER - 8, self.band_top() + 4, 10.5, palette.secondary, align="right")
+        else:  # „toute la journée“: two lines, like Apple's narrow gutter
+            first, _space, second = label.rpartition(" ")
+            theme.text(cr, first, GUTTER - 8, self.band_top() + 2, 9.5, palette.secondary, align="right")
+            theme.text(cr, second, GUTTER - 8, self.band_top() + 14, 9.5, palette.secondary, align="right")
         # All-day band.
         cr.set_source_rgb(*palette.separator)
         cr.set_line_width(1)

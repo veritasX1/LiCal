@@ -69,7 +69,7 @@ object IncomingIntents {
             notes = intent.getStringExtra(CalendarContract.Events.DESCRIPTION)?.trim().orEmpty(),
             rrule = intent.getStringExtra(CalendarContract.Events.RRULE)?.ifEmpty { null },
         )
-        return Incoming(Screen.Day, Rules.parse(event.start).date, EditRequest(event, null, true))
+        return Incoming(Screen.Day, Rules.parse(event.start).date, EditRequest(event, null, true, focusTitle = false))
     }
 
     private fun viewEvent(store: Store, id: Long): Incoming? {
@@ -84,7 +84,7 @@ object IncomingIntents {
         }.getOrNull() ?: return null
         val found = Ics.fromIcs(text) ?: return null
         val event = found.copy(id = java.util.UUID.randomUUID().toString().replace("-", ""), calendar = store.defaultCalendar())
-        return Incoming(Screen.Day, Rules.parse(event.start).date, EditRequest(event, null, true))
+        return Incoming(Screen.Day, Rules.parse(event.start).date, EditRequest(event, null, true, focusTitle = false))
     }
 
     private fun java.io.InputStream.readNBytesCompat(limit: Int): ByteArray {

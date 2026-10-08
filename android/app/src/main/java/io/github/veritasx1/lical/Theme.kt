@@ -1,6 +1,8 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.I18n
 import io.github.veritasx1.lical.i18n.tr
+import java.time.LocalDate
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -64,9 +66,55 @@ fun style(size: Float, weight: Int = 400, color: Color = Color.Unspecified, tabu
     TextStyle(fontFamily = Inter, fontSize = size.sp, fontWeight = FontWeight(weight), color = color,
         fontFeatureSettings = if (tabular) "tnum" else null, letterSpacing = if (size >= 28) (-0.6).sp else 0.sp)
 
-val MONTHS = listOf(tr("Januar"), tr("Februar"), tr("März"), tr("April"), tr("Mai"), tr("Juni"), tr("Juli"), tr("August"), tr("September"), tr("Oktober"), tr("November"), tr("Dezember"))
-val WEEKDAY_LETTERS = tr("M D M D F S S").split(" ")
-val WEEKDAYS_LONG = listOf(tr("Montag"), tr("Dienstag"), tr("Mittwoch"), tr("Donnerstag"), tr("Freitag"), tr("Samstag"), tr("Sonntag"))
+// Getters, not values: a top-level val is filled once when the class loads – before the app language is known,
+// so EN/FR kept „Oktober“ and „M D M D F S S“ (Michelle 3e568fce).
+val MONTHS get() = listOf(tr("Januar"), tr("Februar"), tr("März"), tr("April"), tr("Mai"), tr("Juni"), tr("Juli"), tr("August"), tr("September"), tr("Oktober"), tr("November"), tr("Dezember"))
+val WEEKDAY_LETTERS get() = tr("M D M D F S S").split(" ")
+val WEEKDAYS_LONG get() = listOf(tr("Montag"), tr("Dienstag"), tr("Mittwoch"), tr("Donnerstag"), tr("Freitag"), tr("Samstag"), tr("Sonntag"))
+
+/** Dates as each language writes them – the same as Ubuntu's theme.date_text: „Montag, 5. Oktober 2026“,
+ *  „Monday, October 5, 2026“, „lundi 5 octobre 2026“. Never glue „{day}. {month}“ together elsewhere. */
+object Dates {
+    private fun lang() = I18n.language()
+
+    fun shortMonth(month: Int): String {
+        val name = MONTHS[month - 1]
+        return if (name.length <= 4) name else name.take(3) + if (lang() == "en") "" else "."
+    }
+
+    /** Mo. · Mon · lun. */
+    fun shortWeekday(index: Int): String = when (lang()) {
+        "de" -> tr("Mo Di Mi Do Fr Sa So").split(" ")[index] + "."
+        "fr" -> WEEKDAYS_LONG[index].take(3) + "."
+        else -> WEEKDAYS_LONG[index].take(3)
+    }
+
+    fun dayMonth(day: LocalDate, short: Boolean = false): String {
+        val month = if (short) shortMonth(day.monthValue) else MONTHS[day.monthValue - 1]
+        return when (lang()) {
+            "en" -> "$month ${day.dayOfMonth}"
+            "fr" -> "${if (day.dayOfMonth == 1 && !short) "1er" else day.dayOfMonth.toString()} $month"
+            else -> "${day.dayOfMonth}. $month"
+        }
+    }
+
+    fun text(day: LocalDate, weekday: Boolean = true, year: Boolean = true, short: Boolean = false): String {
+        var text = dayMonth(day, short)
+        if (year) text += (if (lang() == "en") ", " else " ") + day.year
+        if (weekday) {
+            val name = if (short) shortWeekday(day.dayOfWeek.value - 1) else WEEKDAYS_LONG[day.dayOfWeek.value - 1]
+            text = name + (if (lang() == "fr") " " else ", ") + text
+        }
+        return text
+    }
+
+    /** 5.10.2026 · 10/5/2026 · 05/10/2026 */
+    fun numeric(day: LocalDate, year: Boolean = true): String = when (lang()) {
+        "en" -> "${day.monthValue}/${day.dayOfMonth}" + if (year) "/${day.year}" else ""
+        "fr" -> "%02d/%02d".format(day.dayOfMonth, day.monthValue) + if (year) "/${day.year}" else ""
+        else -> "${day.dayOfMonth}.${day.monthValue}." + if (year) "${day.year}" else ""
+    }
+}
 
 @Composable
 fun palette() = LocalPalette.current

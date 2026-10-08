@@ -12,22 +12,25 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk
 
 from . import alerts, editing, rules, settings, theme
-from .i18n import _
+from .i18n import _, language
 
 
 def format_date(day):
-    return f"{day.day}.{day.month}.{day.year}"
+    return theme.numeric_date(day)
 
 
 def parse_date(text, fallback):
-    match = re.match(r"^\s*(\d{1,2})\.(\d{1,2})\.?(\d{2,4})?\s*$", text)
+    """5.10.2026 always; with slashes month/day in English (10/5/2026), day/month otherwise (05/10/2026)."""
+    match = re.match(r"^\s*(\d{1,2})([./])(\d{1,2})(?:[./](\d{2,4})?)?\s*$", text)
     if not match:
         return None
-    year = int(match.group(3)) if match.group(3) else fallback.year
+    first, second = int(match.group(1)), int(match.group(3))
+    day, month = (second, first) if match.group(2) == "/" and language() == "en" else (first, second)
+    year = int(match.group(4)) if match.group(4) else fallback.year
     if year < 100:
         year += 2000
     try:
-        return date(year, int(match.group(2)), int(match.group(1)))
+        return date(year, month, day)
     except ValueError:
         return None
 

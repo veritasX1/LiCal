@@ -55,9 +55,9 @@ class DayDetails(Gtk.Box):
         self.label(item.get("title", ""), ["lical-details-title"])
         start = rules.parse(item["start"])
         first, last = rules.days_covered(item)
-        when = f"{theme.WEEKDAYS_LONG[first.weekday()]}, {first.day}. {theme.MONTHS[first.month - 1]} {first.year}"
+        when = theme.date_text(first)
         if last != first:
-            when += _(" bis {day}. {value} {year}", day=last.day, value=theme.MONTHS[last.month - 1], year=last.year)
+            when += " – " + theme.date_text(last, weekday=False)
         self.label(when, ["lical-details-line"])
         if not item.get("allDay"):
             end = rules.parse(item["end"])
@@ -82,7 +82,7 @@ class DayDetails(Gtk.Box):
 
     def show_day(self, day):
         items = self.store.occurrences(day, day + rules.timedelta(days=1))
-        self.label(f"{theme.WEEKDAYS_LONG[day.weekday()]}, {day.day}. {theme.MONTHS[day.month - 1]}", ["lical-details-title"])
+        self.label(theme.date_text(day, year=False), ["lical-details-title"])
         if not items:
             self.label(_("Keine Termine"), ["lical-details-dim"])
         for item in items:

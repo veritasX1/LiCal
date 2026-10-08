@@ -10,7 +10,7 @@ import java.time.temporal.ChronoUnit
 /** Editing rules shared with Ubuntu – the twin of linux/lical/editing.py (EditingTest replays
  *  shared/cases/editing.json). They only change events; the screens call them. */
 object Editing {
-    val REPEATS = listOf(null to tr("Nie"), "FREQ=DAILY" to tr("Täglich"), "FREQ=WEEKLY" to tr("Wöchentlich"),
+    val REPEATS get() = listOf(null to tr("Nie"), "FREQ=DAILY" to tr("Täglich"), "FREQ=WEEKLY" to tr("Wöchentlich"),
         "FREQ=WEEKLY;INTERVAL=2" to tr("Alle 2 Wochen"), "FREQ=MONTHLY" to tr("Monatlich"), "FREQ=YEARLY" to tr("Jährlich"))
 
     private fun stamp(at: LocalDateTime) = Rules.stamp(Moment(at, true))

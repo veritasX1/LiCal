@@ -150,7 +150,7 @@ class Sidebar(Gtk.Box):
         row.append(check)
         state = dict(holidays.STATES).get(info.get("state", ""), "")
         row.append(Gtk.Label(label=info["name"], xalign=0, hexpand=True, ellipsize=3,
-                             tooltip_text=_("Gesetzliche Feiertage – {value}", value=state if info.get('state') else 'bundesweit')))
+                             tooltip_text=_("Gesetzliche Feiertage – {value}", value=state if info.get('state') else _("bundesweit"))))
         click = Gtk.GestureClick()
 
         def toggle(*_args):

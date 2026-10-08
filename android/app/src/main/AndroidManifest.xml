@@ -19,7 +19,7 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/no_backup"
         android:icon="@mipmap/ic_launcher"
-        android:label="LiCal"
+        android:label="${appLabel}"
         android:supportsRtl="true"
         android:theme="@style/Theme.LiCal">
         <activity

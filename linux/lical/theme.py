@@ -10,7 +10,7 @@ gi.require_version("Pango", "1.0")
 gi.require_version("PangoCairo", "1.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, Pango, PangoCairo
-from .i18n import _
+from .i18n import _, language
 
 FONT = "Inter"
 FONT_FILE = Path(__file__).resolve().parent / "fonts" / "InterVariable.ttf"
@@ -156,6 +156,52 @@ MONTHS = (_("Januar"), _("Februar"), _("März"), _("April"), _("Mai"), _("Juni")
 WEEKDAYS_SHORT = tuple(_("Mo Di Mi Do Fr Sa So").split())
 WEEKDAYS_LONG = (_("Montag"), _("Dienstag"), _("Mittwoch"), _("Donnerstag"), _("Freitag"), _("Samstag"), _("Sonntag"))
 WEEKDAYS_LETTER = tuple(_("M D M D F S S").split())
+
+
+# Dates as each language writes them (de: „Montag, 5. Oktober 2026“, en: „Monday, October 5, 2026“,
+# fr: „lundi 5 octobre 2026“) – never glue „{day}. {month}“ together elsewhere.
+def short_month(month):
+    name = MONTHS[month - 1]
+    if len(name) <= 4:
+        return name
+    return name[:3] + ("" if language() == "en" else ".")
+
+
+def day_month(day, short=False):
+    month = short_month(day.month) if short else MONTHS[day.month - 1]
+    if language() == "en":
+        return f"{month} {day.day}"
+    if language() == "fr":
+        return f"{'1er' if day.day == 1 and not short else day.day} {month}"
+    return f"{day.day}. {month}"
+
+
+def date_text(day, weekday=True, year=True, short=False):
+    """A whole date: weekday (long, or short with short=True), day, month, year."""
+    lang = language()
+    text = day_month(day, short)
+    if year:
+        text += (", " if lang == "en" else " ") + str(day.year)
+    if weekday:
+        long_name = WEEKDAYS_LONG[day.weekday()]
+        if not short:
+            name = long_name
+        elif lang == "de":
+            name = WEEKDAYS_SHORT[day.weekday()] + "."
+        else:  # Mon · lun.
+            name = long_name[:3] + ("." if lang == "fr" else "")
+        text = f"{name}{',' if lang != 'fr' else ''} {text}"
+    return text
+
+
+def numeric_date(day, year=True):
+    """5.10.2026 · 10/5/2026 · 05/10/2026"""
+    lang = language()
+    if lang == "en":
+        return f"{day.month}/{day.day}" + (f"/{day.year}" if year else "")
+    if lang == "fr":
+        return f"{day.day:02d}/{day.month:02d}" + (f"/{day.year}" if year else "")
+    return f"{day.day}.{day.month}." + (str(day.year) if year else "")
 
 if os.environ.get("LICAL_NO_FONT") != "1":
     load_font()

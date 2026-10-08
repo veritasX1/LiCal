@@ -18,7 +18,7 @@ import kotlin.math.sin
 /** Apple's calendar icon with today's date, drawn as a picture (the same design as Ubuntu's icon.py):
  *  white squircle, the weekday bold in red ("So."), the day of the month very large and black. */
 object DateIcon {
-    val WEEKDAYS = listOf("Mo.", "Di.", "Mi.", "Do.", "Fr.", "Sa.", "So.")
+    val WEEKDAYS get() = (0..6).map { Dates.shortWeekday(it) }
 
     /** Apple's continuous corners: a superellipse |x|^5 + |y|^5 = 1. */
     fun squircle(left: Float, top: Float, size: Float, exponent: Double = 5.0, steps: Int = 96): Path {

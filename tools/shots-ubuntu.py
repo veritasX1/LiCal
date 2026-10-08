@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Pictures of the Ubuntu app with example data, light and dark – never touches real data:
 
-    python3 tools/shots-ubuntu.py <folder> [month|week|day|year …]"""
+    python3 tools/shots-ubuntu.py <folder> [month|week|day|year …]
+    LICAL_LANGUAGE=en|fr …    – app and example events in English or French"""
 
 import os
 import sys
@@ -47,12 +48,39 @@ def shot(widget, name):
     print("Bild", name, flush=True)
 
 
+# The example events in the other languages (made up, like the German ones).
+DEMO = {
+    "en": {"Privat": "Personal", "Arbeit": "Work", "Familie": "Family",
+           "Jour fixe Team": "Team meeting", "Besprechungsraum 2": "Meeting room 2", "Kundentermin Müller": "Client meeting Miller",
+           "Köln": "Cologne", "Zahnarzt": "Dentist", "Mittag mit Jens": "Lunch with Jens", "Elternabend": "Parents’ evening",
+           "Grundschule": "Primary school", "Laufen": "Running", "Kino mit Mia": "Cinema with Mia", "Mias Geburtstag": "Mia’s birthday",
+           "Urlaub Kreta": "Holiday in Crete", "Messe Köln": "Cologne trade fair", "Koelnmesse": "Koelnmesse",
+           "Sprint-Planung": "Sprint planning", "Steuerberater": "Tax adviser", "Oma besuchen": "Visit Grandma",
+           "Tag der offenen Tür": "Open day", "Wochenmarkt": "Farmers’ market", "1:1 mit Sabine": "1:1 with Sabine",
+           "Abgabe Konzept": "Concept due"},
+    "fr": {"Privat": "Personnel", "Arbeit": "Travail", "Familie": "Famille",
+           "Jour fixe Team": "Réunion d’équipe", "Besprechungsraum 2": "Salle de réunion 2", "Kundentermin Müller": "Rendez-vous client Martin",
+           "Köln": "Cologne", "Zahnarzt": "Dentiste", "Mittag mit Jens": "Déjeuner avec Jens", "Elternabend": "Réunion parents-profs",
+           "Grundschule": "École primaire", "Laufen": "Course à pied", "Kino mit Mia": "Cinéma avec Mia", "Mias Geburtstag": "Anniversaire de Mia",
+           "Urlaub Kreta": "Vacances en Crète", "Messe Köln": "Salon de Cologne", "Koelnmesse": "Koelnmesse",
+           "Sprint-Planung": "Planification du sprint", "Steuerberater": "Conseiller fiscal", "Oma besuchen": "Visite chez mamie",
+           "Tag der offenen Tür": "Portes ouvertes", "Wochenmarkt": "Marché", "1:1 mit Sabine": "Point avec Sabine",
+           "Abgabe Konzept": "Remise du concept", "Review Release 2.2": "Revue de la version 2.2"},
+}.get(os.environ.get("LICAL_LANGUAGE"), {})
+
+
 class Shots(app_module.Application):
     def do_activate(self):
         try:
             app_module.load_css()
             store = store_module.Store(Path(SCRATCH) / "kalender.json")
             store.events = store_module.demo_events(date.today())
+            for event in store.events:
+                for key in ("title", "location"):
+                    if event.get(key) in DEMO:
+                        event[key] = DEMO[event[key]]
+            for calendar in store.calendars:
+                calendar["name"] = DEMO.get(calendar.get("name"), calendar.get("name"))
             store.save()
             window = app_module.CalendarWindow(self, store)
             window.present()

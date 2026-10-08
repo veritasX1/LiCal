@@ -67,7 +67,6 @@ object WidgetArt {
     }
 
     private val STAMP = java.time.format.DateTimeFormatter.ofPattern("HH:mm")
-    private val SHORT_MONTHS = listOf("Jan.", "Feb.", tr("März"), "Apr.", tr("Mai"), tr("Juni"), tr("Juli"), "Aug.", "Sept.", "Okt.", "Nov.", "Dez.")
 
     /** What is still to come: today's events not yet over (all-day ones included), then the next days. */
     fun upcoming(store: Store, now: LocalDateTime, days: Long = 7): List<Occurrence> =
@@ -77,9 +76,9 @@ object WidgetArt {
         }
 
     private fun dayHeading(day: LocalDate, today: LocalDate) = when (day) {
-        today -> "HEUTE"
-        today.plusDays(1) -> "MORGEN"
-        else -> "${WEEKDAYS_LONG[day.dayOfWeek.value - 1].take(2).uppercase()}., ${day.dayOfMonth}. ${SHORT_MONTHS[day.monthValue - 1].uppercase()}"
+        today -> tr("Heute").uppercase()
+        today.plusDays(1) -> tr("Morgen").uppercase()
+        else -> Dates.text(day, year = false, short = true).uppercase()
     }
 
     private fun shownDay(item: Occurrence, today: LocalDate) = maxOf(Rules.daysCovered(item).first, today)
@@ -205,7 +204,7 @@ object WidgetArt {
     private fun list(ink: Ink, canvas: Canvas, store: Store, now: LocalDateTime, width: Float, height: Float, pad: Float) {
         val today = now.toLocalDate()
         val weekday = ink.text(canvas, WEEKDAYS_LONG[today.dayOfWeek.value - 1].uppercase(), pad, pad, 11f, 700, ink.red, width - 2 * pad)
-        ink.text(canvas, "${today.dayOfMonth}. ${MONTHS[today.monthValue - 1]}", pad, pad + weekday, 22f, 600, ink.label, width - 2 * pad)
+        ink.text(canvas, Dates.dayMonth(today), pad, pad + weekday, 22f, 600, ink.label, width - 2 * pad)
         val top = pad + weekday + ink.dp(36f)
         val items = upcoming(store, now, 14)
         if (items.isEmpty()) ink.text(canvas, tr("Keine Termine in den nächsten zwei Wochen"), pad, top, 13f, 400, ink.secondary, width - 2 * pad)
@@ -298,7 +297,7 @@ object CalendarWidgets {
     /** For TalkBack: what the picture shows. */
     private fun describe(kind: WidgetArt.Kind, store: Store, now: LocalDateTime): String {
         val today = now.toLocalDate()
-        val head = "${WEEKDAYS_LONG[today.dayOfWeek.value - 1]}, ${today.dayOfMonth}. ${MONTHS[today.monthValue - 1]}"
+        val head = Dates.text(today, year = false)
         if (kind == WidgetArt.Kind.Month) return tr("LiCal, {head}", "head" to head)
         val next = WidgetArt.upcoming(store, now).take(3).joinToString("; ") { it.title }
         return tr("LiCal, {head}. {if}", "head" to head, "if" to (if (next.isEmpty()) "Keine Termine" else next))
