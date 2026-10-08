@@ -65,6 +65,7 @@ class EditorFlowTest {
 
         // Tap the event in the day view → editor → all-day → ✓.
         compose.onNodeWithText("Zahnarzt").performClick()
+        compose.onNodeWithText("Bearbeiten").performClick()   // a tap shows the event first (45400a07)
         compose.onNodeWithText("Termin bearbeiten").assertExists()
         shot("blatt-bearbeiten")
         compose.onNodeWithText("Ganztägig").assertExists()
@@ -82,6 +83,7 @@ class EditorFlowTest {
 
         // Delete only one occurrence of the series (now daily: the next day's page shows it too).
         compose.onAllNodesWithText("Zahnarzt").onFirst().performClick()
+        compose.onNodeWithText("Bearbeiten").performClick()   // a tap shows the event first (45400a07)
         compose.onNodeWithText("Termin löschen").performClick()
         compose.onNodeWithText("Nur diesen Termin löschen").performClick()
         compose.waitForIdle()
@@ -129,6 +131,7 @@ class EditorFlowTest {
         assertEquals(listOf(15, 1440), store.events.single().alerts)
         // Opened again: the alerts are shown.
         compose.onNodeWithText("Zahnarzt").performClick()
+        compose.onNodeWithText("Bearbeiten").performClick()   // a tap shows the event first (45400a07)
         compose.onNodeWithText("Termin bearbeiten").assertExists()
         compose.onNodeWithText("15 Minuten vorher", substring = true).performScrollTo().assertExists()  // the row's value
         compose.onNodeWithText("1 Tag vorher", substring = true).performScrollTo().assertExists()
@@ -140,12 +143,12 @@ class EditorFlowTest {
         val unity = LocalDate.of(2026, 10, 3)
         compose.setContent { LiCalApp(store, dark = false, start = Screen.Day, startDay = unity) }
         compose.onNodeWithText("Tag der Deutschen Einheit").performClick()
-        compose.onNodeWithText("Termin").assertExists()  // read-only: no "bearbeiten"
-        compose.onNodeWithText("Dieser Kalender kann nur gelesen werden.").assertExists()
+        // Read-only: the details, without „Bearbeiten“ (like Apple's holiday calendar).
+        compose.onNodeWithText("Bearbeiten").assertDoesNotExist()
+        assertTrue(compose.onAllNodesWithText("ganztägig").fetchSemanticsNodes().size >= 2)   // day view and details
         compose.onNodeWithText("Abwesenheit").assertDoesNotExist()
-        compose.onNodeWithContentDescription("Sichern").assertDoesNotExist()
         shot("feiertag")
-        compose.onNodeWithContentDescription("Abbrechen").performClick()
+        compose.onNodeWithText("Fertig").performClick()
         // Bundesland: Allerheiligen only with one that has it.
         assertTrue(store.occurrences(LocalDate.of(2026, 11, 1), LocalDate.of(2026, 11, 2)).isEmpty())
         store.setHolidays(store.holidays.copy(state = "NW"))
@@ -165,6 +168,7 @@ class EditorFlowTest {
         assertEquals("2026-10-26T14:00", store.occurrences(day, day.plusDays(1)).single().start)
         compose.setContent { LiCalApp(store, dark = false, start = Screen.Day, startDay = day) }
         compose.onNodeWithText("Call New York").performClick()
+        compose.onNodeWithText("Bearbeiten").performClick()   // a tap shows the event first (45400a07)
         compose.onNodeWithContentDescription("Beginn Uhrzeit 09:00").assertExists()  // its own time
         compose.onNodeWithText("New York (Amerika)", substring = true).performScrollTo().assertExists()
         shot("blatt-zeitzone")
@@ -185,6 +189,7 @@ class EditorFlowTest {
         val tuesday = Rules.weekStart(LocalDate.now()).plusDays(1)
         compose.setContent { LiCalApp(store, dark = dark, start = Screen.Day, startDay = tuesday) }
         compose.onNodeWithText("Kundentermin Müller").performClick()
+        compose.onNodeWithText("Bearbeiten").performClick()   // a tap shows the event first (45400a07)
         compose.onNodeWithContentDescription("Beginn Uhrzeit 11:00").performClick()
         shot(if (dark) "blatt-dunkel" else "blatt-uhrzeit")
     }

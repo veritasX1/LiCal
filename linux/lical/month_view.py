@@ -126,7 +126,7 @@ class MonthView(Gtk.DrawingArea):
 
     def draw_day_number(self, cr, palette, day, today, right, top):
         # The first of each month carries the month's name, like on the Mac ("1. Nov.").
-        label = f"1. {short_month(day.month)}" if day.day == 1 else str(day.day)
+        label = theme.day_month(day, short=True) if day.day == 1 else str(day.day)
         in_month = day.month == self.month.month
         if day == today:
             width = max(22, theme.text_width(cr, label, 13, 600) + 12)
@@ -272,6 +272,3 @@ def day_starts(item, day):
     return (start.date() if isinstance(start, datetime) else start) == day
 
 
-def short_month(month):
-    name = theme.MONTHS[month - 1]
-    return name if len(name) <= 4 else name[:3] + "."

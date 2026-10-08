@@ -20,8 +20,8 @@ android {
         applicationId = "io.github.veritasx1.lical"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
     }
 
     signingConfigs {
@@ -36,7 +36,16 @@ android {
     }
 
     buildTypes {
+        // A test build next to Olaf's everyday calendar, never in place of it (Michelle 08.10.): own package and name.
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            manifestPlaceholders["appLabel"] = "LiCal Test"
+        }
         release {
+            manifestPlaceholders["appLabel"] = "LiCal"
+            // -Pprobe: the release build as its own package next to Olaf's LiCal, for a smoke test with R8 first
+            if (project.hasProperty("probe")) { applicationIdSuffix = ".probe"; manifestPlaceholders["appLabel"] = "LiCal Probe" }
             signingConfig = if (keystoreProperties.isNotEmpty()) signingConfigs.getByName("release") else signingConfigs.getByName("debug")
             isMinifyEnabled = true
             isShrinkResources = true
@@ -79,7 +88,14 @@ val copyLocale by tasks.registering(Sync::class) {
     into(layout.buildDirectory.dir("generated/locale/locale"))
 }
 android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/locale"))
-tasks.named("preBuild") { dependsOn(copyLocale) }
+// Hilfe (card d38290c7): the same texts as Ubuntu, from shared/hilfe.
+val copyHelp by tasks.registering(Sync::class) {
+    from(rootProject.file("../shared/hilfe")) { include("hilfe.json") }
+    from(rootProject.file("../shared/lizenzen")) { include("lizenzen.json") }   // Lizenzen (card 86f796be)
+    into(layout.buildDirectory.dir("generated/help"))
+}
+android.sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/help"))
+tasks.named("preBuild") { dependsOn(copyLocale, copyHelp) }
 
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2024.09.03")

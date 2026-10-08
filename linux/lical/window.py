@@ -21,6 +21,8 @@ from .timeline_view import TimelineView
 from .year_view import YearView
 from .i18n import _
 
+VERSION = "0.1.0"  # as on the phone (android versionName)
+
 MODES = (("day", _("Tag")), ("week", _("Woche")), ("month", _("Monat")), ("year", _("Jahr")))
 
 
@@ -79,11 +81,11 @@ def describe(parsed):
     start = rules.parse(parsed["start"])
     end = rules.parse(parsed["end"])
     day = start if not isinstance(start, datetime) else start.date()
-    text = f"{theme.WEEKDAYS_SHORT[day.weekday()]}., {day.day}. {theme.MONTHS[day.month - 1][:3]}."
+    text = theme.date_text(day, year=False, short=True)
     if parsed["allDay"]:
         last = end - timedelta(days=1)
         if last != day:
-            text += f" – {theme.WEEKDAYS_SHORT[last.weekday()]}., {last.day}. {theme.MONTHS[last.month - 1][:3]}."
+            text += " – " + theme.date_text(last, year=False, short=True)
         text += _(" · ganztägig")
     else:
         text += f" · {start.strftime('%H:%M')}–{end.strftime('%H:%M')}"
@@ -114,11 +116,18 @@ class CalendarWindow(Adw.ApplicationWindow):
         menu = Gio.Menu()
         menu.append(_("Drucken …"), "win.print")
         menu.append(_("Einstellungen …"), "win.preferences")
+        # Hilfe and Über LiCal like LiMail (card d38290c7, LI-GESTALTUNG.md)
+        about = Gio.Menu()
+        about.append(_("Hilfe"), "win.help")
+        about.append(_("Über LiCal"), "win.about")
+        menu.append_section(None, about)
         self.menu_button = Gtk.MenuButton(icon_name="open-menu-symbolic", menu_model=menu, tooltip_text="Hauptmenü",
                                           valign=Gtk.Align.CENTER, css_classes=["flat"])
         header.pack_end(self.menu_button)
         header.pack_end(self.search_entry)
-        for name, run in (("print", self.show_print), ("preferences", self.show_preferences)):
+        from . import help as help_module
+        for name, run in (("print", self.show_print), ("preferences", self.show_preferences),
+                          ("help", lambda: help_module.show_help(self)), ("about", lambda: help_module.show_about(self, VERSION))):
             action = Gio.SimpleAction.new(name, None)
             action.connect("activate", lambda _a, _p, run=run: run())
             self.add_action(action)
@@ -276,9 +285,9 @@ class CalendarWindow(Adw.ApplicationWindow):
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4, width_request=260, margin_start=14, margin_end=14,
                       margin_top=12, margin_bottom=12)
         box.append(Gtk.Label(label=item.get("title", ""), xalign=0, wrap=True, css_classes=["lical-inspector-title"]))
-        box.append(Gtk.Label(label=_("{value}, {day}. {value2} {year} · ganztägig", value=theme.WEEKDAYS_LONG[first.weekday()], day=first.day, value2=theme.MONTHS[first.month - 1], year=first.year),
+        box.append(Gtk.Label(label=theme.date_text(first) + " · " + _("ganztägig"),
                              xalign=0, css_classes=["lical-inspector-label"]))
-        box.append(Gtk.Label(label=_("{value} – {value2} · nur lesen", value=info['name'], value2=state if info.get('state') else 'bundesweit'), xalign=0,
+        box.append(Gtk.Label(label=_("{value} – {value2} · nur lesen", value=info['name'], value2=state if info.get('state') else _("bundesweit")), xalign=0,
                              css_classes=["dim-label", "caption"], margin_top=6))
         popover = Gtk.Popover(child=box, css_classes=["lical-inspector"])
         popover.set_parent(target)
@@ -430,7 +439,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         texts.append(Gtk.Label(label=item.get("title", ""), xalign=0, ellipsize=3, css_classes=["heading"]))
         start = rules.parse(item["start"])
         day = rules.days_covered(item)[0]
-        when = f"{theme.WEEKDAYS_SHORT[day.weekday()]}., {day.day}. {theme.MONTHS[day.month - 1]} {day.year}"
+        when = theme.date_text(day, short=True)
         when += _(" · ganztägig") if item.get("allDay") else f" · {start.strftime('%H:%M')}"
         if item.get("location"):
             when += f" · {item['location']}"
@@ -565,7 +574,7 @@ class CalendarWindow(Adw.ApplicationWindow):
             return dialog
         first = rules.parse(found["start"])
         day = first.date() if isinstance(first, datetime) else first
-        when = f"{theme.WEEKDAYS_LONG[day.weekday()]}, {day.day}. {theme.MONTHS[day.month - 1]} {day.year}"
+        when = theme.date_text(day)
         when += _(", ganztägig") if found["allDay"] else _(", {first:%H:%M}–{parse:%H:%M} Uhr", first=first, parse=rules.parse(found['end']))
         body = when + (f"\n{found['location']}" if found.get("location") else "")
         dialog = Adw.AlertDialog(heading=_("„{value}“ hinzufügen?", value=found['title']), body=body)
@@ -727,7 +736,7 @@ class CalendarWindow(Adw.ApplicationWindow):
         if self.mode == "year":
             self.title.set_markup(f"<b>{self.day.year}</b>")
         elif self.mode == "day":
-            self.title.set_markup(f"<b>{self.day.day}. {month}</b> {self.day.year}  "
+            self.title.set_markup(f"<b>{theme.day_month(self.day)}</b> {self.day.year}  "
                                   f"<span size='60%' foreground='#8e8e93'>{theme.WEEKDAYS_LONG[self.day.weekday()]}</span>")
         else:
             self.title.set_markup(f"<b>{month}</b> {self.day.year}")

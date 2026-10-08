@@ -1,0 +1,108 @@
+{
+  "_hinweis": "Hilfe von LiCal für Ubuntu und Android (Karte d38290c7, Vorlage LiMail shared/hilfe). Einträge mit \"nur\": \"ubuntu\" oder \"android\" erscheinen nur dort. Übersetzt wird über die Kataloge der Apps.",
+  "abschnitte": [
+    {
+      "titel": "Erste Schritte",
+      "eintraege": [
+        {
+          "titel": "Was LiCal ist",
+          "text": "LiCal ist ein Kalender nach dem Vorbild von Apples Kalender. Er braucht kein Konto, zeigt keine Werbung und sammelt keine Daten. Deine LiCal-Termine bleiben auf diesem Gerät."
+        },
+        {
+          "titel": "Kalender hinzufügen",
+          "text": "Lege eigene Kalender an, zum Beispiel „Privat“ und „Arbeit“, und gib jedem einen Namen und eine Farbe. Jeder Termin gehört zu genau einem Kalender."
+        },
+        {
+          "titel": "Kalender anderer Apps",
+          "nur": "android",
+          "text": "LiCal kann die Kalender des Geräts anzeigen, zum Beispiel aus Google oder DAVx⁵. Dafür fragt LiCal einmal um Erlaubnis. Diese Kalender gleicht deren App ab, nicht LiCal."
+        }
+      ]
+    },
+    {
+      "titel": "Ansichten",
+      "eintraege": [
+        {
+          "titel": "Tag, Woche, Monat und Jahr",
+          "text": "Oben wählst du die Ansicht. Mit den Pfeilen blätterst du vor und zurück, „Heute“ springt zum heutigen Tag."
+        },
+        {
+          "titel": "Tastenkürzel",
+          "nur": "ubuntu",
+          "text": "Strg+N legt schnell einen Termin an. Strg+1 bis Strg+4 wechseln zu Tag, Woche, Monat und Jahr. Strg+T springt zu heute, Strg+Umschalt+T zu einem Datum. Strg+F sucht, Strg+E öffnet das Infofenster des gewählten Termins. Mit den Pfeiltasten blätterst du bzw. bewegst einen gewählten Termin, Tab wählt den nächsten Termin, Entf löscht ihn und die Eingabetaste öffnet ihn. Strg+P druckt, Strg+Komma öffnet die Einstellungen."
+        }
+      ]
+    },
+    {
+      "titel": "Termine",
+      "eintraege": [
+        {
+          "titel": "Termin anlegen",
+          "text": "Mit dem Plus legst du einen Termin an. Gib Titel, Zeit und Kalender an. Ort, Notiz, Wiederholung und Hinweis sind freiwillig."
+        },
+        {
+          "titel": "Termin ansehen und ändern",
+          "text": "Ein Termin zeigt zuerst seine Details. Von dort kannst du ihn bearbeiten oder löschen."
+        },
+        {
+          "titel": "Wiederholungen",
+          "text": "Ein Termin kann sich täglich, wöchentlich, alle 2 Wochen, monatlich oder jährlich wiederholen."
+        }
+      ]
+    },
+    {
+      "titel": "Hinweise",
+      "eintraege": [
+        {
+          "titel": "Hinweise vor einem Termin",
+          "text": "Wähle beim Termin, wann LiCal dich auf den Termin hinweisen soll, zum Beispiel 15 Minuten vorher. LiCal zeigt dann eine Mitteilung."
+        },
+        {
+          "titel": "Hinweise bei geschlossenem LiCal",
+          "nur": "ubuntu",
+          "text": "Hinweise erscheinen auch, wenn LiCal geschlossen ist. Dafür sorgt ein kleiner Hintergrunddienst, den die Installation einrichtet."
+        }
+      ]
+    },
+    {
+      "titel": "Feiertage und Zeitzonen",
+      "eintraege": [
+        {
+          "titel": "Feiertage",
+          "text": "In den Einstellungen wählst du dein Bundesland. LiCal zeigt die Feiertage dann im Kalender."
+        },
+        {
+          "titel": "Zeitzonen",
+          "text": "Schalte in den Einstellungen „Zeitzonen-Unterstützung“ ein (ab Werk aus). Danach kann ein Termin eine eigene Zeitzone haben, etwa für eine Reise, und LiCal rechnet sie in deine Ortszeit um."
+        }
+      ]
+    },
+    {
+      "titel": "Teilen und Übernehmen",
+      "eintraege": [
+        {
+          "titel": "Termin weitergeben",
+          "text": "Ein Termin lässt sich als Kalenderdatei (.ics) oder als QR-Code weitergeben. LiCal sendet dabei nichts selbst ins Internet."
+        },
+        {
+          "titel": "Termine aus E-Mails",
+          "text": "Kalenderdateien aus LiMail oder anderen Apps öffnen sich in LiCal und können übernommen werden."
+        },
+        {
+          "titel": "Termin per QR-Code empfangen",
+          "nur": "android",
+          "text": "Mit dem Scanner in LiCal liest du den QR-Code eines Termins von einem anderen Gerät ein. Die Kamera wird nur dafür und erst nach deiner Erlaubnis verwendet."
+        }
+      ]
+    },
+    {
+      "titel": "Datenschutz",
+      "eintraege": [
+        {
+          "titel": "Wo deine Daten liegen",
+          "text": "Deine LiCal-Termine liegen auf diesem Gerät. Ohne deine Zustimmung gibt LiCal nichts weiter. Kalender anderer Apps gleicht deren App ab."
+        }
+      ]
+    }
+  ]
+}

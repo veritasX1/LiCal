@@ -2,7 +2,7 @@
 
 Ein Kalender für Ubuntu und Android im Aussehen und Bedienkonzept von Apples Kalender
 (macOS 26 auf Ubuntu, iOS 26 auf Android). Ohne Konto, ohne Werbung, ohne Datensammlung.
-Seite: https://lisoft.goip.de/lical/
+Seite: https://lisoftware.de/lical/
 
 - `linux/` – Ubuntu-App (Python, GTK4/libadwaita, Ansichten selbst gezeichnet mit Cairo)
 - `android/` – Android-App (Kotlin, Jetpack Compose)

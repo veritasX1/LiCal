@@ -8,17 +8,19 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 from . import holidays, rules
+from .i18n import _
 
+# Named in the app's language when they are first created (ids stay the same everywhere).
 DEFAULT_CALENDARS = [
-    {"id": "privat", "name": "Privat", "color": "blue", "visible": True},
-    {"id": "arbeit", "name": "Arbeit", "color": "orange", "visible": True},
-    {"id": "familie", "name": "Familie", "color": "green", "visible": True},
+    {"id": "privat", "name": _("Privat"), "color": "blue", "visible": True},
+    {"id": "arbeit", "name": _("Arbeit"), "color": "orange", "visible": True},
+    {"id": "familie", "name": _("Familie"), "color": "green", "visible": True},
 ]
 
 
 # The holiday calendar (card 7a9187d6): computed, read-only, kept apart from the own calendars.
 # "chosen": the user switched it on or off himself (Android hides it while a phone holiday calendar shows).
-DEFAULT_HOLIDAYS = {"name": "Feiertage", "color": "purple", "visible": True, "state": "", "chosen": False}
+DEFAULT_HOLIDAYS = {"name": _("Feiertage"), "color": "purple", "visible": True, "state": "", "chosen": False}
 
 
 def data_dir():

@@ -34,7 +34,7 @@ def list_lines(store, first, last, notes):
     while day <= last:
         today = [item for item in items if rules.days_covered(item)[0] <= day <= rules.days_covered(item)[1]]
         if today:
-            lines.append(("day", f"{theme.WEEKDAYS_LONG[day.weekday()]}, {day.day}. {theme.MONTHS[day.month - 1]} {day.year}"))
+            lines.append(("day", theme.date_text(day)))
             for item in today:
                 if item.get("allDay") or rules.days_covered(item)[0] != rules.days_covered(item)[1]:
                     when = _("ganztägig")
@@ -111,7 +111,7 @@ class Printer:
 
     def draw_list(self, cr, palette, number, width):
         first, last = self.months[0], rules.add_months(self.months[-1], 1) - timedelta(days=1)
-        theme.text(cr, f"{first.day}. {theme.MONTHS[first.month - 1]} {first.year} – {last.day}. {theme.MONTHS[last.month - 1]} {last.year}",
+        theme.text(cr, f"{theme.date_text(first, weekday=False)} – {theme.date_text(last, weekday=False)}",
                    MARGIN, MARGIN - 4, 15, palette.label, weight=700)
         y = MARGIN + TITLE
         if not self.lines:
@@ -148,14 +148,14 @@ def show_print(window):
     header = Adw.HeaderBar()
     page = Adw.PreferencesPage()
     group = Adw.PreferencesGroup()
-    view = Adw.ComboRow(title="Ansicht", model=Gtk.StringList.new(["Monat", "Liste"]))
+    view = Adw.ComboRow(title=_("Ansicht"), model=Gtk.StringList.new([_("Monat"), _("Liste")]))
     view.set_selected(1 if window.mode in ("day", "week") else 0)
     start = window.day.replace(day=1)
     months = [rules.add_months(start, offset) for offset in range(-12, 25)]
-    first = Adw.ComboRow(title="Ab", model=Gtk.StringList.new([f"{theme.MONTHS[m.month - 1]} {m.year}" for m in months]))
+    first = Adw.ComboRow(title=_("Ab"), model=Gtk.StringList.new([f"{theme.MONTHS[m.month - 1]} {m.year}" for m in months]))
     first.set_selected(12)
     count = Adw.SpinRow.new_with_range(1, 12, 1)
-    count.set_title("Monate")
+    count.set_title(_("Monate"))
     notes = Adw.SwitchRow(title=_("Notizen einbeziehen"), subtitle=_("Nur in der Liste"))
     for row in (view, first, count, notes):
         group.add(row)

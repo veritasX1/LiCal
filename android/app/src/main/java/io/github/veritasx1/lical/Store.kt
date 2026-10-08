@@ -1,5 +1,7 @@
 package io.github.veritasx1.lical
 
+import io.github.veritasx1.lical.i18n.tr
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.setValue
@@ -36,7 +38,7 @@ class Store(private val file: File?, private val device: DeviceCalendars? = null
             data.optJSONArray("calendars")?.let { array -> calendars = (0 until array.length()).map { calendarFrom(array.getJSONObject(it)) }.toMutableList() }
             data.optJSONArray("events")?.let { array -> events = (0 until array.length()).map { eventFrom(array.getJSONObject(it)) }.toMutableList() }
             data.optJSONObject("holidays")?.let { json ->
-                holidays = HolidaySettings(json.optString("name", "Feiertage"), json.optString("color", "purple"), json.optBoolean("visible", true),
+                holidays = HolidaySettings(json.optString("name", "Feiertage").let { if (it == tr("Feiertage")) "Feiertage" else it }, json.optString("color", "purple"), json.optBoolean("visible", true),
                     json.optString("state"), json.optBoolean("chosen"))
             }
         }
@@ -79,7 +81,8 @@ class Store(private val file: File?, private val device: DeviceCalendars? = null
 
     fun holidaysShown() = holidays.visible && (holidays.chosen || !phoneHolidaysShown())
 
-    fun holidayInfo() = CalendarInfo(Holidays.CALENDAR, holidays.name, holidays.color, holidaysShown())
+    // The stored default name was written in the language of that day – show it in today's (Michelle 16e05d3c)
+    fun holidayInfo() = CalendarInfo(Holidays.CALENDAR, if (holidays.name == "Feiertage") tr("Feiertage") else holidays.name, holidays.color, holidaysShown())
 
     fun setHolidays(settings: HolidaySettings) {
         holidays = settings
@@ -143,6 +146,29 @@ class Store(private val file: File?, private val device: DeviceCalendars? = null
     fun event(id: String): Event? =
         if (id.startsWith(DEVICE)) id.removePrefix(DEVICE).toLongOrNull()?.let { device?.event(it) } else events.firstOrNull { it.id == id }
 
+    // ---- own calendars (Olaf 07.10.: „Kalender hinzufügen“ like Apple – name, color, not shared; twin of store.py) ----
+
+    fun addCalendar(name: String, color: String): CalendarInfo {
+        val calendar = CalendarInfo(java.util.UUID.randomUUID().toString().replace("-", ""), name.trim(), color)
+        calendars = (calendars + calendar).toMutableList()
+        save()
+        return calendar
+    }
+
+    fun updateCalendar(id: String, name: String, color: String) {
+        calendars = calendars.map { if (it.id == id) it.copy(name = name.trim(), color = color) else it }.toMutableList()
+        save()
+    }
+
+    /** The calendar and its events (the sheet asks first). The last one stays. */
+    fun deleteCalendar(id: String): Boolean {
+        if (calendars.size <= 1 || calendars.none { it.id == id }) return false
+        calendars = calendars.filter { it.id != id }.toMutableList()
+        events = events.filter { it.calendar != id }.toMutableList()
+        save()
+        return true
+    }
+
     fun setVisible(id: String, visible: Boolean) {
         if (id == Holidays.CALENDAR) {
             setHolidays(holidays.copy(visible = visible, chosen = true))
@@ -173,7 +199,7 @@ class Store(private val file: File?, private val device: DeviceCalendars? = null
     }
 
     companion object {
-        val DEFAULT_CALENDARS = listOf(CalendarInfo("privat", "Privat", "blue"), CalendarInfo("arbeit", "Arbeit", "orange"), CalendarInfo("familie", "Familie", "green"))
+        val DEFAULT_CALENDARS = listOf(CalendarInfo("privat", tr("Privat"), "blue"), CalendarInfo("arbeit", tr("Arbeit"), "orange"), CalendarInfo("familie", tr("Familie"), "green"))
 
         fun calendarFrom(json: JSONObject) = CalendarInfo(json.getString("id"), json.optString("name"), json.optString("color", "blue"), json.optBoolean("visible", true))
 

@@ -146,3 +146,8 @@ window, .lical-content, .lical-toolbar {
 .lical-details-dim { font-size: 12px; color: rgba(60, 60, 67, 0.6); }
 .lical-details-notes { font-size: 13px; margin-top: 6px; }
 .lical-dark .lical-details-dim { color: rgba(235, 235, 245, 0.55); }
+
+/* Hilfe (card d38290c7): disclosure like the Mac and LiMail – closed points right, open points down. */
+row.lical-help-entry image.expander-row-arrow { -gtk-icon-transform: rotate(-90deg); }
+row.lical-help-entry:checked image.expander-row-arrow { -gtk-icon-transform: none; }
+row.lical-help-entry:checked image.expander-row-arrow:not(:disabled) { color: inherit; opacity: var(--dim-opacity); }  /* geöffnet grau wie am Mac, nicht Akzentblau */
